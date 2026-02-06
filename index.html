@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GeoSphere 11 | Antigravity Edition</title>
+    <link rel="stylesheet" href="styles.css">
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+</head>
+
+<body>
+
+    <!-- HOME VIEW -->
+    <div id="home-view">
+        <nav
+            style="display:flex; justify-content:space-between; align-items:center; padding:30px; max-width:1200px; margin:0 auto; position:relative; z-index:100;">
+            <div class="logo" style="font-weight:800; font-size:1.5rem; color: var(--text-light); letter-spacing:1px;">
+                GeoSphere 11</div>
+            <div style="display:flex; align-items:center; gap:20px; flex-wrap:wrap;">
+                <a href="#timeline" onclick="document.getElementById('timeline').scrollIntoView({behavior: 'smooth'})"
+                    style="color:rgba(255,255,255,0.8); text-decoration:none; cursor:pointer; font-weight:600; text-transform:uppercase; font-size:0.9rem;">Chapters</a>
+                <a href="#" onclick="toggleAbout(); return false;"
+                    style="color:rgba(255,255,255,0.8); text-decoration:none; cursor:pointer; font-weight:600; text-transform:uppercase; font-size:0.9rem;">About</a>
+                <div style="display:flex; gap:15px; align-items:center;">
+                    <button id="warp-btn" onclick="toggleInterstellar()"
+                        style="background:none; border:none; color:var(--primary); cursor:pointer; font-size:1.5rem; padding:5px;"
+                        title="Engage Interstellar Mode">
+                        <ion-icon name="rocket-outline"></ion-icon>
+                    </button>
+                    <button id="music-btn" onclick="toggleMusic()"
+                        style="background:none; border:none; color:var(--secondary); cursor:pointer; font-size:1.5rem; padding:5px;">
+                        <ion-icon name="musical-notes-outline"></ion-icon>
+                    </button>
+                </div>
+                <audio id="bg-music" loop>
+                    <source src="music.mp3" type="audio/mpeg">
+                </audio>
+            </div>
+        </nav>
+
+        <header class="hero">
+            <!-- Realistic Earth & Moon Animation -->
+            <div class="planet-system">
+                <div class="earth">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/cb/The_Blue_Marble_%28remastered%29.jpg/240px-The_Blue_Marble_%28remastered%29.jpg"
+                        alt="Earth" class="earth-img">
+                </div>
+                <div class="moon-orbit">
+                    <div class="moon">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e1/FullMoon2010.jpg/240px-FullMoon2010.jpg"
+                            alt="Moon" class="moon-img">
+                    </div>
+                </div>
+            </div>
+
+            <h1 class="hero-title">Evolution of Earth</h1>
+            <p class="hero-desc">An immersive journey through Physical Geography. <br>Designed for the Gold Standard
+                student.</p>
+
+            <button id="start-btn" class="btn-primary"
+                onclick="document.getElementById('timeline').scrollIntoView({behavior: 'smooth'})">
+                Start Exploration
+            </button>
+        </header>
+
+        <section class="timeline-section" id="timeline">
+            <!-- Dynamic Content Injected via script.js -->
+        </section>
+
+        <footer class="site-footer">
+            <div class="footer-content">
+                <p class="footer-quote">Scientific Rigor meets Antigravity Design.</p>
+                <div class="social-links">
+                    <a href="https://github.com/krshxcx" target="_blank" rel="noreferrer"><ion-icon
+                            name="logo-github"></ion-icon></a>
+                    <a href="mailto:krshxcx@gmail.com"><ion-icon name="mail-outline"></ion-icon></a>
+                </div>
+            </div>
+            <p class="footer-bottom">© 2026 Sai Krishna Durgam.</p>
+        </footer>
+    </div>
+
+    <!-- DETAIL VIEW (Initially Hidden) -->
+    <div id="detail-view" class="hidden">
+        <button class="back-fab" onclick="showHome()">
+            <ion-icon name="arrow-back"></ion-icon>
+        </button>
+
+        <header class="detail-hero">
+            <div style="font-size: 5rem; color: var(--accent); margin-bottom: 20px;">
+                <ion-icon id="detail-icon" name="planet"></ion-icon>
+            </div>
+            <div style="font-size: 0.9rem; text-transform: uppercase; letter-spacing: 4px; opacity: 0.7; color: var(--secondary);"
+                id="detail-subtitle">CHAPTER 1</div>
+            <h1 class="hero-title" id="detail-title">Title</h1>
+        </header>
+
+        <div class="detail-content-container" id="detail-content">
+            <!-- Content Injected via fetch -->
+        </div>
+    </div>
+
+    <!-- ABOUT MODAL (Preserved from original) -->
+    <div id="about-modal" class="modal-overlay hidden" onclick="if(event.target===this) toggleAbout()">
+        <div class="modal-content about-card">
+            <button class="close-modal" onclick="toggleAbout()"> <ion-icon name="close"></ion-icon> </button>
+            <div class="about-info">
+                <h2>About</h2>
+                <h3>GeoSphere 2.0</h3>
+                <p>Upgraded with a new Antigravity Engine, this platform delivers UPSC-level geography content in a
+                    weightless UI environment. Every chapter follows the Gold Standard format with deep dives, data
+                    vaults, and interdisciplinary connections.</p>
+
+                <!-- CREATOR PROFILE (RESTORED) -->
+                <div class="creator-section">
+                    <img src="https://avatars.githubusercontent.com/u/krshxcx" alt="Creator" class="creator-avatar"
+                        onerror="this.src='https://ui-avatars.com/api/?name=SK&background=4ECDC4&color=fff&size=120'">
+                    <div class="creator-info">
+                        <h4>Sai Krishna Durgam</h4>
+                        <p>Creator & Developer</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+    <script>
+        // Inline helper for modal since we simplified script.js
+        function toggleAbout() {
+            const m = document.getElementById('about-modal');
+            m.classList.toggle('hidden');
+        }
+    </script>
+</body>
+
+</html>

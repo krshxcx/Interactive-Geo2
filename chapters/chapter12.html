@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapter 12: World Climate and Climate Change</title>
+    <link rel="stylesheet" href="../styles.css">
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+    <style>
+        .chapter-controls { position: fixed; top: 20px; right: 20px; display: flex; gap: 15px; z-index: 1000; }
+        .chapter-controls button { background: rgba(0,0,0,0.3); border: 1px solid rgba(255,255,255,0.2); border-radius: 50%; width: 45px; height: 45px; cursor: pointer; font-size: 1.3rem; backdrop-filter: blur(10px); transition: all 0.3s ease; color: var(--primary); }
+        .chapter-controls button:hover { background: rgba(255,255,255,0.1); transform: scale(1.1); }
+    </style>
+</head>
+<body>
+    <div class="chapter-controls">
+        <button id="warp-btn" onclick="toggleInterstellar()" title="Interstellar Mode"><ion-icon name="rocket-outline"></ion-icon></button>
+        <button id="music-btn" onclick="toggleMusic()" title="Toggle Music"><ion-icon name="musical-notes-outline"></ion-icon></button>
+    </div>
+    <audio id="bg-music" loop><source src="../music.mp3" type="audio/mpeg"></audio>
+    <div id="chapter-content">
+        <article class="chapter-article">
+
+            <!-- ============================================ -->
+            <!-- SECTION 1: CLIMATE CLASSIFICATION -->
+            <!-- ============================================ -->
+            <section class="content-block">
+                <h2 class="g-text-gradient">1. The Deep Dive: KÃ¶ppen's Climate Classification</h2>
+                <p>The most widely used climate classification system was developed by German climatologist <span
+                        class="wiki-term" data-title="Wladimir KÃ¶ppen"
+                        data-summary="German-Russian climatologist (1846-1940). Devised a climate classification system based on temperature and precipitation, linked to vegetation."
+                        data-link="https://en.wikipedia.org/wiki/Wladimir_K%C3%B6ppen">Wladimir KÃ¶ppen</span> (1918,
+                    revised by Rudolf Geiger). It uses temperature and precipitation thresholds, linked to natural
+                    vegetation.</p>
+
+                <div class="glass-table-container">
+                    <table class="comparison-table">
+                        <thead>
+                            <tr>
+                                <th>Code</th>
+                                <th>Climate Group</th>
+                                <th>Description</th>
+                                <th>Example Regions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>A (Tropical)</strong></td>
+                                <td>Tropical Humid</td>
+                                <td>No winter. Coldest month avg > 18Â°C. High year-round rainfall. Sub-types: Af
+                                    (Rainforest), Am (Monsoon), Aw (Savanna).</td>
+                                <td>Amazon, Congo, SE Asia</td>
+                            </tr>
+                            <tr>
+                                <td><strong>B (Dry)</strong></td>
+                                <td>Dry / Arid</td>
+                                <td>Evaporation > Precipitation. Sub-types: BWh (Hot Desert), BWk (Cold Desert), BSh
+                                    (Hot Steppe), BSk (Cold Steppe).</td>
+                                <td>Sahara, Thar, Atacama</td>
+                            </tr>
+                            <tr>
+                                <td><strong>C (Temperate)</strong></td>
+                                <td>Warm Temperate</td>
+                                <td>Mild winters. Coldest month 0Â°C to 18Â°C, warmest > 10Â°C. Sub-types: Cs
+                                    (Mediterranean), Cf (Humid Subtropical), Cw (Dry Winter).</td>
+                                <td>Mediterranean, SE USA, E Australia</td>
+                            </tr>
+                            <tr>
+                                <td><strong>D (Continental)</strong></td>
+                                <td>Cold (Snow)</td>
+                                <td>Severe winters. Coldest month < 0Â°C, warmest> 10Â°C. Sub-types: Df (Humid
+                                        Continental), Dw (Dry Winter Continental).</td>
+                                <td>Russia, Scandinavia, Canada</td>
+                            </tr>
+                            <tr>
+                                <td><strong>E (Polar)</strong></td>
+                                <td>Polar</td>
+                                <td>No true summer. Warmest month < 10Â°C. Sub-types: ET (Tundra), EF (Icecap).</td>
+                                <td>Antarctica, Greenland, Arctic</td>
+                            </tr>
+                            <tr>
+                                <td><strong>H (Highland)</strong></td>
+                                <td>Highland</td>
+                                <td>Complexly variable. Climate changes rapidly with altitude. Not a strict KÃ¶ppen type,
+                                    added by Geiger.</td>
+                                <td>Himalayas, Andes, Alps</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="upsc-note">
+                    <strong>UPSC Note: India's Climates (KÃ¶ppen)</strong>
+                    <p>India is primarily classified as: **Am** (Monsoon on west coast, NE India), **Aw/As** (Savanna
+                        with dry winter on Deccan Plateau), **Cw** (Warm Temperate with dry winter in North), **BSh**
+                        (Hot Steppe in parts of Gujarat, Rajasthan). **E** type is found in the highest Himalayas. <span
+                            class="citation-trigger" data-citation="Source: NCERT Class 11, Ch. 12">[Source:
+                            NCERT]</span></p>
+                </div>
+            </section>
+
+            <!-- ============================================ -->
+            <!-- SECTION 2: CLIMATE CHANGE -->
+            <!-- ============================================ -->
+            <section class="content-block">
+                <h2 class="g-text-gradient">2. Climate Change: Causes and Evidence</h2>
+                <div class="interactive-layers">
+                    <div class="layer-card" style="border-left-color: #fdcb6e;">
+                        <h3><ion-icon name="sunny-outline"></ion-icon> Natural Causes</h3>
+                        <ul>
+                            <li><strong>Astronomical Variations (<span class="wiki-term"
+                                        data-title="Milankovitch Cycles"
+                                        data-summary="Cyclical variations in Earth's eccentricity, axial tilt, and precession that affect climate, especially ice ages, over tens of thousands of years."
+                                        data-link="https://en.wikipedia.org/wiki/Milankovitch_cycles">Milankovitch
+                                        Cycles</span>):</strong> Variations in Earth's orbital eccentricity, axial tilt
+                                (obliquity), and precession of equinoxes affect the amount/distribution of insolation
+                                over 10,000-100,000 year cycles. Believed to trigger ice ages.</li>
+                            <li><strong>Volcanism:</strong> Large eruptions inject aerosols (sulfur dioxide) into the
+                                stratosphere, blocking sunlight and causing short-term (1-3 year) cooling. Ex: Mt.
+                                Pinatubo (1991) cooled Earth by ~0.5Â°C.</li>
+                            <li><strong>Solar Output:</strong> The Sun's energy output varies slightly (~0.1%) over the
+                                ~11-year sunspot cycle.</li>
+                        </ul>
+                    </div>
+                    <div class="layer-card" style="border-left-color: #e17055;">
+                        <h3><ion-icon name="factory-outline"></ion-icon> Anthropogenic (Human) Causes</h3>
+                        <ul>
+                            <li><strong>Enhanced Greenhouse Effect:</strong> Burning <span class="wiki-term"
+                                    data-title="Fossil Fuels"
+                                    data-summary="Fuels formed from ancient organic matter (coal, oil, natural gas). Burning them releases stored carbon as COâ‚‚."
+                                    data-link="https://en.wikipedia.org/wiki/Fossil_fuel">Fossil Fuels</span> releases
+                                COâ‚‚. Deforestation reduces COâ‚‚ sinks. Agriculture releases CHâ‚„ (rice paddies, cattle)
+                                and Nâ‚‚O. These gases enhance the natural greenhouse effect, trapping more heat.</li>
+                            <li><strong>Aerosols:</strong> Some aerosols (sulfates) have a cooling effect (reflect
+                                sunlight). Others (black carbon/soot) have a warming effect (absorb sunlight). The net
+                                effect is complex.</li>
+                            <li><strong>Land Use Change:</strong> Deforestation, urbanization change surface albedo and
+                                moisture fluxes, affecting local and regional climate.</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ============================================ -->
+            <!-- SECTION 3: IMPACTS -->
+            <!-- ============================================ -->
+            <section class="content-block">
+                <h2 class="g-text-gradient">3. Impacts of Global Warming</h2>
+                <ul>
+                    <li><strong><span class="wiki-term" data-title="Sea Level Rise"
+                                data-summary="An increase in the average level of the ocean due to thermal expansion and melting of glaciers and ice sheets."
+                                data-link="https://en.wikipedia.org/wiki/Sea_level_rise">Sea Level Rise</span>:</strong>
+                        Thermal expansion of water + melting of glaciers/ice sheets (Greenland, Antarctica). Threatens
+                        low-lying coastal areas and island nations (e.g., Maldives, Tuvalu, Bangladesh delta).</li>
+                    <li><strong>Extreme Weather Events:</strong> Increase in intensity and frequency of heatwaves,
+                        droughts, floods, and more powerful tropical cyclones.</li>
+                    <li><strong>Ecosystem Disruption:</strong> Changes in species distribution, coral bleaching (due to
+                        warmer oceans), loss of Arctic sea ice (polar bears).</li>
+                    <li><strong>Impact on Agriculture:</strong> Shift in growing seasons, changes in crop yields
+                        (positive in some areas, negative in others), increased water stress.</li>
+                </ul>
+            </section>
+
+            <!-- ============================================ -->
+            <!-- SECTION 4: CONNECT THE DOTS -->
+            <!-- ============================================ -->
+            <section class="content-block">
+                <h2 class="g-text-gradient">4. Connect the Dots: Interdisciplinary Links</h2>
+                <div class="interactive-layers">
+                    <div class="layer-card" style="border-left-color: #a29bfe;">
+                        <h3><ion-icon name="leaf-outline"></ion-icon> Environmental Science & Policy</h3>
+                        <p>The <span class="wiki-term" data-title="IPCC"
+                                data-summary="The Intergovernmental Panel on Climate Change. A UN body providing objective scientific assessments on climate change."
+                                data-link="https://en.wikipedia.org/wiki/Intergovernmental_Panel_on_Climate_Change">IPCC</span>
+                            (Intergovernmental Panel on Climate Change) synthesizes the science. International
+                            agreements like the <span class="wiki-term" data-title="Paris Agreement"
+                                data-summary="An international treaty (2015) aiming to limit global warming to well below 2Â°C, preferably 1.5Â°C, compared to pre-industrial levels."
+                                data-link="https://en.wikipedia.org/wiki/Paris_Agreement">Paris Agreement (2015)</span>
+                            aim to limit warming. Understanding climate is foundational to environmental governance.</p>
+                    </div>
+                    <div class="layer-card" style="border-left-color: #fd79a8;">
+                        <h3><ion-icon name="cash-outline"></ion-icon> Economics: Climate Finance</h3>
+                        <p>Climate change is a massive economic issue. Concepts like <span class="wiki-term"
+                                data-title="Carbon Tax"
+                                data-summary="A tax on carbon emissions intended to reduce greenhouse gas emissions by making polluting activities more expensive."
+                                data-link="https://en.wikipedia.org/wiki/Carbon_tax">Carbon Tax</span>, <span
+                                class="wiki-term" data-title="Carbon Trading"
+                                data-summary="A market-based system for controlling carbon emissions by allocating and trading emission permits."
+                                data-link="https://en.wikipedia.org/wiki/Emissions_trading">Carbon Trading (Cap and
+                                Trade)</span>, and the debate over "Common but Differentiated Responsibilities" (CBDR)
+                            are central to climate negotiations. Adaptation and Mitigation require massive investment.
+                        </p>
+                    </div>
+                </div>
+            </section>
+            <section class="content-block">
+                    <!-- DIAGRAM GALLERY -->
+                    <div class="diagram-gallery">
+                        <h4><ion-icon name="images-outline"></ion-icon> Key Diagrams</h4>
+                        <div class="media-gallery-grid">
+                            <figure class="media-item">
+                                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/fb/Koppen_World_Map_%28retouched%29.png/600px-Koppen_World_Map_%28retouched%29.png" alt="Koppen Climate" class="chapter-diagram">
+                                <figcaption>Köppen Climate Classification - World Map</figcaption>
+                            </figure>
+                            <figure class="media-item">
+                                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c1/Mauna_Loa_CO2_monthly_mean_concentration.svg/500px-Mauna_Loa_CO2_monthly_mean_concentration.svg.png" alt="Keeling Curve" class="chapter-diagram">
+                                <figcaption>Keeling Curve - Rising CO2 Levels</figcaption>
+                            </figure>
+                        </div>
+                    </div>
+            </section>
+
+
+        </article>
+    </div>
+    <script src="../script.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapter 16: Biodiversity and Conservation</title>
+    <link rel="stylesheet" href="../styles.css">
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+    <style>
+        .chapter-controls { position: fixed; top: 20px; right: 20px; display: flex; gap: 15px; z-index: 1000; }
+        .chapter-controls button { background: rgba(0,0,0,0.3); border: 1px solid rgba(255,255,255,0.2); border-radius: 50%; width: 45px; height: 45px; cursor: pointer; font-size: 1.3rem; backdrop-filter: blur(10px); transition: all 0.3s ease; color: var(--primary); }
+        .chapter-controls button:hover { background: rgba(255,255,255,0.1); transform: scale(1.1); }
+    </style>
+</head>
+<body>
+    <div class="chapter-controls">
+        <button id="warp-btn" onclick="toggleInterstellar()" title="Interstellar Mode"><ion-icon name="rocket-outline"></ion-icon></button>
+        <button id="music-btn" onclick="toggleMusic()" title="Toggle Music"><ion-icon name="musical-notes-outline"></ion-icon></button>
+    </div>
+    <audio id="bg-music" loop><source src="../music.mp3" type="audio/mpeg"></audio>
+    <div id="chapter-content">
+        <article class="chapter-article">
+
+            <!-- ============================================ -->
+            <!-- SECTION 1: LEVELS OF BIODIVERSITY -->
+            <!-- ============================================ -->
+            <section class="content-block">
+                <h2 class="g-text-gradient">1. The Deep Dive: What is Biodiversity?</h2>
+                <p><span class="wiki-term" data-title="Biodiversity" data-image="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e0/Coral_reef_at_palmyra.jpg/300px-Coral_reef_at_palmyra.jpg"
+                        data-summary="The variety of life on Earth at all levels, from genes to ecosystems, and the ecological and evolutionary processes that sustain it."
+                        data-link="https://en.wikipedia.org/wiki/Biodiversity">Biodiversity</span> (Biological
+                    Diversity) is the variety of life. It exists at three interconnected levels.</p>
+
+                <div class="glass-table-container">
+                    <table class="comparison-table">
+                        <thead>
+                            <tr>
+                                <th>Level</th>
+                                <th>Description</th>
+                                <th>Example</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>Genetic Diversity</strong></td>
+                                <td>The variety of genes *within* a species. Provides the raw material for evolution and
+                                    adaptation.</td>
+                                <td>Different varieties of rice (Basmati, Jasmine, etc.) or dog breeds (all *Canis
+                                    familiaris*).</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Species Diversity</strong></td>
+                                <td>The variety of different *species* in a region. Most commonly measured aspect of
+                                    biodiversity.</td>
+                                <td>The number of plant and animal species in the Western Ghats vs. the Thar Desert.
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><strong>Ecosystem Diversity</strong></td>
+                                <td>The variety of different *ecosystems* in a region (habitats, communities, ecological
+                                    processes).</td>
+                                <td>India has deserts, rainforests, mangroves, coral reefs, alpine meadows – high
+                                    ecosystem diversity.</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="upsc-note">
+                    <strong>UPSC Data: India's Biodiversity Status</strong>
+                    <p>India is one of 17 <span class="wiki-term" data-title="Megadiverse Countries"
+                            data-summary="A group of countries that harbor the majority of Earth's species and are therefore considered extremely biodiverse."
+                            data-link="https://en.wikipedia.org/wiki/Megadiverse_countries">Megadiverse
+                            Countries</span>, containing ~7-8% of all recorded species on only 2.4% of the world's land
+                        area. India has 4 of the world's 36 <span class="wiki-term" data-title="Biodiversity Hotspot"
+                            data-summary="A biogeographic region with a significant reservoir of species facing exceptional levels of threat (>1500 endemic plants, >70% primary vegetation lost)."
+                            data-link="https://en.wikipedia.org/wiki/Biodiversity_hotspot">Biodiversity Hotspots</span>:
+                        Himalayas, Western Ghats, Indo-Burma, Sundaland (Andamans). <span class="citation-trigger"
+                            data-citation="Source: NCERT Class 11, Ch. 16 & India's NBSAP">[Source: NCERT/NBSAP]</span>
+                    </p>
+                </div>
+            </section>
+
+            <!-- ============================================ -->
+            <!-- SECTION 2: THREATS TO BIODIVERSITY -->
+            <!-- ============================================ -->
+            <section class="content-block">
+                <h2 class="g-text-gradient">2. Threats to Biodiversity: "HIPPO"</h2>
+                <p>The major drivers of biodiversity loss can be remembered with the acronym HIPPO, as popularized by
+                    E.O. Wilson.</p>
+                <div class="interactive-layers">
+                    <div class="layer-card" style="border-left-color: #d63031;">
+                        <h3><strong>H</strong>abitat Loss & Degradation</h3>
+                        <p>The single biggest threat. Deforestation, urbanization, agriculture, mining destroy natural
+                            habitats. When habitat is fragmented, populations become isolated and vulnerable.</p>
+                    </div>
+                    <div class="layer-card" style="border-left-color: #fdcb6e;">
+                        <h3><strong>I</strong>nvasive Species</h3>
+                        <p><span class="wiki-term" data-title="Invasive Species"
+                                data-summary="A non-native species introduced to an ecosystem that causes ecological or economic harm. Ex: Water Hyacinth, Lantana."
+                                data-link="https://en.wikipedia.org/wiki/Invasive_species">Invasive species</span>
+                            outcompete native species for resources, often lacking natural predators. Ex: Water Hyacinth
+                            in Indian lakes, Lantana in forests.</p>
+                    </div>
+                    <div class="layer-card" style="border-left-color: #a29bfe;">
+                        <h3><strong>P</strong>opulation Growth (& Pollution)</h3>
+                        <p>Growing human population increases demand for resources, driving habitat destruction.
+                            Pollution (air, water, plastic) degrades habitats and poisons wildlife.</p>
+                    </div>
+                    <div class="layer-card" style="border-left-color: #00b894;">
+                        <h3><strong>P</strong>oaching & Overexploitation</h3>
+                        <p>Hunting, fishing, and harvesting species faster than they can reproduce. Ex: Poaching of
+                            tigers for bones and skin, overfishing of Bluefin Tuna.</p>
+                    </div>
+                    <div class="layer-card" style="border-left-color: #74b9ff;">
+                        <h3><strong>O</strong>ther (Climate Change)</h3>
+                        <p>Climate change alters habitats, shifts species ranges, and causes events like coral
+                            bleaching. It amplifies all other threats.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ============================================ -->
+            <!-- SECTION 3: CONSERVATION STRATEGIES -->
+            <!-- ============================================ -->
+            <section class="content-block">
+                <h2 class="g-text-gradient">3. Conservation Strategies</h2>
+                <div class="interactive-layers">
+                    <div class="layer-card" style="border-left-color: #55efc4;">
+                        <h3><ion-icon name="home-outline"></ion-icon> In-Situ Conservation</h3>
+                        <p>Conservation of species *in their natural habitat*. The most effective long-term strategy as
+                            it preserves the entire ecosystem.</p>
+                        <ul>
+                            <li><strong>National Parks:</strong> Strictly protected areas for wildlife. No human
+                                activity/settlement (e.g., Corbett, Kaziranga).</li>
+                            <li><strong>Wildlife Sanctuaries:</strong> Protected areas, but some human activities
+                                (grazing, tourism) may be allowed.</li>
+                            <li><strong><span class="wiki-term" data-title="Biosphere Reserve"
+                                        data-summary="UNESCO-designated areas of terrestrial/marine/coastal ecosystems promoting sustainable development based on local community efforts and sound science."
+                                        data-link="https://en.wikipedia.org/wiki/Biosphere_reserve">Biosphere
+                                        Reserves</span>:</strong> Large areas with natural ecosystems (core zone),
+                                buffer zone, and transition zone for human settlement. Focus on sustainable development.
+                                (e.g., Nilgiri, Gulf of Mannar).</li>
+                        </ul>
+                    </div>
+                    <div class="layer-card" style="border-left-color: #fdcb6e;">
+                        <h3><ion-icon name="server-outline"></ion-icon> Ex-Situ Conservation</h3>
+                        <p>Conservation of species *outside their natural habitat*. A "safety net" for critically
+                            endangered species.</p>
+                        <ul>
+                            <li><strong>Zoos & Aquariums:</strong> Captive breeding programs (e.g., Panda, California
+                                Condor).</li>
+                            <li><strong><span class="wiki-term" data-title="Seed Bank"
+                                        data-summary="A facility for storing seeds to preserve genetic diversity. The most famous is the Svalbard Global Seed Vault in Norway."
+                                        data-link="https://en.wikipedia.org/wiki/Seed_bank">Seed Banks / Gene
+                                        Banks</span>:</strong> Store genetic material (seeds, sperm, eggs) for future
+                                use. (e.g., Svalbard Global Seed Vault).</li>
+                            <li><strong>Botanical Gardens:</strong> Preserve plant species. (e.g., Kew Gardens, UK).
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ============================================ -->
+            <!-- SECTION 4: CONNECT THE DOTS -->
+            <!-- ============================================ -->
+            <section class="content-block">
+                <h2 class="g-text-gradient">4. Connect the Dots: Interdisciplinary Links</h2>
+                <div class="interactive-layers">
+                    <div class="layer-card" style="border-left-color: #a29bfe;">
+                        <h3><ion-icon name="book-outline"></ion-icon> Law & Governance: Key Legislation & Treaties</h3>
+                        <p><strong>Convention on Biological Diversity (CBD, 1992):</strong> The main international
+                            treaty. Sets goals for conservation, sustainable use, and fair sharing of genetic benefits.
+                            Led to the <span class="wiki-term" data-title="Nagoya Protocol"
+                                data-summary="A 2010 supplementary agreement to the CBD on Access and Benefit Sharing (ABS) arising from the use of genetic resources."
+                                data-link="https://en.wikipedia.org/wiki/Nagoya_Protocol">Nagoya Protocol</span>.
+                            <strong>CITES:</strong> Regulates international trade in endangered species.
+                            <strong>India:</strong> Wildlife Protection Act (1972), Biological Diversity Act (2002).</p>
+                    </div>
+                    <div class="layer-card" style="border-left-color: #fd79a8;">
+                        <h3><ion-icon name="cash-outline"></ion-icon> Economics: Ecosystem Services</h3>
+                        <p>Biodiversity provides invaluable <span class="wiki-term" data-title="Ecosystem Services"
+                                data-summary="The many and varied benefits to humans freely given by the natural environment and healthy ecosystems."
+                                data-link="https://en.wikipedia.org/wiki/Ecosystem_service">Ecosystem Services</span>:
+                            pollination (crop production), water purification, climate regulation, medicines (e.g.,
+                            Taxol from Pacific Yew tree). The economic value of these services runs into trillions of
+                            dollars, yet they are often treated as "free" and thus ignored in traditional economics.</p>
+                    </div>
+                </div>
+            </section>
+            <section class="content-block">
+                    <!-- DIAGRAM GALLERY -->
+                    <div class="diagram-gallery">
+                        <h4><ion-icon name="images-outline"></ion-icon> Key Diagrams</h4>
+                        <div class="media-gallery-grid">
+                            <figure class="media-item">
+                                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3c/Biodiversity_Hotspots.svg/500px-Biodiversity_Hotspots.svg.png" alt="Biodiversity Hotspots" class="chapter-diagram">
+                                <figcaption>World's 36 Biodiversity Hotspots</figcaption>
+                            </figure>
+                            <figure class="media-item">
+                                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e0/Coral_reef_at_palmyra.jpg/400px-Coral_reef_at_palmyra.jpg" alt="Coral Reef Ecosystem" class="chapter-diagram">
+                                <figcaption>Coral Reef - High Biodiversity Ecosystem</figcaption>
+                            </figure>
+                        </div>
+                    </div>
+            </section>
+
+
+        </article>
+    </div>
+    <script src="../script.js"></script>
+</body>
+
+</html>

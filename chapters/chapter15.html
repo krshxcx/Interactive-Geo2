@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapter 15: Life on Earth</title>
+    <link rel="stylesheet" href="../styles.css">
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+    <style>
+        .chapter-controls { position: fixed; top: 20px; right: 20px; display: flex; gap: 15px; z-index: 1000; }
+        .chapter-controls button { background: rgba(0,0,0,0.3); border: 1px solid rgba(255,255,255,0.2); border-radius: 50%; width: 45px; height: 45px; cursor: pointer; font-size: 1.3rem; backdrop-filter: blur(10px); transition: all 0.3s ease; color: var(--primary); }
+        .chapter-controls button:hover { background: rgba(255,255,255,0.1); transform: scale(1.1); }
+    </style>
+</head>
+<body>
+    <div class="chapter-controls">
+        <button id="warp-btn" onclick="toggleInterstellar()" title="Interstellar Mode"><ion-icon name="rocket-outline"></ion-icon></button>
+        <button id="music-btn" onclick="toggleMusic()" title="Toggle Music"><ion-icon name="musical-notes-outline"></ion-icon></button>
+    </div>
+    <audio id="bg-music" loop><source src="../music.mp3" type="audio/mpeg"></audio>
+    <div id="chapter-content">
+        <article class="chapter-article">
+
+            <!-- ============================================ -->
+            <!-- SECTION 1: ECOLOGY BASICS -->
+            <!-- ============================================ -->
+            <section class="content-block">
+                <h2 class="g-text-gradient">1. The Deep Dive: Fundamental Concepts</h2>
+                <p><span class="wiki-term" data-title="Ecology"
+                        data-summary="The branch of biology that deals with the relations of organisms to one another and to their physical surroundings."
+                        data-link="https://en.wikipedia.org/wiki/Ecology">Ecology</span> is the study of the
+                    relationships between organisms and their environment. Understanding its vocabulary is essential.
+                </p>
+
+                <div class="glass-table-container">
+                    <table class="comparison-table">
+                        <thead>
+                            <tr>
+                                <th>Term</th>
+                                <th>Definition</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong><span class="wiki-term" data-title="Biosphere"
+                                            data-summary="The global sum of all ecosystems, the zone of life on Earth, extending from deep ocean vents to the upper atmosphere."
+                                            data-link="https://en.wikipedia.org/wiki/Biosphere">Biosphere</span></strong>
+                                </td>
+                                <td>The zone of life on Earth. The narrow layer where atmosphere, hydrosphere, and
+                                    lithosphere interact to support life.</td>
+                            </tr>
+                            <tr>
+                                <td><strong><span class="wiki-term" data-title="Ecosystem" data-image="https://upload.wikimedia.org/wikipedia/commons/thumb/e/ea/Coral_reef_ecosystem.jpg/300px-Coral_reef_ecosystem.jpg"
+                                            data-summary="A community of living organisms (biotic) interacting with each other and their non-living environment (abiotic) as a functional unit."
+                                            data-link="https://en.wikipedia.org/wiki/Ecosystem">Ecosystem</span></strong>
+                                </td>
+                                <td>A functional unit comprising living organisms (biotic community) and their
+                                    non-living environment (abiotic factors), where energy and matter are exchanged.
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><strong><span class="wiki-term" data-title="Biome"
+                                            data-summary="A large-scale community of organisms defined primarily by the dominant vegetation, determined by climate (e.g., Tropical Rainforest, Desert, Tundra)."
+                                            data-link="https://en.wikipedia.org/wiki/Biome">Biome</span></strong></td>
+                                <td>A major life zone characterized by its dominant vegetation type, which is determined
+                                    by climate. Examples: Tropical Rainforest, Savanna, Taiga, Tundra.</td>
+                            </tr>
+                            <tr>
+                                <td><strong><span class="wiki-term" data-title="Ecological Niche"
+                                            data-summary="The role and position a species has in its environment; how it meets its needs for food and shelter, how it survives, and how it reproduces."
+                                            data-link="https://en.wikipedia.org/wiki/Ecological_niche">Ecological
+                                            Niche</span></strong></td>
+                                <td>The specific role of a species in its ecosystem – what it eats, where it lives, when
+                                    it's active. No two species can occupy the exact same niche (Competitive Exclusion
+                                    Principle).</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <!-- ============================================ -->
+            <!-- SECTION 2: FOOD CHAINS & ENERGY FLOW -->
+            <!-- ============================================ -->
+            <section class="content-block">
+                <h2 class="g-text-gradient">2. Energy Flow in Ecosystems</h2>
+                <p>Energy enters ecosystems almost exclusively from the Sun, captured by <span class="wiki-term"
+                        data-title="Producer (ecology)"
+                        data-summary="Organisms that produce their own food through photosynthesis or chemosynthesis. Also called Autotrophs. The base of the food chain."
+                        data-link="https://en.wikipedia.org/wiki/Primary_producer">Producers (Autotrophs)</span> via
+                    photosynthesis.</p>
+
+                <div class="interactive-layers">
+                    <div class="layer-card" style="border-left-color: #55efc4;">
+                        <h3>Trophic Levels</h3>
+                        <p>1. **Producers (T1):** Plants, algae, cyanobacteria. Convert solar energy to chemical energy.
+                            <br>2. **Primary Consumers (T2):** Herbivores. Eat producers. <br>3. **Secondary Consumers
+                            (T3):** Carnivores. Eat herbivores. <br>4. **Tertiary Consumers (T4):** Top predators. Eat
+                            other carnivores. <br>5. **Decomposers:** Bacteria, fungi. Break down dead organic matter at
+                            all levels, recycling nutrients.</p>
+                    </div>
+                    <div class="layer-card" style="border-left-color: #ffeaa7;">
+                        <h3>The 10% Rule</h3>
+                        <p>Only about **10%** of the energy at one trophic level is passed to the next. The rest is lost
+                            as heat (metabolism). This is why ecosystems have fewer top predators than herbivores. Food
+                            chains rarely have more than 4-5 trophic levels.</p>
+                    </div>
+                    <div class="layer-card" style="border-left-color: #a29bfe;">
+                        <h3>Food Web vs. Food Chain</h3>
+                        <p>A <strong>Food Chain</strong> is a single linear pathway (Grass → Rabbit → Fox). A
+                            <strong><span class="wiki-term" data-title="Food Web"
+                                    data-summary="A system of interlocking and interdependent food chains in an ecological community."
+                                    data-link="https://en.wikipedia.org/wiki/Food_web">Food Web</span></strong> is a
+                            complex network of interconnected food chains, representing the more realistic feeding
+                            relationships in an ecosystem.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ============================================ -->
+            <!-- SECTION 3: BIOGEOCHEMICAL CYCLES -->
+            <!-- ============================================ -->
+            <section class="content-block">
+                <h2 class="g-text-gradient">3. Biogeochemical Cycles</h2>
+                <p>Unlike energy (which flows one-way and is lost as heat), matter is recycled through <span
+                        class="wiki-term" data-title="Biogeochemical Cycle"
+                        data-summary="The pathways by which essential chemical elements or compounds (C, N, P, H₂O) move through both biotic and abiotic components of Earth."
+                        data-link="https://en.wikipedia.org/wiki/Biogeochemical_cycle">Biogeochemical Cycles</span>.</p>
+
+                <div class="interactive-layers">
+                    <div class="layer-card" style="border-left-color: #636e72;">
+                        <h3><ion-icon name="leaf-outline"></ion-icon> Carbon Cycle</h3>
+                        <p>**Reservoirs:** Atmosphere (CO₂), Oceans (dissolved CO₂), Fossil fuels, Biomass, Soil. **Key
+                            Processes:** Photosynthesis (uptake), Respiration (release), Combustion (release),
+                            Decomposition (release). Human activity (burning fossil fuels) is disrupting the balance,
+                            causing climate change.</p>
+                    </div>
+                    <div class="layer-card" style="border-left-color: #74b9ff;">
+                        <h3><ion-icon name="cloud-outline"></ion-icon> Nitrogen Cycle</h3>
+                        <p>N₂ makes up 78% of the atmosphere but is unusable by most organisms. **<span
+                                class="wiki-term" data-title="Nitrogen Fixation"
+                                data-summary="The process of converting atmospheric N₂ into ammonia (NH₃), which can be used by plants. Done by Rhizobium bacteria, lightning, and industrial processes."
+                                data-link="https://en.wikipedia.org/wiki/Nitrogen_fixation">Nitrogen Fixation</span>**
+                            (by bacteria like Rhizobium, or lightning) converts it to usable forms (ammonia, nitrates).
+                            Plants absorb it; animals get it by eating plants. Decomposers return N to soil.
+                            **Denitrification** returns N₂ to atmosphere.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ============================================ -->
+            <!-- SECTION 4: CONNECT THE DOTS -->
+            <!-- ============================================ -->
+            <section class="content-block">
+                <h2 class="g-text-gradient">4. Connect the Dots: Interdisciplinary Links</h2>
+                <div class="interactive-layers">
+                    <div class="layer-card" style="border-left-color: #a29bfe;">
+                        <h3><ion-icon name="thermometer-outline"></ion-icon> Physics: Thermodynamics</h3>
+                        <p>The 10% Rule is an application of the **Second Law of Thermodynamics**. Energy
+                            transformations are never 100% efficient; some is always lost as unusable heat (entropy
+                            increases). This is why the sun is the constant external energy source required to keep the
+                            biosphere running.</p>
+                    </div>
+                    <div class="layer-card" style="border-left-color: #fd79a8;">
+                        <h3><ion-icon name="leaf-outline"></ion-icon> Agriculture: The Haber-Bosch Process</h3>
+                        <p>The industrial <span class="wiki-term" data-title="Haber-Bosch Process"
+                                data-summary="An industrial process for synthesizing ammonia (NH₃) from atmospheric nitrogen (N₂) and hydrogen (H₂), crucial for fertilizer production."
+                                data-link="https://en.wikipedia.org/wiki/Haber_process">Haber-Bosch process</span>
+                            artificially fixes nitrogen to produce ammonia for fertilizers. This has dramatically
+                            increased food production (feeding billions) but also caused problems: eutrophication, dead
+                            zones in oceans, N₂O emissions (a greenhouse gas).</p>
+                    </div>
+                </div>
+            </section>
+            <section class="content-block">
+                    <!-- DIAGRAM GALLERY -->
+                    <div class="diagram-gallery">
+                        <h4><ion-icon name="images-outline"></ion-icon> Key Diagrams</h4>
+                        <div class="media-gallery-grid">
+                            <figure class="media-item">
+                                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d3/FoodWeb.svg/400px-FoodWeb.svg.png" alt="Food Web" class="chapter-diagram">
+                                <figcaption>Food Web - Ecosystem Energy Flow</figcaption>
+                            </figure>
+                            <figure class="media-item">
+                                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/82/Carbon_cycle-cute_diagram.svg/500px-Carbon_cycle-cute_diagram.svg.png" alt="Carbon Cycle" class="chapter-diagram">
+                                <figcaption>The Carbon Cycle</figcaption>
+                            </figure>
+                            <figure class="media-item">
+                                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/70/Nitrogen_Cycle.svg/400px-Nitrogen_Cycle.svg.png" alt="Nitrogen Cycle" class="chapter-diagram">
+                                <figcaption>The Nitrogen Cycle</figcaption>
+                            </figure>
+                        </div>
+                    </div>
+            </section>
+
+
+        </article>
+    </div>
+    <script src="../script.js"></script>
+</body>
+
+</html>

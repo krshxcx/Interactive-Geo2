@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapter 14: Movements of Ocean Water</title>
+    <link rel="stylesheet" href="../styles.css">
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+    <style>
+        .chapter-controls { position: fixed; top: 20px; right: 20px; display: flex; gap: 15px; z-index: 1000; }
+        .chapter-controls button { background: rgba(0,0,0,0.3); border: 1px solid rgba(255,255,255,0.2); border-radius: 50%; width: 45px; height: 45px; cursor: pointer; font-size: 1.3rem; backdrop-filter: blur(10px); transition: all 0.3s ease; color: var(--primary); }
+        .chapter-controls button:hover { background: rgba(255,255,255,0.1); transform: scale(1.1); }
+    </style>
+</head>
+<body>
+    <div class="chapter-controls">
+        <button id="warp-btn" onclick="toggleInterstellar()" title="Interstellar Mode"><ion-icon name="rocket-outline"></ion-icon></button>
+        <button id="music-btn" onclick="toggleMusic()" title="Toggle Music"><ion-icon name="musical-notes-outline"></ion-icon></button>
+    </div>
+    <audio id="bg-music" loop><source src="../music.mp3" type="audio/mpeg"></audio>
+    <div id="chapter-content">
+        <article class="chapter-article">
+
+            <!-- ============================================ -->
+            <!-- SECTION 1: WAVES -->
+            <!-- ============================================ -->
+            <section class="content-block">
+                <h2 class="g-text-gradient">1. The Deep Dive: Waves</h2>
+                <p><span class="wiki-term" data-title="Ocean Wave"
+                        data-summary="An oscillation of water traveling across the ocean surface, caused by wind energy. It is energy, not water mass, that moves horizontally."
+                        data-link="https://en.wikipedia.org/wiki/Wind_wave">Waves</span> are oscillatory movements of
+                    water caused by energy transfer from wind. The water particles move in circles (<span
+                        class="wiki-term" data-title="Orbital Motion (waves)"
+                        data-summary="The circular motion of water particles in a wave. The diameter of the orbits decreases with depth."
+                        data-link="https://en.wikipedia.org/wiki/Airy_wave_theory#Orbital_motion">orbital
+                        motion</span>), not horizontally; it is *energy* that is transmitted.</p>
+                <ul>
+                    <li><strong>Crest:</strong> Highest point of the wave.</li>
+                    <li><strong>Trough:</strong> Lowest point of the wave.</li>
+                    <li><strong>Wave Height:</strong> Vertical distance from trough to crest.</li>
+                    <li><strong>Wavelength:</strong> Horizontal distance from crest to crest.</li>
+                    <li><strong>Wave Period:</strong> Time for one complete wavelength to pass a point.</li>
+                </ul>
+                <p><strong>Breaking Waves:</strong> As a wave approaches shore and enters shallow water, the bottom
+                    drags on the seabed, slowing it down. The top overruns the bottom, causing the wave to "break"
+                    (surf).</p>
+            </section>
+
+            <!-- ============================================ -->
+            <!-- SECTION 2: TIDES -->
+            <!-- ============================================ -->
+            <section class="content-block">
+                <h2 class="g-text-gradient">2. Tides</h2>
+                <p><span class="wiki-term" data-title="Tide"
+                        data-summary="The periodic rise and fall of sea level caused by the gravitational pull of the Moon and the Sun on Earth's water."
+                        data-link="https://en.wikipedia.org/wiki/Tide">Tides</span> are the periodic rise (High Tide)
+                    and fall (Low Tide) of sea level caused by the gravitational pull of the Moon (primarily) and the
+                    Sun.</p>
+
+                <div class="glass-table-container">
+                    <table class="comparison-table">
+                        <thead>
+                            <tr>
+                                <th>Tide Type</th>
+                                <th>Lunar-Solar Alignment</th>
+                                <th>Effect</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong><span class="wiki-term" data-title="Spring Tide"
+                                            data-summary="A tide of greatest range (highest high, lowest low), occurring when the Sun, Moon, and Earth are aligned (New Moon and Full Moon)."
+                                            data-link="https://en.wikipedia.org/wiki/Spring_tide">Spring
+                                            Tide</span></strong></td>
+                                <td>Sun, Earth, Moon are aligned (New Moon / Full Moon – Syzygy).</td>
+                                <td>Gravitational forces combine. **Greatest tidal range** (highest high, lowest low).
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><strong><span class="wiki-term" data-title="Neap Tide"
+                                            data-summary="A tide of minimum range (lowest high, highest low), occurring when the Sun and Moon are at right angles to the Earth (First and Third Quarter Moon)."
+                                            data-link="https://en.wikipedia.org/wiki/Neap_tide">Neap
+                                            Tide</span></strong></td>
+                                <td>Sun and Moon are at right angles to Earth (First/Third Quarter Moon – Quadrature).
+                                </td>
+                                <td>Gravitational forces partially cancel. **Least tidal range.**</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="upsc-note">
+                    <strong>UPSC Critical: Why Two Tidal Bulges?</strong>
+                    <p>There is a bulge on the side facing the Moon (due to direct gravitational pull), AND on the
+                        opposite side. The far-side bulge is caused by **inertia** (centrifugal force of the Earth-Moon
+                        system). The Earth is being pulled towards the Moon, but the water on the far side is "left
+                        behind." This is why most coasts experience ~2 high and 2 low tides per day (semidiurnal tide).
+                        <span class="citation-trigger" data-citation="Source: NCERT Class 11, Ch. 14">[Source:
+                            NCERT]</span></p>
+                </div>
+            </section>
+
+            <!-- ============================================ -->
+            <!-- SECTION 3: OCEAN CURRENTS -->
+            <!-- ============================================ -->
+            <section class="content-block">
+                <h2 class="g-text-gradient">3. Ocean Currents</h2>
+                <p><span class="wiki-term" data-title="Ocean Current"
+                        data-summary="Large-scale, continuous, predictable, directional movement of seawater driven by wind, density differences, and the Coriolis effect."
+                        data-link="https://en.wikipedia.org/wiki/Ocean_current">Ocean Currents</span> are large-scale,
+                    persistent, directional flows of seawater. They are like "rivers in the ocean."</p>
+
+                <div class="interactive-layers">
+                    <div class="layer-card" style="border-left-color: #e17055;">
+                        <h3><ion-icon name="sunny-outline"></ion-icon> Warm Currents</h3>
+                        <p>Originate in low latitudes and flow towards the poles. Carry warm water. Moderate the climate
+                            of adjacent coasts (make them warmer). Ex: <span class="wiki-term" data-title="Gulf Stream" data-image="https://upload.wikimedia.org/wikipedia/commons/thumb/1/19/Gulf_Stream_water_temperature.jpg/320px-Gulf_Stream_water_temperature.jpg"
+                                data-summary="A powerful, warm Atlantic current originating in the Gulf of Mexico, flowing along the US East Coast and across to Europe."
+                                data-link="https://en.wikipedia.org/wiki/Gulf_Stream">Gulf Stream</span> (warms Western
+                            Europe), North Atlantic Drift, Kuroshio Current.</p>
+                    </div>
+                    <div class="layer-card" style="border-left-color: #74b9ff;">
+                        <h3><ion-icon name="snow-outline"></ion-icon> Cold Currents</h3>
+                        <p>Originate in high latitudes and flow towards the Equator. Carry cold water. Make adjacent
+                            coasts cooler and drier (e.g., fog deserts). Ex: Canary Current, California Current, <span
+                                class="wiki-term" data-title="Labrador Current"
+                                data-summary="A cold current flowing from the Arctic Ocean southward along the coast of Labrador and Newfoundland."
+                                data-link="https://en.wikipedia.org/wiki/Labrador_Current">Labrador Current</span>, Peru
+                            (Humboldt) Current.</p>
+                    </div>
+                </div>
+                <div class="upsc-note">
+                    <strong>Key Pattern: The Gyres</strong>
+                    <p>Major currents circulate in large closed loops called <span class="wiki-term"
+                            data-title="Ocean Gyre"
+                            data-summary="A large system of circular ocean currents formed by global wind patterns and the Coriolis effect."
+                            data-link="https://en.wikipedia.org/wiki/Ocean_gyre">Gyres</span>. They rotate **clockwise
+                        in the Northern Hemisphere** and **counter-clockwise in the Southern Hemisphere** due to the
+                        Coriolis effect. This also creates Warm currents on the western side of ocean basins and Cold
+                        currents on the eastern side.</p>
+                </div>
+            </section>
+
+            <!-- ============================================ -->
+            <!-- SECTION 4: CONNECT THE DOTS -->
+            <!-- ============================================ -->
+            <section class="content-block">
+                <h2 class="g-text-gradient">4. Connect the Dots: Interdisciplinary Links</h2>
+                <div class="interactive-layers">
+                    <div class="layer-card" style="border-left-color: #a29bfe;">
+                        <h3><ion-icon name="planet-outline"></ion-icon> Astronomy: Tidal Locking</h3>
+                        <p>The gravitational interaction that causes tides also causes <span class="wiki-term"
+                                data-title="Tidal Locking"
+                                data-summary="A situation where an orbiting body's rotational period matches its orbital period, so one side always faces the body it orbits (e.g., the Moon)."
+                                data-link="https://en.wikipedia.org/wiki/Tidal_locking">Tidal Locking</span>. This is
+                            why we always see the same face of the Moon. Over billions of years, Earth-Moon tidal
+                            friction is also slowing Earth's rotation and pushing the Moon further away.</p>
+                    </div>
+                    <div class="layer-card" style="border-left-color: #fd79a8;">
+                        <h3><ion-icon name="fish-outline"></ion-icon> Biology: Upwelling & Fisheries</h3>
+                        <p>Where winds push surface water away from a coast (e.g., Peru coast), cold, nutrient-rich
+                            water rises from the deep (<span class="wiki-term" data-title="Upwelling"
+                                data-summary="An oceanographic phenomenon involving the movement of cold, nutrient-rich water from the ocean depths to the surface."
+                                data-link="https://en.wikipedia.org/wiki/Upwelling">Upwelling</span>). This supports
+                            massive plankton blooms, which form the base of a rich food chain, creating the world's most
+                            productive fisheries.</p>
+                    </div>
+                </div>
+            </section>
+            <section class="content-block">
+                    <!-- DIAGRAM GALLERY -->
+                    <div class="diagram-gallery">
+                        <h4><ion-icon name="images-outline"></ion-icon> Key Diagrams</h4>
+                        <div class="media-gallery-grid">
+                            <figure class="media-item">
+                                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/9b/Corrientes-oceanicas.png/500px-Corrientes-oceanicas.png" alt="Ocean Currents" class="chapter-diagram">
+                                <figcaption>World Ocean Currents - Warm and Cold</figcaption>
+                            </figure>
+                            <figure class="media-item">
+                                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5e/Tide_overview.svg/400px-Tide_overview.svg.png" alt="Tides" class="chapter-diagram">
+                                <figcaption>Spring and Neap Tides</figcaption>
+                            </figure>
+                            <figure class="media-item">
+                                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/ab/Thermohaline_Circulation_2.png/500px-Thermohaline_Circulation_2.png" alt="Thermohaline" class="chapter-diagram">
+                                <figcaption>Thermohaline Circulation - Ocean Conveyor Belt</figcaption>
+                            </figure>
+                        </div>
+                    </div>
+            </section>
+
+
+        </article>
+    </div>
+    <script src="../script.js"></script>
+</body>
+
+</html>
