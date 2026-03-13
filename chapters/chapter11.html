@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,172 +9,146 @@
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
     <style>
-        .chapter-controls { position: fixed; top: 20px; right: 20px; display: flex; gap: 15px; z-index: 1000; }
-        .chapter-controls button { background: rgba(0,0,0,0.3); border: 1px solid rgba(255,255,255,0.2); border-radius: 50%; width: 45px; height: 45px; cursor: pointer; font-size: 1.3rem; backdrop-filter: blur(10px); transition: all 0.3s ease; color: var(--primary); }
-        .chapter-controls button:hover { background: rgba(255,255,255,0.1); transform: scale(1.1); }
+        .chapter-controls {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            display: flex;
+            gap: 15px;
+            z-index: 1000;
+        }
+
+        .chapter-controls button {
+            background: rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 50%;
+            width: 45px;
+            height: 45px;
+            cursor: pointer;
+            font-size: 1.3rem;
+            backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+            color: var(--primary);
+        }
+
+        .chapter-controls button:hover {
+            background: rgba(255, 255, 255, 0.1);
+            transform: scale(1.1);
+        }
     </style>
 </head>
+
 <body>
     <div class="chapter-controls">
-        <button id="warp-btn" onclick="toggleInterstellar()" title="Interstellar Mode"><ion-icon name="rocket-outline"></ion-icon></button>
-        <button id="music-btn" onclick="toggleMusic()" title="Toggle Music"><ion-icon name="musical-notes-outline"></ion-icon></button>
+        <button id="warp-btn" onclick="toggleInterstellar()" title="Interstellar Mode"><ion-icon
+                name="rocket-outline"></ion-icon></button>
+        <button id="music-btn" onclick="toggleMusic()" title="Toggle Music"><ion-icon
+                name="musical-notes-outline"></ion-icon></button>
+        <button id="bookmark-btn" class="bookmark-btn" title="Bookmark"><ion-icon name="bookmark-outline"></ion-icon></button>
+
     </div>
-    <audio id="bg-music" loop><source src="../music.mp3" type="audio/mpeg"></audio>
+    <audio id="bg-music" loop>
+        <source src="../music.mp3" type="audio/mpeg">
+    </audio>
     <div id="chapter-content">
         <article class="chapter-article">
 
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b0/Water_cycle.png/800px-Water_cycle.png" alt="Water in Atmosphere" class="chapter-hero-banner" loading="lazy">
+
+
+            <!-- HERO SECTION -->
+            <div class="content-block" style="text-align: center; border-bottom: 1px solid rgba(255,255,255,0.1);">
+                <span
+                    style="letter-spacing: 3px; color: var(--secondary); text-transform: uppercase; font-size: 0.9rem;">Climatology
+                    Module</span>
+                <h2 class="g-text-gradient" style="font-size: 3.5rem; margin: 10px 0;">11. Water in the Atmosphere</h2>
+                <p style="color: var(--text-dim); max-width: 600px; margin: 0 auto 30px;">From invisible vapor to
+                    torrential rain.</p>
+
+                <div class="scholar-quote">
+                    "Clouds are the visible evidence of the atmosphere's motion."
+                    <span class="scholar-cite">— <span class="wiki-term" data-title="Luke Howard"
+                            data-summary="British manufacturing chemist and amateur meteorologist who named the clouds.">Luke
+                            Howard</span></span>
+                </div>
+            </div>
+
+<div class="key-takeaways">
+    <h3><ion-icon name="bulb-outline"></ion-icon> Key Takeaways</h3>
+    <ul>
+        <li>Water exists in atmosphere as <strong>water vapor</strong>, clouds, and precipitation</li>
+        <li><strong>Dew point</strong>: temperature at which air becomes saturated (100% RH)</li>
+        <li>Cloud classification: <strong>Cirrus</strong> (high), <strong>Stratus</strong> (layered), <strong>Cumulus</strong> (puffy)</li>
+        <li>Types of rainfall: <strong>Convectional</strong>, <strong>Orographic</strong>, <strong>Cyclonic/Frontal</strong></li>
+    </ul>
+</div>
+
             <!-- ============================================ -->
-            <!-- SECTION 1: HUMIDITY -->
+            <!-- SECTION 1: HUMIDITY States -->
             <!-- ============================================ -->
             <section class="content-block">
-                <h2 class="g-text-gradient">1. The Deep Dive: Humidity</h2>
-                <p><span class="wiki-term" data-title="Humidity"
-                        data-summary="The amount of water vapor present in the air. It varies from place to place and time to time."
-                        data-link="https://en.wikipedia.org/wiki/Humidity">Humidity</span> is the measure of water vapor
-                    in the air. It is the source of all clouds and precipitation.</p>
+                <h2 class="g-text-gradient">1. The States of Water</h2>
+                <div class="two-col-layout">
+                    <!-- Humidity Types -->
+                    <div class="subtopic-card">
+                        <h3><ion-icon name="water-outline"></ion-icon> Humidity Types</h3>
+                        <p><strong><span class="wiki-term" data-title="Absolute Humidity"
+                                    data-summary="The total mass of water vapor present in a given volume of air.">Absolute
+                                    Humidity</span>:</strong> Actual amount of water vapor (g/m³). Changes with volume.
+                        </p>
+                        <p><strong><span class="wiki-term" data-title="Relative Humidity"
+                                    data-summary="The amount of water vapor present in air expressed as a percentage of the amount needed for saturation at the same temperature.">Relative
+                                    Humidity (RH)</span>:</strong> (Actual Vapor / Capacity) x 100. Percentage.
+                            <em>Determines if rain will fall. Saturation = 100% RH.</em>
+                        </p>
+                        <p><strong>Specific Humidity:</strong> Weight of vapor per weight of air (g/kg). Constant.</p>
+                        <p><strong><span class="wiki-term" data-title="Dew Point"
+                                    data-summary="The temperature at which air becomes completely saturated with water vapor (RH = 100%).">Dew
+                                    Point</span>:</strong> The temperature at which condensation begins.</p>
+                    </div>
 
-                <div class="interactive-layers">
-                    <div class="layer-card" style="border-left-color: #74b9ff;">
-                        <h3>Absolute Humidity</h3>
-                        <p>The actual mass of water vapor present per unit volume of air (g/m³). This does not change
-                            with temperature unless water is added/removed.</p>
-                    </div>
-                    <div class="layer-card" style="border-left-color: #00cec9;">
-                        <h3>Specific Humidity</h3>
-                        <p>The mass of water vapor per unit mass of air (g/kg). More accurate for meteorological
-                            calculations as it accounts for air density.</p>
-                    </div>
-                    <div class="layer-card" style="border-left-color: #55efc4;">
-                        <h3>Relative Humidity (RH)</h3>
-                        <p>The **most commonly used measure**. It is the ratio of the *actual* water vapor content to
-                            the *maximum* capacity of the air at a given temperature (saturation), expressed as a
-                            percentage. RH = (Actual Vapor/Saturation Capacity) × 100. <br><strong>Key:</strong> RH is
-                            inversely related to temperature. If temperature rises, capacity increases, so RH *falls*
-                            (without adding water). This is why deserts are hot but have low RH.</p>
-                    </div>
-                    <div class="layer-card" style="border-left-color: #dfe6e9;">
-                        <h3>Dew Point</h3>
-                        <p>The temperature at which air becomes saturated (RH = 100%) and condensation begins. A high
-                            dew point means high moisture content. If air is cooled below its dew point, dew, fog, or
-                            clouds form.</p>
+                    <!-- Change of State -->
+                    <div class="subtopic-card">
+                        <h3><ion-icon name="swap-vertical-outline"></ion-icon> Phase Changes</h3>
+                        <ul class="timeline-vertical">
+                            <li><strong>Evaporation:</strong> Liquid &rarr; Gas (Absorbs <span class="wiki-term"
+                                    data-title="Latent Heat"
+                                    data-summary="Heat required to convert a solid into a liquid or vapor, without change of temperature.">Latent
+                                    Heat</span>).</li>
+                            <li><strong>Condensation:</strong> Gas &rarr; Liquid (Releases Latent Heat). Powered by
+                                <strong>Hygroscopic Nuclei</strong> (Dust/Salt).</li>
+                            <li><strong><span class="wiki-term" data-title="Sublimation"
+                                        data-summary="Phase transition of a substance directly from the solid to the gas phase.">Sublimation</span>:</strong>
+                                Solid &rarr; Gas.</li>
+                        </ul>
                     </div>
                 </div>
-            </section>
 
-            <!-- ============================================ -->
-            <!-- SECTION 2: CONDENSATION & CLOUDS -->
-            <!-- ============================================ -->
-            <section class="content-block">
-                <h2 class="g-text-gradient">2. Condensation and Cloud Formation</h2>
-                <p><span class="wiki-term" data-title="Condensation"
-                        data-summary="The process by which water vapor in the air is changed into liquid water. It is the reverse of evaporation."
-                        data-link="https://en.wikipedia.org/wiki/Condensation">Condensation</span> occurs when air is
-                    cooled to its dew point. It requires <span class="wiki-term" data-title="Hygroscopic Nuclei"
-                        data-summary="Tiny particles (like salt, dust, smoke) that attract water molecules and facilitate condensation."
-                        data-link="https://en.wikipedia.org/wiki/Cloud_condensation_nuclei">Hygroscopic Nuclei</span>
-                    (condensation nuclei).</p>
-
-                <div class="subtopic-card">
-                    <h3><ion-icon name="cloud-outline"></ion-icon> 2.1 Cloud Classification (Luke Howard / WMO)</h3>
-                    <div class="glass-table-container">
-                        <table class="comparison-table">
-                            <thead>
-                                <tr>
-                                    <th>Altitude</th>
-                                    <th>Cloud Types</th>
-                                    <th>Characteristics</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td><strong>High (5-13 km)</strong></td>
-                                    <td><span class="wiki-term" data-title="Cirrus"
-                                            data-summary="High-altitude, thin, wispy clouds composed of ice crystals. Often indicate fair weather."
-                                            data-link="https://en.wikipedia.org/wiki/Cirrus_cloud">Cirrus (Ci)</span>,
-                                        Cirrostratus (Cs), Cirrocumulus (Cc)</td>
-                                    <td>Made of ice crystals. Thin, white, wispy. Cirrus indicates fair weather.
-                                        Cirrostratus causes halos around sun/moon.</td>
-                                </tr>
-                                <tr>
-                                    <td><strong>Middle (2-5 km)</strong></td>
-                                    <td>Altostratus (As), Altocumulus (Ac)</td>
-                                    <td>Made of water droplets or ice. Greyish sheets (Altostratus) or puffy layers
-                                        (Altocumulus). Often precede rain.</td>
-                                </tr>
-                                <tr>
-                                    <td><strong>Low (0-2 km)</strong></td>
-                                    <td>Stratus (St), Stratocumulus (Sc), <span class="wiki-term"
-                                            data-title="Nimbostratus"
-                                            data-summary="Low, dark, grey clouds covering the sky. Associated with continuous, moderate rain or snow."
-                                            data-link="https://en.wikipedia.org/wiki/Nimbostratus_cloud">Nimbostratus
-                                            (Ns)</span></td>
-                                    <td>Low, grey, layered (Stratus). "Nimbo" = rain-bearing. Nimbostratus brings
-                                        persistent rain.</td>
-                                </tr>
-                                <tr>
-                                    <td><strong>Vertically Developed</strong></td>
-                                    <td>Cumulus (Cu), <span class="wiki-term" data-title="Cumulonimbus" data-image="https://upload.wikimedia.org/wikipedia/commons/thumb/3/36/Cumulonimbus_calvus.jpg/300px-Cumulonimbus_calvus.jpg"
-                                            data-summary="Towering, anvil-shaped clouds associated with thunderstorms, heavy rain, lightning, hail, and tornadoes."
-                                            data-link="https://en.wikipedia.org/wiki/Cumulonimbus_cloud">Cumulonimbus
-                                            (Cb)</span></td>
-                                    <td>Puffy, cauliflower-like (Cumulus = fair weather). Cumulonimbus = the "Storm
-                                        King." Causes thunderstorms, lightning, hail, tornadoes.</td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-            </section>
-
-            <!-- ============================================ -->
-            <!-- SECTION 3: PRECIPITATION -->
-            <!-- ============================================ -->
-            <section class="content-block">
-                <h2 class="g-text-gradient">3. Types of Precipitation</h2>
-                <p><span class="wiki-term" data-title="Precipitation"
-                        data-summary="Any form of water (liquid or solid) falling from the atmosphere to the Earth's surface (rain, snow, hail, sleet)."
-                        data-link="https://en.wikipedia.org/wiki/Precipitation_(meteorology)">Precipitation</span>
-                    occurs when cloud droplets grow large enough to fall under gravity.</p>
+                <!-- Forms of Condensation -->
                 <div class="glass-table-container">
                     <table class="comparison-table">
                         <thead>
                             <tr>
-                                <th>Type</th>
-                                <th>Mechanism</th>
-                                <th>Characteristics / Location</th>
+                                <th>Form</th>
+                                <th>Description</th>
+                                <th>Condition</th>
                             </tr>
                         </thead>
                         <tbody>
                             <tr>
-                                <td><strong>Convectional Rainfall</strong></td>
-                                <td>Intense heating of surface → Air rises rapidly → Adiabatic cooling → Condensation →
-                                    Cumulonimbus clouds.</td>
-                                <td>Afternoon thunderstorms in tropics (Equatorial regions). Heavy, short bursts.
-                                    Accompanied by lightning.</td>
+                                <td><strong>Dew</strong></td>
+                                <td>Droplets on cold surfaces (grass).</td>
+                                <td>Dew Point > Freezing Point.</td>
                             </tr>
                             <tr>
-                                <td><strong><span class="wiki-term" data-title="Orographic Precipitation"
-                                            data-summary="Rainfall caused when moist air is forced to rise over a mountain barrier, cooling and condensing on the windward side."
-                                            data-link="https://en.wikipedia.org/wiki/Orographic_lift">Orographic
-                                            Rainfall</span></strong></td>
-                                <td>Moist air forced to rise over a mountain barrier → Cools → Condenses → Rain on
-                                    windward side.</td>
-                                <td>Heavy rain on windward slopes. <span class="wiki-term"
-                                        data-title="Rain Shadow Effect"
-                                        data-summary="A dry area on the leeward side of a mountain where descending air warms and inhibits precipitation."
-                                        data-link="https://en.wikipedia.org/wiki/Rain_shadow">Rain Shadow</span> (dry)
-                                    on leeward side (descending air warms). Ex: Cherrapunji on Western Ghats windward
-                                    side; Deccan Plateau in its rain shadow.</td>
+                                <td><strong>Frost</strong></td>
+                                <td>Ice crystals on cold surfaces.</td>
+                                <td>Dew Point < Freezing Point.</td>
                             </tr>
                             <tr>
-                                <td><strong>Cyclonic (Frontal) Rainfall</strong></td>
-                                <td>Warm, moist air meets cold, dry air at a <span class="wiki-term"
-                                        data-title="Weather Front"
-                                        data-summary="A boundary between two air masses of different temperatures and densities. Types: Warm, Cold, Occluded, Stationary."
-                                        data-link="https://en.wikipedia.org/wiki/Weather_front">front</span>. Warm air
-                                    is lighter, rises over cold air → Cools → Rain.</td>
-                                <td>Prolonged, steady rain. Associated with temperate/extra-tropical cyclones. Common in
-                                    Europe, N. America.</td>
+                                <td><strong>Fog/Mist</strong></td>
+                                <td>Cloud near the ground. Mist contains more moisture (>75% RH).</td>
+                                <td>Inversion of temperature or warm air over cold surface.</td>
                             </tr>
                         </tbody>
                     </table>
@@ -181,46 +156,153 @@
             </section>
 
             <!-- ============================================ -->
-            <!-- SECTION 4: CONNECT THE DOTS -->
+            <!-- SECTION 2: CLOUDS (DATA VAULT) -->
             <!-- ============================================ -->
             <section class="content-block">
-                <h2 class="g-text-gradient">4. Connect the Dots: Interdisciplinary Links</h2>
+                <h2 class="g-text-gradient">2. The Data Vault: Cloud Classification</h2>
+                <p>Luke Howard (1803) classified clouds based on Latin roots. Altitude determines the type.</p>
+
+                <div class="glass-table-container">
+                    <table class="comparison-table">
+                        <thead>
+                            <tr>
+                                <th>Group</th>
+                                <th>Cloud Types</th>
+                                <th>Appearance & Weather</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>High Clouds</strong><br>(6 - 12 km)</td>
+                                <td><strong><span class="wiki-term" data-title="Cirrus"
+                                            data-summary="High-altitude clouds formed of ice crystals.">Cirrus</span></strong>,
+                                    Cirrostratus, Cirrocumulus</td>
+                                <td>Feathery, thin, ice crystals. White. Do NOT rain. Cirrostratus causes "Halo" around
+                                    Sun/Moon.</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Middle Clouds</strong><br>(2 - 6 km)</td>
+                                <td>Altostratus, Altocumulus</td>
+                                <td>"Alto" prefix. Watery look. Altocumulus looks like "Sheep's wool" (Mackerel Sky).
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><strong>Low Clouds</strong><br>(0 - 2 km)</td>
+                                <td><strong><span class="wiki-term" data-title="Stratus"
+                                            data-summary="Low-level clouds characterized by horizontal layering with a uniform base.">Stratus</span></strong>,
+                                    Stratocumulus, Nimbostratus</td>
+                                <td>Layered, uniform grey. <span class="wiki-term" data-title="Nimbus"
+                                        data-summary="Latin for 'rain'. Used to describe clouds that produce precipitation.">Nimbostratus</span>
+                                    causes continuous drizzle/rain and darkness.</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Vertical Clouds</strong><br>(Grow Upwards)</td>
+                                <td>Cumulus, <strong><span class="wiki-term" data-title="Cumulonimbus"
+                                            data-summary="A dense, towering vertical cloud, associated with thunderstorms and atmospheric instability.">Cumulonimbus</span></strong>
+                                </td>
+                                <td>Cumulus = Cotton wool (Fair weather).<br>Cumulonimbus = Anvil shape, Thunderstorm,
+                                    Heavy Rain, Hail.</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <!-- ============================================ -->
+            <!-- SECTION 3: RAINFALL TYPES -->
+            <!-- ============================================ -->
+            <section class="content-block">
+                <h2 class="g-text-gradient">3. Types of Rainfall</h2>
+
                 <div class="interactive-layers">
-                    <div class="layer-card" style="border-left-color: #a29bfe;">
-                        <h3><ion-icon name="beaker-outline"></ion-icon> Physics: Adiabatic Lapse Rate</h3>
-                        <p>As air rises, it expands due to lower pressure and cools *without losing heat to
-                            surroundings* (adiabatic process). <strong>Dry Adiabatic Lapse Rate (DALR):</strong>
-                            ~10°C/km. <strong>Saturated (Wet) Adiabatic Lapse Rate (SALR):</strong> ~6°C/km (lower
-                            because condensation releases latent heat, slowing cooling). Understanding this is essential
-                            for predicting cloud formation altitude.</p>
+                    <div class="layer-card" style="border-left-color: #fab1a0;">
+                        <h3>1. <span class="wiki-term" data-title="Convectional Rainfall"
+                                data-summary="Rainfall caused by the rising of warm, moist air due to convection. Common in equatorial regions.">Convectional
+                                Rainfall</span></h3>
+                        <p><strong>Region:</strong> Equatorial Regions.<br>
+                            <strong>Mechanism:</strong> Intense heating during the day causes air to rise rapidly.
+                            Cumulonimbus clouds form.<br>
+                            <strong>Nature:</strong> Heavy downpour, short duration, with thunder/lightning (4 PM Rain).
+                        </p>
                     </div>
-                    <div class="layer-card" style="border-left-color: #fd79a8;">
-                        <h3><ion-icon name="water-outline"></ion-icon> The Hydrological Cycle</h3>
-                        <p>Precipitation is one component of the global <span class="wiki-term" data-title="Water Cycle"
-                                data-summary="The continuous movement of water on, above, and below the surface of the Earth. Stages: Evaporation, Condensation, Precipitation, Runoff, Infiltration."
-                                data-link="https://en.wikipedia.org/wiki/Water_cycle">Water Cycle (Hydrological
-                                Cycle)</span>. Evaporation from oceans → Condensation (clouds) → Precipitation (rain) →
-                            Runoff (rivers) → Oceans. It is powered by solar energy and gravity.</p>
+                    <div class="layer-card" style="border-left-color: #74b9ff;">
+                        <h3>2. <span class="wiki-term" data-title="Orographic Rainfall"
+                                data-summary="Rainfall produced when moist air spreads over a mountain range and is forced to rise.">Orographic
+                                (Relief) Rainfall</span></h3>
+                        <p><strong>Region:</strong> Windward side of mountains (Western Ghats).<br>
+                            <strong>Mechanism:</strong> Moist wind is forced up a mountain slope. It cools adiabatically
+                            and rains.<br>
+                            <strong>Shadow:</strong> The leeward side remains dry (Rain Shadow Area e.g.,
+                            Pune/Vidarbha).
+                        </p>
+                    </div>
+                    <div class="layer-card" style="border-left-color: #636e72;">
+                        <h3>3. <span class="wiki-term" data-title="Frontal Rainfall"
+                                data-summary="Rainfall caused by the meeting of two air masses of different temperatures (Front).">Frontal
+                                (Cyclonic) Rainfall</span></h3>
+                        <p><strong>Region:</strong> Temperate Zones (Mid-latitudes).<br>
+                            <strong>Mechanism:</strong> Warm air rises over cold heavy air along a "Front". Common in
+                            Europe.
+                        </p>
                     </div>
                 </div>
             </section>
+
+            <!-- ============================================ -->
+            <!-- SECTION 4: CASE STUDY -->
+            <!-- ============================================ -->
             <section class="content-block">
-                    <!-- DIAGRAM GALLERY -->
-                    <div class="diagram-gallery">
-                        <h4><ion-icon name="images-outline"></ion-icon> Key Diagrams</h4>
-                        <div class="media-gallery-grid">
-                            <figure class="media-item">
-                                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b1/Water_cycle.png/500px-Water_cycle.png" alt="Water Cycle" class="chapter-diagram">
-                                <figcaption>The Hydrological (Water) Cycle</figcaption>
-                            </figure>
-                            <figure class="media-item">
-                                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a8/Cloud_types_en.svg/500px-Cloud_types_en.svg.png" alt="Cloud Types" class="chapter-diagram">
-                                <figcaption>Cloud Classification by Altitude</figcaption>
-                            </figure>
-                        </div>
+                <div class="case-study-card">
+                    <div class="case-study-header">
+                        <ion-icon name="layers-outline"></ion-icon>
+                        <div class="case-study-title">Case Study: Mawsynram (Wettest Place on Earth)</div>
                     </div>
+                    <p><strong>Location:</strong> Meghalaya, India (Khasi Hills).</p>
+                    <p><strong>Rainfall:</strong> ~11,872 mm per year.</p>
+                    <p><strong>Mechanism (Orographic):</strong> The funnel-shaped hills trap the moisture-laden Bay of
+                        Bengal branch of the Monsoon wind. The air is forced to rise steeply (adiabatic cooling),
+                        condense, and dump massive rain on the windward side. The leeward side (Shillong) gets much less
+                        rain.</p>
+                </div>
             </section>
 
+            <!-- ============================================ -->
+            <!-- SECTION 5: DIAGRAMS -->
+            <!-- ============================================ -->
+            <section class="content-block">
+                <div class="diagram-gallery">
+                    <h4><ion-icon name="images-outline"></ion-icon> Hydro Visuals</h4>
+                    <div class="media-gallery-grid">
+                        <figure class="media-item">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/57/Cloud_types_en.svg/1000px-Cloud_types_en.svg.png"
+                                class="chapter-diagram" alt="Clouds">
+                            <figcaption>Cloud Classification Types</figcaption>
+                        </figure>
+                        <figure class="media-item">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/91/Water_cycle.png/1200px-Water_cycle.png"
+                                class="chapter-diagram" alt="Cycle">
+                            <figcaption>The Hydrological Cycle</figcaption>
+                        </figure>
+                        <figure class="media-item">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d7/Orographic_rainfall.svg/1200px-Orographic_rainfall.svg.png"
+                                class="chapter-diagram" alt="Orographic">
+                            <figcaption>Mechanism of Orographic Rainfall</figcaption>
+                        </figure>
+                    </div>
+                </div>
+            </section>
+
+
+            <div class="chapter-nav">
+    <a href="chapter10.html" class="prev">
+        <span class="nav-dir">← Previous</span>
+        <span class="nav-title">Atmospheric Circulation</span>
+    </a>
+    <a href="chapter12.html" class="next">
+        <span class="nav-dir">Next →</span>
+        <span class="nav-title">World Climate</span>
+    </a>
+</div>
 
         </article>
     </div>

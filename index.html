@@ -5,6 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>GeoSphere 11 | Antigravity Edition</title>
+    <meta name="description"
+        content="GeoSphere 11 — An immersive Class 11 Physical Geography revision platform. 16 chapters covering Earth's origin, atmosphere, oceans, climate, and biodiversity.">
     <link rel="stylesheet" href="styles.css">
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
@@ -65,6 +67,72 @@
             </button>
         </header>
 
+        <!-- STATS DASHBOARD -->
+        <section class="stats-dashboard" id="stats">
+            <div class="stat-card">
+                <span class="stat-icon">📚</span>
+                <div class="stat-number" data-target="16" data-suffix="">0</div>
+                <div class="stat-label">Chapters</div>
+            </div>
+            <div class="stat-card">
+                <span class="stat-icon">🔬</span>
+                <div class="stat-number" data-target="120" data-suffix="+">0</div>
+                <div class="stat-label">Key Terms</div>
+            </div>
+            <div class="stat-card">
+                <span class="stat-icon">📊</span>
+                <div class="stat-number" data-target="50" data-suffix="+">0</div>
+                <div class="stat-label">Diagrams</div>
+            </div>
+            <div class="stat-card">
+                <span class="stat-icon">🎯</span>
+                <div class="stat-number" data-target="16" data-suffix="">0</div>
+                <div class="stat-label">Case Studies</div>
+            </div>
+        </section>
+
+        <!-- FEATURE CARDS -->
+        <section class="features-row">
+            <div class="feature-card" onclick="document.getElementById('chapter-search').focus()">
+                <ion-icon name="search-outline"></ion-icon>
+                <div class="feature-text">
+                    <h4>Smart Search</h4>
+                    <p>Find any chapter instantly</p>
+                </div>
+            </div>
+            <div class="feature-card" onclick="toggleShortcutsModal()">
+                <ion-icon name="keypad-outline"></ion-icon>
+                <div class="feature-text">
+                    <h4>Shortcuts</h4>
+                    <p>Press ? for all hotkeys</p>
+                </div>
+            </div>
+            <div class="feature-card" onclick="toggleInterstellar()">
+                <ion-icon name="rocket-outline"></ion-icon>
+                <div class="feature-text">
+                    <h4>Interstellar</h4>
+                    <p>Activate space mode</p>
+                </div>
+            </div>
+            <div class="feature-card" onclick="toggleMusic()">
+                <ion-icon name="musical-notes-outline"></ion-icon>
+                <div class="feature-text">
+                    <h4>Ambient Audio</h4>
+                    <p>Study with music</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- SEARCH BAR -->
+        <div class="search-container">
+            <div class="search-input-wrapper">
+                <input type="text" id="chapter-search" class="search-input"
+                    placeholder="Search chapters... (press / to focus)">
+                <ion-icon name="search-outline"></ion-icon>
+            </div>
+            <div id="search-results-count" class="search-results-count"></div>
+        </div>
+
         <section class="timeline-section" id="timeline">
             <!-- Dynamic Content Injected via script.js -->
         </section>
@@ -102,18 +170,18 @@
         </div>
     </div>
 
-    <!-- ABOUT MODAL (Preserved from original) -->
+    <!-- ABOUT MODAL -->
     <div id="about-modal" class="modal-overlay hidden" onclick="if(event.target===this) toggleAbout()">
         <div class="modal-content about-card">
             <button class="close-modal" onclick="toggleAbout()"> <ion-icon name="close"></ion-icon> </button>
             <div class="about-info">
                 <h2>About</h2>
-                <h3>GeoSphere 2.0</h3>
-                <p>Upgraded with a new Antigravity Engine, this platform delivers UPSC-level geography content in a
-                    weightless UI environment. Every chapter follows the Gold Standard format with deep dives, data
-                    vaults, and interdisciplinary connections.</p>
+                <h3>GeoSphere 3.0</h3>
+                <p>Now with Smart Search, Bookmarks, Keyboard Shortcuts, Reading Progress, and an auto-generated Table
+                    of Contents. Every chapter follows the Gold Standard format with deep dives, data vaults, and
+                    interdisciplinary connections.</p>
 
-                <!-- CREATOR PROFILE (RESTORED) -->
+                <!-- CREATOR PROFILE -->
                 <div class="creator-section">
                     <img src="https://avatars.githubusercontent.com/u/krshxcx" alt="Creator" class="creator-avatar"
                         onerror="this.src='https://ui-avatars.com/api/?name=SK&background=4ECDC4&color=fff&size=120'">

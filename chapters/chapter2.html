@@ -1,218 +1,175 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Chapter 2: The Origin and Evolution of the Earth</title>
+    <title>Chapter 2: Origin & Evolution of Earth</title>
     <link rel="stylesheet" href="../styles.css">
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
     <style>
-        .chapter-controls { position: fixed; top: 20px; right: 20px; display: flex; gap: 15px; z-index: 1000; }
-        .chapter-controls button { background: rgba(0,0,0,0.3); border: 1px solid rgba(255,255,255,0.2); border-radius: 50%; width: 45px; height: 45px; cursor: pointer; font-size: 1.3rem; backdrop-filter: blur(10px); transition: all 0.3s ease; color: var(--primary); }
-        .chapter-controls button:hover { background: rgba(255,255,255,0.1); transform: scale(1.1); }
+        .chapter-controls {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            display: flex;
+            gap: 15px;
+            z-index: 1000;
+        }
+
+        .chapter-controls button {
+            background: rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 50%;
+            width: 45px;
+            height: 45px;
+            cursor: pointer;
+            font-size: 1.3rem;
+            backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+            color: var(--primary);
+        }
+
+        .chapter-controls button:hover {
+            background: rgba(255, 255, 255, 0.1);
+            transform: scale(1.1);
+        }
     </style>
 </head>
+
 <body>
     <div class="chapter-controls">
-        <button id="warp-btn" onclick="toggleInterstellar()" title="Interstellar Mode"><ion-icon name="rocket-outline"></ion-icon></button>
-        <button id="music-btn" onclick="toggleMusic()" title="Toggle Music"><ion-icon name="musical-notes-outline"></ion-icon></button>
+        <button id="warp-btn" onclick="toggleInterstellar()" title="Interstellar Mode"><ion-icon
+                name="rocket-outline"></ion-icon></button>
+        <button id="music-btn" onclick="toggleMusic()" title="Toggle Music"><ion-icon
+                name="musical-notes-outline"></ion-icon></button>
+        <button id="bookmark-btn" class="bookmark-btn" title="Bookmark"><ion-icon name="bookmark-outline"></ion-icon></button>
+
     </div>
-    <audio id="bg-music" loop><source src="../music.mp3" type="audio/mpeg"></audio>
+    <audio id="bg-music" loop>
+        <source src="../music.mp3" type="audio/mpeg">
+    </audio>
     <div id="chapter-content">
         <article class="chapter-article">
 
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/0c/GalaxyNGC4414.jpg/800px-GalaxyNGC4414.jpg" alt="Origin & Evolution" class="chapter-hero-banner" loading="lazy">
+
+
+            <!-- HERO SECTION -->
+            <div class="content-block" style="text-align: center; border-bottom: 1px solid rgba(255,255,255,0.1);">
+                <span
+                    style="letter-spacing: 3px; color: var(--secondary); text-transform: uppercase; font-size: 0.9rem;">Cosmology
+                    & Geology</span>
+                <h2 class="g-text-gradient" style="font-size: 3.5rem; margin: 10px 0;">2. Origin & Evolution of Earth
+                </h2>
+                <p style="color: var(--text-dim); max-width: 600px; margin: 0 auto 30px;">From the Singularity to the
+                    Blue Marble.</p>
+
+                <div class="scholar-quote">
+                    "We are all made of starstuff."
+                    <span class="scholar-cite">— <span class="wiki-term" data-title="Carl Sagan"
+                            data-summary="American astronomer, cosmologist, astrophysicist, astrobiologist, author, and science communicator.">Carl
+                            Sagan</span></span>
+                </div>
+            </div>
+
+<div class="key-takeaways">
+    <h3><ion-icon name="bulb-outline"></ion-icon> Key Takeaways</h3>
+    <ul>
+        <li>Universe originated ~<strong>13.8 billion years ago</strong> (Big Bang Theory)</li>
+        <li>Earth formed ~<strong>4.6 billion years ago</strong> from solar nebula accretion</li>
+        <li>Early atmosphere had no free oxygen — it was dominated by H₂, He, NH₃, CH₄</li>
+        <li>Moon formed from a Mars-sized impact (<strong>Giant Impact Hypothesis</strong>)</li>
+    </ul>
+</div>
+
             <!-- ============================================ -->
-            <!-- SECTION 1: THE DEEP DIVE (THEORY SECTION) -->
+            <!-- SECTION 1: ORIGIN THEORIES -->
             <!-- ============================================ -->
             <section class="content-block">
-                <h2 class="g-text-gradient">1. The Deep Dive: Competing Origin Theories</h2>
-                <p>Understanding Earth's origin requires navigating a landscape of evolving hypotheses. Each theory
-                    reflects its era's scientific capabilities and suffered specific criticisms that led to its
-                    refinement or rejection. For UPSC Mains, knowing the *criticism* is as vital as the *mechanism*.</p>
+                <h2 class="g-text-gradient">1. The Origin Theories</h2>
+                <p>How did we get here? The answer has evolved from philosophy to physics.</p>
 
-                <!-- THEORY 1: NEBULAR HYPOTHESIS -->
-                <div class="subtopic-card">
-                    <h3><ion-icon name="planet-outline"></ion-icon> 1.1 The Nebular Hypothesis (Monistic Theories)</h3>
-                    <p><strong>Proponents:</strong> <span class="wiki-term" data-title="Immanuel Kant"
-                            data-image="https://upload.wikimedia.org/wikipedia/commons/thumb/4/43/Immanuel_Kant_%28painted_portrait%29.jpg/220px-Immanuel_Kant_%28painted_portrait%29.jpg"
-                            data-summary="German philosopher (1724-1804) who proposed the Nebular Hypothesis in 1755, suggesting the solar system formed from a rotating cloud of gas. He is considered one of the greatest thinkers of the Enlightenment period."
-                            data-link="https://en.wikipedia.org/wiki/Immanuel_Kant">Immanuel Kant</span> (1755) and
-                        <span class="wiki-term" data-title="Pierre-Simon Laplace"
-                            data-image="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e3/Pierre-Simon_Laplace.jpg/220px-Pierre-Simon_Laplace.jpg"
-                            data-summary="French polymath and astronomer (1749-1827) who mathematically refined Kants hypothesis in 1796. He proposed that a cooling rotating nebula shed rings of material that coalesced into planets. Known as the French Newton."
-                            data-link="https://en.wikipedia.org/wiki/Pierre-Simon_Laplace">Pierre-Simon Laplace</span>
-                        (1796).
-                    </p>
-                    <p><strong>The Mechanism:</strong> A hot, gaseous, rotating <span class="wiki-term"
-                            data-title="Nebula"
-                            data-summary="An interstellar cloud of gas and cosmic dust, often described as a 'stellar nursery'."
-                            data-image="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6f/Orion_Nebula_-_Hubble_2006_mosaic_18000.jpg/300px-Orion_Nebula_-_Hubble_2006_mosaic_18000.jpg"
-                            data-link="https://science.nasa.gov/astrophysics/focus-areas/how-do-stars-form-and-evolve">Nebula</span>
-                        slowly cooled and contracted. As it contracted, it spun faster (conservation of angular
-                        momentum). This faster spin caused it to flatten into a disc. From this disc, successive rings
-                        of gaseous matter were thrown off, which then condensed to form planets. The central mass became
-                        the Sun.</p>
-                    <div class="upsc-note">
-                        <strong>UPSC Critical: The Fatal Flaw</strong>
-                        <p><strong>The Criticism (Angular Momentum Problem):</strong> If the Sun and planets formed from
-                            the same nebula, the angular momentum should be distributed according to mass. The Sun,
-                            holding 99.8% of the solar system's mass, should possess almost all the angular momentum.
-                            However, planets (especially Jupiter) hold ~98% of the system's angular momentum. This
-                            discrepancy is *unexplainable* by the classical Nebular Hypothesis and is why it was
-                            abandoned in its original form. <span class="citation-trigger"
-                                data-citation="Source: Principles of Physical Geography, P. Dayal">[Source:
-                                Dayal]</span></p>
+                <div class="two-col-layout">
+                    <!-- Early Theories -->
+                    <div class="subtopic-card">
+                        <h3><ion-icon name="planet-outline"></ion-icon> A. Early Theories</h3>
+                        <p><strong>1. <span class="wiki-term" data-title="Nebular Hypothesis"
+                                    data-summary="The theory that the solar system evolved from a hot gaseous nebula.">Nebular
+                                    Hypothesis</span> (Kant & Laplace, 1796):</strong> Proposed that planets formed
+                            from a rotating cloud of gas (<span class="wiki-term" data-title="Nebula"
+                                data-summary="A giant cloud of dust and gas in space.">Nebula</span>).
+                            <br><em>Criticism:</em> Failed to explain why the Sun
+                            has 99.9% mass but only 2% angular momentum.
+                        </p>
+                        <p><strong>2. Tidal/Binary Theories (Jeans, Jeffreys, Russell):</strong> Proposed a wandering
+                            star approached the Sun, pulling out a cigar-shaped filament that broke into planets.
+                            <br><em>Criticism:</em> Statistically improbable.
+                        </p>
                     </div>
-                </div>
 
-                <!-- THEORY 2: DUALISTIC/TIDAL THEORIES -->
-                <div class="subtopic-card">
-                    <h3><ion-icon name="git-network-outline"></ion-icon> 1.2 The Tidal / Encounter Hypotheses (Dualistic
-                        Theories)</h3>
-                    <p>These theories arose to overcome the angular momentum problem. They propose an *external agent*
-                        transferring momentum to the forming planets.</p>
-
-                    <div class="glass-table-container">
-                        <table class="comparison-table">
-                            <thead>
-                                <tr>
-                                    <th>Theory</th>
-                                    <th>Proponent</th>
-                                    <th>Mechanism</th>
-                                    <th>Criticism</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td><strong>Planetesimal Hypothesis</strong></td>
-                                    <td>Chamberlin & Moulton (1904)</td>
-                                    <td>A passing star caused a tidal eruption on the Sun. The ejected material formed
-                                        <span class="wiki-term" data-title="Planetesimals"
-                                            data-summary="Small rocky bodies from the early solar system that accreted to form larger planetary bodies."
-                                            data-link="https://en.wikipedia.org/wiki/Planetesimal">Planetesimals</span>
-                                        which later aggregated into planets.
-                                    </td>
-                                    <td>Gases would disperse into space due to expansion, not condense.</td>
-                                </tr>
-                                <tr>
-                                    <td><strong>Tidal Hypothesis</strong></td>
-                                    <td>James Jeans (1919)</td>
-                                    <td>A massive star passed close enough to draw out a "cigar-shaped" filament of
-                                        solar material. The bulging ends formed the large planets (Jupiter, Saturn), the
-                                        thinner middle formed smaller ones.</td>
-                                    <td>Statistically, such close encounters are impossibly rare. Also, hot ejected gas
-                                        cannot condense into solids.</td>
-                                </tr>
-                                <tr>
-                                    <td><strong>Binary Star Hypothesis</strong></td>
-                                    <td>H.N. Russell (1937)</td>
-                                    <td>Our Sun was a binary star system. A third passing star collided with and
-                                        disrupted the Sun's partner, creating debris that formed planets.</td>
-                                    <td>Violates laws of thermodynamics; cannot explain planetary composition
-                                        differences.</td>
-                                </tr>
-                            </tbody>
-                        </table>
+                    <!-- Modern Theory -->
+                    <div class="subtopic-card">
+                        <h3><ion-icon name="logo-electron"></ion-icon> B. Modern Theory</h3>
+                        <p><strong>The <span class="wiki-term" data-title="Big Bang"
+                                    data-summary="The leading explanation about how the universe began.">Big Bang</span>
+                                Theory (1927):</strong> The Universe expanded from a <span class="wiki-term"
+                                data-title="Singularity"
+                                data-summary="A point of infinite density and zero volume at the center of a black hole or the universe's origin.">Singularity</span>
+                            13.7
+                            Billion years ago.</p>
+                        <ul class="timeline-vertical">
+                            <li><strong>t=0:</strong> The Bang.</li>
+                            <li><strong>t=3 mins:</strong> First atoms (H, He) form.</li>
+                            <li><strong>t=300,000 yrs:</strong> Universe becomes transparent (<span class="wiki-term"
+                                    data-title="CMBR"
+                                    data-summary="Cosmic Microwave Background Radiation. The afterglow of the Big Bang.">CMBR</span>).
+                            </li>
+                            <li><strong>t=4.6 Billion yrs:</strong> Solar System forms from a Nebula.</li>
+                        </ul>
                     </div>
-                </div>
-
-                <!-- THEORY 3: MODERN BIG BANG -->
-                <div class="subtopic-card">
-                    <h3><ion-icon name="expand-outline"></ion-icon> 1.3 The Modern Paradigm: Big Bang to Solar Nebula
-                    </h3>
-                    <p><strong>Proponent:</strong> <span class="wiki-term" data-title="Big Bang"
-                            data-image="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6f/CMB_Timeline300_no_WMAP.jpg/350px-CMB_Timeline300_no_WMAP.jpg"
-                            data-summary="The scientific theory that the universe expanded from an initial state of singularity roughly 13.8 billion years ago."
-                            data-link="https://en.wikipedia.org/wiki/Big_Bang">The Big Bang</span> was formalized by
-                        <span class="wiki-term" data-title="Georges Lemaître"
-                            data-summary="Belgian priest and astronomer who first proposed the expansion of the universe (1927)."
-                            data-link="https://en.wikipedia.org/wiki/Georges_Lema%C3%AEtre">Georges Lemaître</span>
-                        (1927) and supported observationally by <span class="wiki-term" data-title="Edwin Hubble"
-                            data-summary="American astronomer (1929). Observed that galaxies are receding, proving the universe is expanding."
-                            data-link="https://en.wikipedia.org/wiki/Edwin_Hubble">Edwin Hubble</span>'s redshift
-                        observations (1929). <span class="citation-trigger"
-                            data-citation="Source: NCERT Class 11, Ch. 2">[Source: NCERT]</span>
-                    </p>
-                    <p><strong>The Mechanism (The Modern Synthesis):</strong></p>
-                    <ul class="timeline-vertical">
-                        <li><strong>~13.8 Billion Years Ago (BYA):</strong> The universe began from a <span
-                                class="wiki-term" data-title="Singularity"
-                                data-summary="A point of infinite density and zero volume from which the universe expanded."
-                                data-link="https://en.wikipedia.org/wiki/Gravitational_singularity">Singularity</span>.
-                            Space and time itself were created in this event.</li>
-                        <li><strong>First 3 Minutes:</strong> The universe was a plasma of elementary particles. As it
-                            cooled, protons and neutrons formed, leading to <span class="wiki-term"
-                                data-title="Big Bang Nucleosynthesis"
-                                data-summary="The production of nuclei other than Hydrogen-1 during the early phases of the universe (H, He, Li)."
-                                data-link="https://en.wikipedia.org/wiki/Big_Bang_nucleosynthesis">Big Bang
-                                Nucleosynthesis</span> (creation of H, He, Li).</li>
-                        <li><strong>~300,000 Years Later:</strong> Universe cooled to ~3000K. Electrons could bind to
-                            nuclei, making the universe transparent. This era's light is visible today as the <span
-                                class="wiki-term" data-title="CMBR"
-                                data-summary="Cosmic Microwave Background Radiation: The thermal afterglow of the Big Bang, detectable at 2.7 Kelvin."
-                                data-image="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3c/Ilc_9yr_moll4096.png/300px-Ilc_9yr_moll4096.png"
-                                data-link="https://wmap.gsfc.nasa.gov/">CMBR</span>.</li>
-                        <li><strong>~9 BYA (Solar Nebula Stage):</strong> A cloud of H/He gas (enriched by heavier
-                            elements from prior supernovae – "recycled stardust") collapsed. The <span class="wiki-term"
-                                data-title="Solar Nebular Disk Model"
-                                data-summary="The leading modern model, where a rotating disk of gas & dust forms a star at its center and planets from the remaining material."
-                                data-link="https://en.wikipedia.org/wiki/Nebular_hypothesis#Solar_nebular_model">Solar
-                                Nebular Disk Model</span> (SNDM) now explains planet formation.</li>
-                        <li><strong>~4.6 BYA:</strong> The Sun ignited. Within the protoplanetary disk, dust grains
-                            collided and stuck (accretion), forming planetesimals, then protoplanets, then planets.
-                            <span class="citation-trigger" data-citation="Source: USGS Geological Time Scale">[Source:
-                                USGS]</span>
-                        </li>
-                    </ul>
                 </div>
             </section>
 
             <!-- ============================================ -->
-            <!-- SECTION 2: THE DATA VAULT -->
+            <!-- SECTION 2: THE PLANETS (NCERT DATA) -->
             <!-- ============================================ -->
             <section class="content-block">
-                <h2 class="g-text-gradient">2. The Data Vault: Precision Facts</h2>
-                <p>Gold Standard knowledge requires Gold Standard precision. Memorize these figures.</p>
+                <h2 class="g-text-gradient">2. The Solar System Family</h2>
+                <p>The planets are divided into two distinct groups based on density and composition.</p>
+
                 <div class="glass-table-container">
                     <table class="comparison-table">
                         <thead>
                             <tr>
-                                <th>Parameter</th>
-                                <th>Value</th>
-                                <th>Source</th>
+                                <th>Feature</th>
+                                <th>Terrestrial Planets (Inner)</th>
+                                <th>Jovian Planets (Outer)</th>
                             </tr>
                         </thead>
                         <tbody>
                             <tr>
-                                <td><strong>Age of Universe</strong></td>
-                                <td>13.787 ± 0.020 billion years</td>
-                                <td>Planck Collaboration (2020)</td>
+                                <td><strong>Examples</strong></td>
+                                <td>Mercury, Venus, Earth, Mars</td>
+                                <td>Jupiter, Saturn, Uranus, Neptune</td>
                             </tr>
                             <tr>
-                                <td><strong>Age of Earth</strong></td>
-                                <td>4.54 ± 0.05 billion years</td>
-                                <td>U.S. Geological Survey (USGS)</td>
+                                <td><strong>Composition</strong></td>
+                                <td>Rocks and Metals (High Density)</td>
+                                <td>Gas (H, He) and Ice (Low Density)</td>
                             </tr>
                             <tr>
-                                <td><strong>Age of Moon</strong></td>
-                                <td>4.51 billion years</td>
-                                <td>Lunar sample Pb-Pb dating</td>
+                                <td><strong>Atmosphere</strong></td>
+                                <td>Thin (Stripped by Solar Wind)</td>
+                                <td>Thick (Retained gases)</td>
                             </tr>
                             <tr>
-                                <td><strong>Earth's Initial Surface Temp</strong></td>
-                                <td>~5,000 - 8,000 K (Magma Ocean stage)</td>
-                                <td>Textbook estimates</td>
-                            </tr>
-                            <tr>
-                                <td><strong>Differentiation Period</strong></td>
-                                <td>~30 million years after accretion</td>
-                                <td>Hafnium-Tungsten isotope analysis</td>
-                            </tr>
-                            <tr>
-                                <td><strong>First Oceans Appeared</strong></td>
-                                <td>~4.0 - 4.4 BYA (Hadean Eon)</td>
-                                <td>Zircon crystal analysis (Australia)</td>
+                                <td><strong><span class="wiki-term" data-title="Goldilocks Zone"
+                                            data-summary="Habitable Zone. The distance from a star where liquid water can exist.">Goldilocks
+                                            Zone</span></strong></td>
+                                <td>Earth is perfectly placed.</td>
+                                <td>Too cold.</td>
                             </tr>
                         </tbody>
                     </table>
@@ -220,74 +177,306 @@
             </section>
 
             <!-- ============================================ -->
-            <!-- SECTION 3: CONNECT THE DOTS -->
+            <!-- SECTION 3: STAR FORMATION (NEBULA) -->
             <!-- ============================================ -->
             <section class="content-block">
-                <h2 class="g-text-gradient">3. Connect the Dots: Interdisciplinary Links</h2>
-                <p>A "Gold Standard" answer integrates knowledge from multiple domains. Here's how physics and chemistry
-                    underpin Earth's origin.</p>
+                <h2 class="g-text-gradient">3. Star & Planet Formation</h2>
+                <div class="subtopic-card">
+                    <h3>The 3 Stages of Planet Formation</h3>
+                    <div class="glass-table-container">
+                        <table class="comparison-table">
+                            <thead>
+                                <tr>
+                                    <th>Stage</th>
+                                    <th>Process</th>
+                                    <th>Outcome</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><strong>Accretion</strong></td>
+                                    <td>Gravitational collapse of gas lumps in the nebula.</td>
+                                    <td>Formation of a <strong>Core</strong>.</td>
+                                </tr>
+                                <tr>
+                                    <td><strong><span class="wiki-term" data-title="Planetesimals"
+                                                data-summary="Minute planet. Small bodies that accreted to form planets.">Planetesimals</span></strong>
+                                    </td>
+                                    <td>Condensation of gas around the core. Particles stick together.</td>
+                                    <td>Small bodies called <strong>Planetesimals</strong>.</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Coalescence</strong></td>
+                                    <td>Planetesimals collide and stick to form larger bodies.</td>
+                                    <td><strong><span class="wiki-term" data-title="Protoplanets"
+                                                data-summary="A large body of matter in orbit around the sun or a star and thought to be developing into a planet.">Protoplanets</span></strong>
+                                        &rarr; <strong>Planets</strong>.</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ============================================ -->
+            <!-- SECTION 4: THE GEOLOGICAL TIME SCALE -->
+            <!-- ============================================ -->
+            <section class="content-block">
+                <h2 class="g-text-gradient">4. The Data Vault: Geological Time Scale</h2>
+                <div class="formula-card">
+                    <div class="formula-text">Eon &gt; Era &gt; Period &gt; Epoch</div>
+                    <div class="formula-desc">Hierarchy of Geologic Time</div>
+                </div>
+
+                <div class="glass-table-container">
+                    <table class="comparison-table">
+                        <thead>
+                            <tr>
+                                <th>Eon</th>
+                                <th>Era</th>
+                                <th>Period</th>
+                                <th>Key Event</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong><span class="wiki-term" data-title="Hadean"
+                                            data-summary="The first eon of Earth history. Hell-like conditions.">Hadean</span></strong><br>(4.6
+                                    - 4 BYA)</td>
+                                <td>-</td>
+                                <td>-</td>
+                                <td>Molten Earth. Formation of Moon. No life.</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Archean</strong><br>(4 - 2.5 BYA)</td>
+                                <td>-</td>
+                                <td>-</td>
+                                <td>First Oceans. Blue-green Algae (Unicellular life).</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Proterozoic</strong><br>(2.5 BYA - 541 MYA)</td>
+                                <td>-</td>
+                                <td>-</td>
+                                <td>Soft-bodied invertebrates. Oxygen crisis.</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Phanerozoic</strong><br>(541 MYA - Present)</td>
+                                <td>Paleozoic</td>
+                                <td>Cambrian to Permian</td>
+                                <td>Fish, Amphibians, Reptiles. Coal formation (<span class="wiki-term"
+                                        data-title="Carboniferous"
+                                        data-summary="A geologic period famous for its vast swamp forests.">Carboniferous</span>).
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>""</td>
+                                <td>Mesozoic</td>
+                                <td>Triassic, Jurassic, Cretaceous</td>
+                                <td><strong>Age of Dinosaurs.</strong></td>
+                            </tr>
+                            <tr>
+                                <td>""</td>
+                                <td>Cenozoic</td>
+                                <td>Tertiary, Quaternary</td>
+                                <td><strong>Age of Mammals.</strong> Rise of Man (<span class="wiki-term"
+                                        data-title="Holocene"
+                                        data-summary="The current geological epoch. Starts 11,700 years ago.">Holocene</span>).
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <!-- ============================================ -->
+            <!-- NCERT DATA VAULT: TIMELINES & EVOLUTION -->
+            <!-- ============================================ -->
+            <section class="content-block">
+                <h2 class="g-text-gradient">📚 NCERT Data Vault</h2>
+                <p>Critical revision data from NCERT for exams.</p>
+
+                <div class="subtopic-card">
+                    <h3><ion-icon name="time-outline"></ion-icon> Big Bang Timeline (Exact NCERT Values)</h3>
+                    <div class="glass-table-container">
+                        <table class="comparison-table">
+                            <thead>
+                                <tr>
+                                    <th>Time</th>
+                                    <th>Event</th>
+                                    <th>Significance</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><strong>t = 0</strong></td>
+                                    <td>The Big Bang</td>
+                                    <td>Universe starts expanding from a tiny ball with infinite density & temperature
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td><strong>t = 3 min</strong></td>
+                                    <td>First Atoms Form</td>
+                                    <td>Energy converts to matter. Hydrogen & Helium atoms appear</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>t = 300,000 yrs</strong></td>
+                                    <td>Universe becomes Transparent</td>
+                                    <td>Temperature drops to <strong>4,500 K</strong>. Universe becomes transparent
+                                        (CMBR)</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>13.7 BYA</strong></td>
+                                    <td>Current Age of Universe</td>
+                                    <td>Still expanding (based on Hubble's Law)</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>4.6 BYA</strong></td>
+                                    <td>Solar System Forms</td>
+                                    <td>From a solar nebula (dust + gas cloud)</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <div class="subtopic-card">
+                    <h3><ion-icon name="git-network-outline"></ion-icon> Evolution of Earth's Atmosphere (3 Stages)</h3>
+                    <div class="glass-table-container">
+                        <table class="comparison-table">
+                            <thead>
+                                <tr>
+                                    <th>Stage</th>
+                                    <th>Process</th>
+                                    <th>Result</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><strong>Stage 1</strong></td>
+                                    <td>Loss of Primordial Atmosphere</td>
+                                    <td>Early H<sub>2</sub> and He were lost due to <strong>solar winds</strong></td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Stage 2</strong></td>
+                                    <td><span class="wiki-term" data-title="Degassing"
+                                            data-summary="Release of trapped gases from Earth's interior through volcanic activity.">Degassing</span>
+                                        (Volcanism)</td>
+                                    <td>Hot interior released H<sub>2</sub>O, CO<sub>2</sub>, N<sub>2</sub>,
+                                        NH<sub>3</sub></td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Stage 3</strong></td>
+                                    <td>Photosynthesis (2.5-3 BYA)</td>
+                                    <td>Oxygen added to atmosphere. Made life possible on land</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <div class="upsc-note">
+                    <strong>Modern Nebular Hypothesis (Otto Schmidt & Carl Weizacker, 1950)</strong>
+                    <p>Revised the original 1796 theory by Kant & Laplace. Key additions:</p>
+                    <ul style="margin-top: 10px; padding-left: 20px;">
+                        <li>Sun was surrounded by a <strong>solar nebula</strong> with H<sub>2</sub>, He, and dust</li>
+                        <li><strong>Friction and collisions</strong> created a disk-shaped cloud</li>
+                        <li>Planets formed through <strong>accretion</strong> (planetesimals sticking together)</li>
+                        <li>This explains why planets orbit in the same plane and direction</li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- ============================================ -->
+            <!-- SECTION 5: EVOLUTION OF EARTH LAYERS -->
+            <!-- ============================================ -->
+            <section class="content-block">
+                <h2 class="g-text-gradient">5. Evolution of Earth's Layers</h2>
 
                 <div class="interactive-layers">
-                    <div class="layer-card" style="border-left-color: #a29bfe;">
-                        <h3><ion-icon name="sync-outline"></ion-icon> Physics: Angular Momentum Conservation</h3>
-                        <p>As the solar nebula collapsed, its rotation rate increased. This is directly derived from the
-                            Law of Conservation of Angular Momentum (L = Iω). As the cloud's radius (I) decreased, its
-                            angular velocity (ω) had to increase. This is why the planets orbit in the same direction
-                            and (mostly) on the same plane – they inherited the original spin of the cloud.</p>
+                    <div class="layer-card" style="border-left-color: #e17055;">
+                        <h3>Lithosphere (Solid Earth)</h3>
+                        <p>Formed through <strong><span class="wiki-term" data-title="Differentiation"
+                                    data-summary="The separation of planetary materials by density. Heavy stuff sinks.">Differentiation</span></strong>.
+                            While molten, heavy elements (Fe, Ni) sank
+                            to the core, lighter ones (Si, Al) floated to the crust.</p>
                     </div>
-                    <div class="layer-card" style="border-left-color: #fd79a8;">
-                        <h3><ion-icon name="flask-outline"></ion-icon> Chemistry: Elemental Differentiation</h3>
-                        <p>Why is Earth layered? When the planet was molten, the process of <span class="wiki-term"
-                                data-title="Planetary Differentiation"
-                                data-summary="The process where denser materials sink and less dense materials float, creating a layered internal structure."
-                                data-link="https://en.wikipedia.org/wiki/Planetary_differentiation">Planetary
-                                Differentiation</span> occurred. Heavy <span class="wiki-term"
-                                data-title="Siderophile Elements"
-                                data-summary="'Iron-loving' elements like Fe, Ni, Co that sank to the core."
-                                data-link="https://en.wikipedia.org/wiki/Siderophile">siderophile elements</span> (Fe,
-                            Ni, Co) sank to form the core. Lighter <span class="wiki-term"
-                                data-title="Lithophile Elements"
-                                data-summary="'Rock-loving' elements like O, Si, Al that rose to form the crust and mantle."
-                                data-link="https://en.wikipedia.org/wiki/Lithophile">lithophile elements</span> (O, Si,
-                            Al, K) floated to form the crust and mantle. This is a direct application of density
-                            stratification and chemical affinity principles.</p>
-                    </div>
-                    <div class="layer-card" style="border-left-color: #55efc4;">
-                        <h3><ion-icon name="sunny-outline"></ion-icon> Astrophysics: The Goldilocks Zone</h3>
-                        <p>Earth's liquid water is only possible because it orbits within the <span class="wiki-term"
-                                data-title="Circumstellar Habitable Zone"
-                                data-summary="The orbital distance from a star where liquid water can exist on a planet's surface."
-                                data-link="https://exoplanets.nasa.gov/search-for-life/habitable-zone/">Circumstellar
-                                Habitable Zone</span> (the "Goldilocks Zone"). Too close (Venus) = runaway greenhouse.
-                            Too far (Mars) = frozen. This directly links planetary formation physics to astrobiology.
+                    <div class="layer-card" style="border-left-color: #74b9ff;">
+                        <h3>Atmosphere (Air)</h3>
+                        <p><strong>Stage 1:</strong> Loss of primordial atmosphere (H, He) due to solar wind.<br>
+                            <strong>Stage 2:</strong> <strong><span class="wiki-term" data-title="Degassing"
+                                    data-summary="The escape of trapped gases from molten rock / volcanoes.">Degassing</span></strong>.
+                            Hot interior released gases (H2O, CO2,
+                            N2, NH3) through volcanism.<br>
+                            <strong>Stage 3:</strong> Photosynthesis added Oxygen.
                         </p>
+                    </div>
+                    <div class="layer-card" style="border-left-color: #0984e3;">
+                        <h3>Hydrosphere (Water)</h3>
+                        <p>As Earth cooled, water vapor condensed. Impacts from icy comets also contributed. Rain filled
+                            the depressions for millions of years, creating oceans (~4 BYA).</p>
                     </div>
                 </div>
             </section>
+
+            <!-- ============================================ -->
+            <!-- SECTION 6: CASE STUDY -->
+            <!-- ============================================ -->
             <section class="content-block">
-                <!-- DIAGRAM GALLERY -->
+                <div class="case-study-card">
+                    <div class="case-study-header">
+                        <ion-icon name="moon-outline"></ion-icon>
+                        <div class="case-study-title">Case Study: The Giant Impact Hypothesis (Theia)</div>
+                    </div>
+                    <p><strong>The Mystery:</strong> Why is the Moon so large relative to Earth? Why is its composition
+                        similar to Earth's mantle but poor in iron?</p>
+                    <p><strong>The Solution:</strong> About 4.44 Billion years ago, a Mars-sized object named
+                        <strong><span class="wiki-term" data-title="Theia"
+                                data-summary="A hypothesized ancient planet in the early Solar System that collided with Earth.">Theia</span></strong>
+                        collided with the proto-Earth ("Gaia").
+                    </p>
+                    <p><strong>The Result:</strong> The impact blasted a ring of debris into orbit. The heavy iron core
+                        of Theia sank into Earth (making Earth dense), while the lighter rock debris coalesced to form
+                        the Moon.</p>
+                </div>
+            </section>
+
+            <!-- ============================================ -->
+            <!-- SECTION 7: DIAGRAMS -->
+            <!-- ============================================ -->
+            <section class="content-block">
                 <div class="diagram-gallery">
-                    <h4><ion-icon name="images-outline"></ion-icon> Key Diagrams</h4>
+                    <h4><ion-icon name="images-outline"></ion-icon> Visualizing Time</h4>
                     <div class="media-gallery-grid">
                         <figure class="media-item">
-                            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6f/CMB_Timeline300_no_WMAP.jpg/500px-CMB_Timeline300_no_WMAP.jpg"
-                                alt="Big Bang Timeline" class="chapter-diagram">
-                            <figcaption>Big Bang to Present - Timeline of the Universe</figcaption>
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6f/CMB_Timeline300_no_WMAP.jpg/1200px-CMB_Timeline300_no_WMAP.jpg"
+                                class="chapter-diagram" alt="Big Bang">
+                            <figcaption>The Big Bang Timeline (13.7 BYA)</figcaption>
                         </figure>
                         <figure class="media-item">
-                            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f8/Solar_system_scale-2.jpg/500px-Solar_system_scale-2.jpg"
-                                alt="Solar System Formation" class="chapter-diagram">
-                            <figcaption>Solar Nebular Disk Model - Planet Formation</figcaption>
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e9/Geologic_time_scale.jpg/800px-Geologic_time_scale.jpg"
+                                class="chapter-diagram" alt="Geo Time Scale">
+                            <figcaption>Geological Time Scale Spiral</figcaption>
                         </figure>
                         <figure class="media-item">
-                            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2c/Solar_sys.jpg/500px-Solar_sys.jpg"
-                                alt="Solar System" class="chapter-diagram">
-                            <figcaption>Our Solar System - Planets in Order</figcaption>
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c2/Solar_System_true_color.jpg/2560px-Solar_System_true_color.jpg"
+                                class="chapter-diagram" alt="Solar System">
+                            <figcaption>The Solar System Family</figcaption>
                         </figure>
                     </div>
                 </div>
             </section>
 
+
+            <div class="chapter-nav">
+    <a href="chapter1.html" class="prev">
+        <span class="nav-dir">← Previous</span>
+        <span class="nav-title">Geography as a Discipline</span>
+    </a>
+    <a href="chapter3.html" class="next">
+        <span class="nav-dir">Next →</span>
+        <span class="nav-title">Interior of Earth</span>
+    </a>
+</div>
 
         </article>
     </div>

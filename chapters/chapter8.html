@@ -1,212 +1,277 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Chapter 8: Composition and Structure of Atmosphere</title>
+    <title>Chapter 8: Structure of Atmosphere</title>
     <link rel="stylesheet" href="../styles.css">
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
     <style>
-        .chapter-controls { position: fixed; top: 20px; right: 20px; display: flex; gap: 15px; z-index: 1000; }
-        .chapter-controls button { background: rgba(0,0,0,0.3); border: 1px solid rgba(255,255,255,0.2); border-radius: 50%; width: 45px; height: 45px; cursor: pointer; font-size: 1.3rem; backdrop-filter: blur(10px); transition: all 0.3s ease; color: var(--primary); }
-        .chapter-controls button:hover { background: rgba(255,255,255,0.1); transform: scale(1.1); }
+        .chapter-controls {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            display: flex;
+            gap: 15px;
+            z-index: 1000;
+        }
+
+        .chapter-controls button {
+            background: rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 50%;
+            width: 45px;
+            height: 45px;
+            cursor: pointer;
+            font-size: 1.3rem;
+            backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+            color: var(--primary);
+        }
+
+        .chapter-controls button:hover {
+            background: rgba(255, 255, 255, 0.1);
+            transform: scale(1.1);
+        }
     </style>
 </head>
+
 <body>
     <div class="chapter-controls">
-        <button id="warp-btn" onclick="toggleInterstellar()" title="Interstellar Mode"><ion-icon name="rocket-outline"></ion-icon></button>
-        <button id="music-btn" onclick="toggleMusic()" title="Toggle Music"><ion-icon name="musical-notes-outline"></ion-icon></button>
+        <button id="warp-btn" onclick="toggleInterstellar()" title="Interstellar Mode"><ion-icon
+                name="rocket-outline"></ion-icon></button>
+        <button id="music-btn" onclick="toggleMusic()" title="Toggle Music"><ion-icon
+                name="musical-notes-outline"></ion-icon></button>
+        <button id="bookmark-btn" class="bookmark-btn" title="Bookmark"><ion-icon name="bookmark-outline"></ion-icon></button>
+
     </div>
-    <audio id="bg-music" loop><source src="../music.mp3" type="audio/mpeg"></audio>
+    <audio id="bg-music" loop>
+        <source src="../music.mp3" type="audio/mpeg">
+    </audio>
     <div id="chapter-content">
         <article class="chapter-article">
+
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8a/Atmosphere_layers-en.svg/800px-Atmosphere_layers-en.svg.png" alt="Atmosphere Structure" class="chapter-hero-banner" loading="lazy">
+
+
+            <!-- HERO SECTION -->
+            <div class="content-block" style="text-align: center; border-bottom: 1px solid rgba(255,255,255,0.1);">
+                <span
+                    style="letter-spacing: 3px; color: var(--secondary); text-transform: uppercase; font-size: 0.9rem;">Climatology
+                    Module</span>
+                <h2 class="g-text-gradient" style="font-size: 3.5rem; margin: 10px 0;">8. Composition & Structure of
+                    Atmosphere</h2>
+                <p style="color: var(--text-dim); max-width: 600px; margin: 0 auto 30px;">The blanket of gases that
+                    protects life.</p>
+
+                <div class="scholar-quote">
+                    "The atmosphere is a chaotic fluid system, governed by thermodynamics and gravity."
+                </div>
+            </div>
+
+<div class="key-takeaways">
+    <h3><ion-icon name="bulb-outline"></ion-icon> Key Takeaways</h3>
+    <ul>
+        <li>Atmosphere composition: <strong>N₂ (78%)</strong>, <strong>O₂ (21%)</strong>, <strong>Ar (0.93%)</strong>, CO₂ (0.04%)</li>
+        <li>Five layers: <strong>Troposphere</strong>, Stratosphere, Mesosphere, Thermosphere, Exosphere</li>
+        <li>Temperature decreases at <strong>6.5°C per km</strong> in the troposphere (Normal Lapse Rate)</li>
+        <li>The <strong>Ozone layer</strong> in the stratosphere absorbs harmful UV radiation</li>
+    </ul>
+</div>
 
             <!-- ============================================ -->
             <!-- SECTION 1: COMPOSITION -->
             <!-- ============================================ -->
             <section class="content-block">
-                <h2 class="g-text-gradient">1. Composition of the Atmosphere</h2>
-                <p>The atmosphere is a mixture of gases, water vapor, and particulate matter held to the Earth by
-                    gravity. It is essential for all life.</p>
+                <h2 class="g-text-gradient">1. Composition of Air</h2>
+                <p>Air is a mixture, not a compound.</p>
 
-                <div class="subtopic-card">
-                    <h3><ion-icon name="analytics-outline"></ion-icon> 1.1 Permanent Gases</h3>
-                    <div class="glass-table-container">
-                        <table class="comparison-table">
-                            <thead>
-                                <tr>
-                                    <th>Gas</th>
-                                    <th>% by Volume</th>
-                                    <th>Significance</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td><strong>Nitrogen (N₂)</strong></td>
-                                    <td>78.08%</td>
-                                    <td>Dilutes oxygen. Essential for life (amino acids, proteins). Fixed by bacteria
-                                        (Nitrogen Cycle).</td>
-                                </tr>
-                                <tr>
-                                    <td><strong>Oxygen (O₂)</strong></td>
-                                    <td>20.95%</td>
-                                    <td>Essential for respiration and combustion. Produced by photosynthesis.</td>
-                                </tr>
-                                <tr>
-                                    <td><strong>Argon (Ar)</strong></td>
-                                    <td>0.93%</td>
-                                    <td>Inert gas. Used in light bulbs and welding.</td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-
-                <div class="subtopic-card">
-                    <h3><ion-icon name="flask-outline"></ion-icon> 1.2 Variable Gases & Particles (Crucial for UPSC)
-                    </h3>
-                    <div class="interactive-layers">
-                        <div class="layer-card" style="border-left-color: #74b9ff;">
-                            <h3>Water Vapor (0-4%)</h3>
-                            <p>The most important variable gas. Concentrations decrease from Equator to Poles, and from
-                                surface to altitude. Acts as a <span class="wiki-term" data-title="Greenhouse Gas"
-                                    data-summary="A gas that absorbs and emits radiant energy within the thermal infrared range, trapping heat in the atmosphere."
-                                    data-link="https://en.wikipedia.org/wiki/Greenhouse_gas">Greenhouse Gas</span>.
-                                Source of all precipitation.</p>
-                        </div>
-                        <div class="layer-card" style="border-left-color: #636e72;">
-                            <h3>Carbon Dioxide (CO₂ ~0.04%)</h3>
-                            <p>Primary anthropogenic greenhouse gas. Absorbs terrestrial (long-wave) radiation.
-                                Concentration has risen from ~280 ppm (pre-industrial) to over 420 ppm today. <span
-                                    class="citation-trigger"
-                                    data-citation="Source: NOAA Global Monitoring Laboratory">[Source: NOAA]</span></p>
-                        </div>
-                        <div class="layer-card" style="border-left-color: #0984e3;">
-                            <h3>Ozone (O₃)</h3>
-                            <p>A form of oxygen found mainly in the <span class="wiki-term" data-title="Stratosphere"
-                                    data-summary="The second major layer of Earth's atmosphere, above the troposphere. Contains the ozone layer (15-35 km)."
-                                    data-link="https://en.wikipedia.org/wiki/Stratosphere">Stratosphere</span> (15-35
-                                km). Absorbs harmful <span class="wiki-term" data-title="UV Radiation"
-                                    data-summary="Ultraviolet radiation from the Sun. UV-B and UV-C are harmful to living organisms."
-                                    data-link="https://en.wikipedia.org/wiki/Ultraviolet">UV-B and UV-C
-                                    radiation</span>. At ground level, O₃ is a pollutant (smog component).</p>
-                        </div>
-                        <div class="layer-card" style="border-left-color: #dfe6e9;">
-                            <h3>Dust Particles (Aerosols)</h3>
-                            <p>Include pollen, soot, volcanic ash, sea salt. Act as <span class="wiki-term"
-                                    data-title="Condensation Nuclei"
-                                    data-summary="Tiny particles (aerosols) on which water vapor condenses to form cloud droplets. Also called Cloud Condensation Nuclei (CCN)."
-                                    data-link="https://en.wikipedia.org/wiki/Cloud_condensation_nuclei">Hygroscopic
-                                    Nuclei</span> for condensation (cloud/rain formation). Scatter sunlight (causing red
-                                sunsets, blue sky).</p>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <!-- ============================================ -->
-            <!-- SECTION 2: STRUCTURE -->
-            <!-- ============================================ -->
-            <section class="content-block">
-                <h2 class="g-text-gradient">2. Structure of the Atmosphere</h2>
-                <p>The atmosphere is divided into layers based on the variation of temperature with altitude.</p>
-
-                <div class="interactive-layers">
-                    <div class="layer-card" style="border-left-color: #55efc4;">
-                        <h3>Troposphere (0 - ~12 km)</h3>
-                        <p><strong>"The Weather Sphere."</strong> Contains ~75% of atmospheric mass and almost all water
-                            vapor and dust. Temperature decreases with altitude at the <span class="wiki-term"
-                                data-title="Normal Lapse Rate"
-                                data-summary="The average rate of decrease of temperature with altitude in the troposphere, approximately 6.5°C per 1 km."
-                                data-link="https://en.wikipedia.org/wiki/Lapse_rate">Normal Lapse Rate</span>
-                            (6.5°C/km). The upper boundary is the **Tropopause**.</p>
-                    </div>
-                    <div class="layer-card" style="border-left-color: #0984e3;">
-                        <h3>Stratosphere (~12 - 50 km)</h3>
-                        <p><strong>"The Ozone Layer."</strong> Temperature *increases* with altitude due to absorption
-                            of UV by ozone. Very stable, no weather. Ideal for jet aircraft. Upper boundary:
-                            **Stratopause**.</p>
-                    </div>
-                    <div class="layer-card" style="border-left-color: #a29bfe;">
-                        <h3>Mesosphere (~50 - 80 km)</h3>
-                        <p><strong>"The Coldest Layer."</strong> Temperature decreases again (to ~-100°C at top).
-                            Meteors burn up here ("shooting stars"). Upper boundary: **Mesopause**.</p>
-                    </div>
-                    <div class="layer-card" style="border-left-color: #fd79a8;">
-                        <h3>Thermosphere (~80 - 700+ km)</h3>
-                        <p><strong>"The Ionized Layer."</strong> Temperature rises sharply (up to 1500°C), but feels
-                            cold due to extremely low air density. Contains the <span class="wiki-term"
-                                data-title="Ionosphere"
-                                data-summary="The ionized part of the thermosphere (80-600 km). Important for reflecting radio waves."
-                                data-link="https://en.wikipedia.org/wiki/Ionosphere">Ionosphere</span> (important for
-                            radio communication). <span class="wiki-term" data-title="Aurora"
-                                data-summary="A natural light display in the Earth's sky, caused by charged particles from the Sun colliding with atmospheric gases."
-                                data-link="https://en.wikipedia.org/wiki/Aurora">Auroras</span> occur here.</p>
-                    </div>
-                    <div class="layer-card" style="border-left-color: #2d3436;">
-                        <h3>Exosphere (~700+ km)</h3>
-                        <p>The outermost layer. Atmosphere gradually transitions into outer space. Gas molecules can
-                            escape Earth's gravity (Jeans escape).</p>
-                    </div>
-                </div>
-            </section>
-
-            <!-- ============================================ -->
-            <!-- SECTION 3: DATA VAULT -->
-            <!-- ============================================ -->
-            <section class="content-block">
-                <h2 class="g-text-gradient">3. The Data Vault: Precision Figures</h2>
                 <div class="glass-table-container">
                     <table class="comparison-table">
                         <thead>
                             <tr>
-                                <th>Parameter</th>
-                                <th>Value</th>
+                                <th>Component</th>
+                                <th>Percentage (Vol)</th>
+                                <th>Significance</th>
                             </tr>
                         </thead>
                         <tbody>
                             <tr>
-                                <td>Avg. Troposphere Height (Equator)</td>
-                                <td>~16-18 km (Higher due to convection)</td>
+                                <td><strong>Nitrogen (N2)</strong></td>
+                                <td>78.08%</td>
+                                <td>Inert gas. Fixation by bacteria for plant growth.</td>
                             </tr>
                             <tr>
-                                <td>Avg. Troposphere Height (Poles)</td>
-                                <td>~8-10 km (Lower due to subsidence)</td>
+                                <td><strong>Oxygen (O2)</strong></td>
+                                <td>20.95%</td>
+                                <td>Life support (Respiration). Essential for burning.</td>
                             </tr>
                             <tr>
-                                <td>Normal Lapse Rate</td>
-                                <td>6.5°C per 1000m</td>
+                                <td><strong>Argon (Ar)</strong></td>
+                                <td>0.93%</td>
+                                <td>Inert noble gas.</td>
                             </tr>
                             <tr>
-                                <td>Peak Ozone Concentration</td>
-                                <td>~20-25 km altitude</td>
+                                <td><strong>Carbon Dioxide (CO2)</strong></td>
+                                <td>0.036% (Rising)</td>
+                                <td><span class="wiki-term" data-title="Greenhouse Gas"
+                                        data-summary="Gases that trap heat in the atmosphere.">Greenhouse Gas</span>
+                                    (GHG). Transparent to incoming solar radiation but opaque to outgoing
+                                    terrestrial radiation.</td>
                             </tr>
                             <tr>
-                                <td>Current CO₂ Concentration</td>
-                                <td>> 420 ppm (2024)</td>
+                                <td><strong>Water Vapor</strong></td>
+                                <td>0 - 4%</td>
+                                <td>Variable gas. Source of all precipitation. Decreases from Equator to Poles. Acts
+                                    like a blanket.</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Dust Particles</strong></td>
+                                <td>Variable</td>
+                                <td>Act as <strong><span class="wiki-term" data-title="Hygroscopic Nuclei"
+                                            data-summary="Tiny particles for water vapor to condense onto, forming clouds.">Hygroscopic
+                                            Nuclei</span></strong> for condensation (rain formation).
+                                    Scatter light (Rayleigh Scattering -> Blue Sky).</td>
                             </tr>
                         </tbody>
                     </table>
                 </div>
-            </section>
-            <section class="content-block">
-                    <!-- DIAGRAM GALLERY -->
-                    <div class="diagram-gallery">
-                        <h4><ion-icon name="images-outline"></ion-icon> Key Diagrams</h4>
-                        <div class="media-gallery-grid">
-                            <figure class="media-item">
-                                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8c/Earth_atmosphere_diagram.svg/400px-Earth_atmosphere_diagram.svg.png" alt="Atmosphere Layers" class="chapter-diagram">
-                                <figcaption>Layers of Earth's Atmosphere</figcaption>
-                            </figure>
-                            <figure class="media-item">
-                                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7d/Atmospheric_Transmission.png/400px-Atmospheric_Transmission.png" alt="Atmospheric Composition" class="chapter-diagram">
-                                <figcaption>Atmospheric Transmission and Absorption</figcaption>
-                            </figure>
-                        </div>
-                    </div>
+
+                <!-- NCERT DATA VAULT -->
+                <div class="upsc-note" style="margin-top: 30px;">
+                    <h3>📚 NCERT Data Vault: Key Facts</h3>
+                    <ul style="padding-left: 20px; margin-top: 10px;">
+                        <li><strong>99% of atmosphere's mass within 32 km</strong> of Earth's surface</li>
+                        <li><strong>Nitrogen:</strong> 79% (updated: 78.08% NCERT exact)</li>
+                        <li><strong>Oxygen:</strong> 21% (updated: 20.95% NCERT exact)</li>
+                        <li><strong>CO₂:</strong> Meteorologically important - transparent to solar radiation,
+                            <strong>opaque to terrestrial radiation</strong> (greenhouse effect)</li>
+                        <li><strong>Ozone Layer:</strong> 10-50 km altitude. Absorbs harmful UV rays (acts as filter)
+                        </li>
+                        <li><strong>Water Vapor:</strong> 0-4%. Decreases with altitude & from equator to poles. Absorbs
+                            insolation, acts as blanket</li>
+                        <li><strong>Dust Particles:</strong> Concentrated in lower layers. Act as <span
+                                class="wiki-term" data-title="Hygroscopic Nuclei"
+                                data-summary="Particles that attract water vapor and serve as condensation nuclei for cloud formation.">hygroscopic
+                                nuclei</span> for cloud formation</li>
+                    </ul>
+
+                    <p style="margin-top: 15px;"><strong>Atmospheric Layers (NCERT):</strong> Troposphere (weather) →
+                        Stratosphere (ozone) → Mesosphere → Thermosphere (Ionosphere) → Exosphere</p>
+                </div>
             </section>
 
+            <!-- ============================================ -->
+            <!-- SECTION 2: STRUCTURE (DATA VAULT) -->
+            <!-- ============================================ -->
+            <section class="content-block">
+                <h2 class="g-text-gradient">2. The Layered Structure</h2>
+                <p>The atmosphere is divided into 5 layers based on temperature trends.</p>
+
+                <div class="interactive-layers">
+                    <div class="layer-card" style="border-left-color: #fab1a0;">
+                        <h3>1. Troposphere (0 - 18km)</h3>
+                        <p><strong>Temp Trend:</strong> Decreases with height.<br>
+                            <strong>Lapse Rate:</strong> 6.5°C per km (Normal Lapse Rate).<br>
+                            <strong>Significance:</strong> Contains 75% of mass. All <strong>weather phenomena</strong>
+                            (clouds, rain, storms) occur here. Highest at Equator (18km) due to convection, lowest at
+                            Poles (8km).
+                        </p>
+                    </div>
+                    <div class="layer-card" style="border-left-color: #74b9ff;">
+                        <h3>2. Stratosphere (18 - 50km)</h3>
+                        <p><strong>Temp Trend:</strong> Increases with height (due to Ozone).<br>
+                            <strong>Features:</strong> <strong><span class="wiki-term" data-title="Ozone Layer"
+                                    data-summary="A region of Earth's stratosphere that absorbs most of the Sun's ultraviolet radiation.">Ozone
+                                    Layer</span></strong> (O3) absorbs UV rays. Free from
+                            clouds/turbulence &rarr; ideal for <strong>Jet Aircraft</strong>.
+                        </p>
+                    </div>
+                    <div class="layer-card" style="border-left-color: #55efc4;">
+                        <h3>3. Mesosphere (50 - 80km)</h3>
+                        <p><strong>Temp Trend:</strong> Decreases. Coldest layer (-100°C).<br>
+                            <strong>Features:</strong> <strong>Meteors</strong> burn up here upon entry due to friction.
+                        </p>
+                    </div>
+                    <div class="layer-card" style="border-left-color: #fdcb6e;">
+                        <h3>4. Thermosphere / Ionosphere (80 - 400km)</h3>
+                        <p><strong>Temp Trend:</strong> Rapid increase (up to 1500°C).<br>
+                            <strong>Features:</strong> Contains electrically charged ions. Reflects <strong>Radio
+                                Waves</strong> back to Earth (crucial for AM radio). <br><strong>Auroras</strong>
+                            (Borealis/Australis) occur here.
+                        </p>
+                    </div>
+                    <div class="layer-card" style="border-left-color: #b2bec3;">
+                        <h3>5. Exosphere (400km+)</h3>
+                        <p><strong>Temp Trend:</strong> High temp but very low density.<br>
+                            <strong>Features:</strong> Merges with space. H and He gases dominate.
+                        </p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ============================================ -->
+            <!-- SECTION 3: CASE STUDY -->
+            <!-- ============================================ -->
+            <section class="content-block">
+                <div class="case-study-card">
+                    <div class="case-study-header">
+                        <ion-icon name="shield-checkmark-outline"></ion-icon>
+                        <div class="case-study-title">Case Study: The Ozone Hole</div>
+                    </div>
+                    <p><strong>The Incident:</strong> In the 1980s, scientists discovered a massive thinning of the
+                        Ozone Layer over <strong>Antarctica</strong>.</p>
+                    <p><strong>The Culprit:</strong> Chlorofluorocarbons (<span class="wiki-term" data-title="CFCs"
+                            data-summary="Chemicals used in refrigerants and aerosols. They release Chlorine which destroys Ozone.">CFCs</span>)
+                        used in refrigerants and aerosols.
+                        Chlorine atoms break down Ozone (O3) into Oxygen (O2).</p>
+                    <p><strong>The Solution:</strong> The <strong><span class="wiki-term" data-title="Montreal Protocol"
+                                data-summary="An international treaty agreed on 16 September 1987, designed to protect the ozone layer by phasing out the production of numerous substances that are responsible for ozone depletion.">Montreal
+                                Protocol</span> (1987)</strong>. A global treaty to
+                        phase out CFCs. It is the most successful environmental treaty in history. The Ozone layer is
+                        now slowly healing.</p>
+                </div>
+            </section>
+
+            <!-- ============================================ -->
+            <!-- SECTION 4: DIAGRAMS -->
+            <!-- ============================================ -->
+            <section class="content-block">
+                <div class="diagram-gallery">
+                    <h4><ion-icon name="images-outline"></ion-icon> Atmospheric Profile</h4>
+                    <div class="media-gallery-grid">
+                        <figure class="media-item">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7a/Atmosphere_layers-en.svg/600px-Atmosphere_layers-en.svg.png"
+                                class="chapter-diagram" alt="Layers">
+                            <figcaption>Vertical Structure of Atmosphere</figcaption>
+                        </figure>
+                        <figure class="media-item">
+                            <img src="https://plus.nasa.gov/wp-content/uploads/2023/10/ozone-hole-2023.jpg"
+                                class="chapter-diagram" alt="Ozone Hole">
+                            <figcaption>The Ozone Hole (NASA)</figcaption>
+                        </figure>
+                        <figure class="media-item">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/1e/Polar_Licht_2.jpg/1200px-Polar_Licht_2.jpg"
+                                class="chapter-diagram" alt="Aurora">
+                            <figcaption>Aurora Borealis (Thermosphere)</figcaption>
+                        </figure>
+                    </div>
+                </div>
+            </section>
+
+
+            <div class="chapter-nav">
+    <a href="chapter7.html" class="prev">
+        <span class="nav-dir">← Previous</span>
+        <span class="nav-title">Landforms & Evolution</span>
+    </a>
+    <a href="chapter9.html" class="next">
+        <span class="nav-dir">Next →</span>
+        <span class="nav-title">Solar Radiation</span>
+    </a>
+</div>
 
         </article>
     </div>

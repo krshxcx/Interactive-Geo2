@@ -1,115 +1,200 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Chapter 10: Atmospheric Circulation and Weather Systems</title>
+    <title>Chapter 10: Atmospheric Circulation</title>
     <link rel="stylesheet" href="../styles.css">
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
     <style>
-        .chapter-controls { position: fixed; top: 20px; right: 20px; display: flex; gap: 15px; z-index: 1000; }
-        .chapter-controls button { background: rgba(0,0,0,0.3); border: 1px solid rgba(255,255,255,0.2); border-radius: 50%; width: 45px; height: 45px; cursor: pointer; font-size: 1.3rem; backdrop-filter: blur(10px); transition: all 0.3s ease; color: var(--primary); }
-        .chapter-controls button:hover { background: rgba(255,255,255,0.1); transform: scale(1.1); }
+        .chapter-controls {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            display: flex;
+            gap: 15px;
+            z-index: 1000;
+        }
+
+        .chapter-controls button {
+            background: rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 50%;
+            width: 45px;
+            height: 45px;
+            cursor: pointer;
+            font-size: 1.3rem;
+            backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+            color: var(--primary);
+        }
+
+        .chapter-controls button:hover {
+            background: rgba(255, 255, 255, 0.1);
+            transform: scale(1.1);
+        }
     </style>
 </head>
+
 <body>
     <div class="chapter-controls">
-        <button id="warp-btn" onclick="toggleInterstellar()" title="Interstellar Mode"><ion-icon name="rocket-outline"></ion-icon></button>
-        <button id="music-btn" onclick="toggleMusic()" title="Toggle Music"><ion-icon name="musical-notes-outline"></ion-icon></button>
+        <button id="warp-btn" onclick="toggleInterstellar()" title="Interstellar Mode"><ion-icon
+                name="rocket-outline"></ion-icon></button>
+        <button id="music-btn" onclick="toggleMusic()" title="Toggle Music"><ion-icon
+                name="musical-notes-outline"></ion-icon></button>
+        <button id="bookmark-btn" class="bookmark-btn" title="Bookmark"><ion-icon name="bookmark-outline"></ion-icon></button>
+
     </div>
-    <audio id="bg-music" loop><source src="../music.mp3" type="audio/mpeg"></audio>
+    <audio id="bg-music" loop>
+        <source src="../music.mp3" type="audio/mpeg">
+    </audio>
     <div id="chapter-content">
         <article class="chapter-article">
 
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/9c/Earth_Global_Circulation_-_en.svg/800px-Earth_Global_Circulation_-_en.svg.png" alt="Atmospheric Circulation" class="chapter-hero-banner" loading="lazy">
+
+
+            <!-- HERO SECTION -->
+            <div class="content-block" style="text-align: center; border-bottom: 1px solid rgba(255,255,255,0.1);">
+                <span
+                    style="letter-spacing: 3px; color: var(--secondary); text-transform: uppercase; font-size: 0.9rem;">Climatology
+                    Module</span>
+                <h2 class="g-text-gradient" style="font-size: 3.5rem; margin: 10px 0;">10. Atmospheric Circulation</h2>
+                <p style="color: var(--text-dim); max-width: 600px; margin: 0 auto 30px;">The global highway of winds.
+                </p>
+
+                <div class="scholar-quote">
+                    "We live at the bottom of an ocean of air."
+                    <span class="scholar-cite">— <span class="wiki-term" data-title="Evangelista Torricelli"
+                            data-summary="Italian physicist and mathematician, best known for his invention of the barometer.">Evangelista
+                            Torricelli</span></span>
+                </div>
+            </div>
+
+<div class="key-takeaways">
+    <h3><ion-icon name="bulb-outline"></ion-icon> Key Takeaways</h3>
+    <ul>
+        <li>Winds flow from <strong>high pressure</strong> to <strong>low pressure</strong> areas</li>
+        <li><strong>Coriolis Effect</strong>: deflects winds right in NH, left in SH</li>
+        <li>Three wind cells: <strong>Hadley</strong>, <strong>Ferrel</strong>, <strong>Polar</strong></li>
+        <li><strong>Jet Streams</strong> are fast upper-atmosphere winds influencing weather patterns</li>
+    </ul>
+</div>
+
             <!-- ============================================ -->
-            <!-- SECTION 1: FORCES AFFECTING WIND -->
+            <!-- SECTION 1: FORCES -->
             <!-- ============================================ -->
             <section class="content-block">
-                <h2 class="g-text-gradient">1. The Deep Dive: Forces Affecting Wind</h2>
-                <p>Wind is horizontal movement of air caused by differences in atmospheric pressure. Three forces govern
-                    this movement.</p>
+                <h2 class="g-text-gradient">1. The Forces of Wind</h2>
+                <div class="two-col-layout">
+                    <!-- Pressure Gradient -->
+                    <div class="subtopic-card">
+                        <h3><ion-icon name="speedometer-outline"></ion-icon> Pressure Gradient Force (PGF)</h3>
+                        <p><strong>Driving Force:</strong> Air moves from High Pressure (HP) to Low Pressure (LP).<br>
+                            <strong>Steepness:</strong> Closer isobars = Stronger wind.
+                        </p>
+                    </div>
 
-                <div class="interactive-layers">
-                    <div class="layer-card" style="border-left-color: #e17055;">
-                        <h3><ion-icon name="swap-vertical-outline"></ion-icon> Pressure Gradient Force (PGF)</h3>
-                        <p>The *initiating force*. Air moves from High Pressure to Low Pressure. The steeper the
-                            gradient (closer the isobars on a map), the stronger the wind. PGF acts perpendicular to
-                            isobars.</p>
+                    <!-- Coriolis -->
+                    <div class="subtopic-card">
+                        <h3><ion-icon name="refresh-outline"></ion-icon> <span class="wiki-term"
+                                data-title="Coriolis Force"
+                                data-summary="An inertial force acting on objects moving in a rotating frame of reference (the Earth).">Coriolis
+                                Force</span></h3>
+                        <p><strong>Deflecting Force:</strong> Caused by Earth's rotation.<br>
+                            <strong>Ferrel's Law:</strong> Wind deflects to the <strong>RIGHT</strong> in Northern
+                            Hemisphere and <strong>LEFT</strong> in Southern Hemisphere.<br>
+                            <strong>Magnitude:</strong> Zero at Equator (no deflection), Maximum at Poles.
+                        </p>
                     </div>
-                    <div class="layer-card" style="border-left-color: #74b9ff;">
-                        <h3><ion-icon name="sync-circle-outline"></ion-icon> Coriolis Force (CF)</h3>
-                        <p>A *deflecting force* arising from Earth's rotation. It deflects wind to the <strong>Right in
-                                the Northern Hemisphere</strong> and <strong>Left in the Southern Hemisphere</strong>
-                            (<span class="wiki-term" data-title="Ferrel's Law"
-                                data-summary="The principle that, as a result of Earth's rotation, any moving object in the Northern Hemisphere is deflected to its right, and in the Southern Hemisphere to its left."
-                                data-link="https://en.wikipedia.org/wiki/Ferrel%27s_law">Ferrel's Law</span>). It is
-                            zero at the Equator and maximum at the Poles.</p>
-                    </div>
-                    <div class="layer-card" style="border-left-color: #a29bfe;">
-                        <h3><ion-icon name="hand-left-outline"></ion-icon> Friction Force</h3>
-                        <p>Friction with the surface slows down the wind and reduces the effect of Coriolis force.
-                            Important at lower altitudes (within 1-2 km). Above this height (free atmosphere), PGF and
-                            CF are balanced, causing <span class="wiki-term" data-title="Geostrophic Wind"
-                                data-summary="A theoretical wind that blows parallel to isobars, resulting from a balance between PGF and CF. Found in the upper atmosphere."
-                                data-link="https://en.wikipedia.org/wiki/Geostrophic_wind">Geostrophic Wind</span>
-                            (parallel to isobars).</p>
-                    </div>
+                </div>
+                <div class="formula-card">
+                    <div class="formula-text"><span class="wiki-term" data-title="Geostrophic Wind"
+                            data-summary="A theoretical wind that results from an exact balance between the Coriolis force and the pressure gradient force.">Geostrophic
+                            Wind</span></div>
+                    <div class="formula-desc">When PGF and Coriolis Force are perfectly balanced, wind blows parallel to
+                        isobars. (Occurs in upper atmosphere).</div>
+                </div>
+
+                <!-- NCERT DATA VAULT -->
+                <div class="upsc-note" style="margin-top: 30px;">
+                    <h3>📚 NCERT Data Vault</h3>
+                    <p><strong>3 Forces:</strong> Pressure Gradient (high→low), Frictional (surface), Coriolis (deflects
+                        right in NH, left in SH)</p>
+                    <p style="margin-top: 10px;"><strong>General Circulation:</strong> Hadley Cell (0°-30°), Ferrel Cell
+                        (30°-60°), Polar Cell (60°-90°)</p>
+                    <p style="margin-top: 10px;"><strong>Tropical Cyclones:</strong> Low-pressure spiraling winds, calm
+                        "eye", extreme "eyewall" | <strong>ENSO:</strong> El Niño Southern Oscillation</p>
                 </div>
             </section>
 
             <!-- ============================================ -->
-            <!-- SECTION 2: GENERAL CIRCULATION -->
+            <!-- SECTION 2: TRI-CELLULAR MODEL (DATA VAULT) -->
             <!-- ============================================ -->
             <section class="content-block">
-                <h2 class="g-text-gradient">2. General Circulation: The Tri-Cellular Model</h2>
-                <p>The global pattern of surface winds and upper-air circulation can be idealized as three cells in each
-                    hemisphere.</p>
+                <h2 class="g-text-gradient">2. The Tri-Cellular Model</h2>
+                <p>The global circulation is divided into three distinct cells in each hemisphere.</p>
 
                 <div class="glass-table-container">
                     <table class="comparison-table">
                         <thead>
                             <tr>
-                                <th>Cell</th>
-                                <th>Latitudinal Extent</th>
-                                <th>Surface Winds</th>
-                                <th>Characteristics</th>
+                                <th>Cell Name</th>
+                                <th>Latitude</th>
+                                <th>Wind System</th>
+                                <th>Mechanism</th>
                             </tr>
                         </thead>
                         <tbody>
                             <tr>
                                 <td><strong><span class="wiki-term" data-title="Hadley Cell"
-                                            data-summary="The large-scale atmospheric convection cell in which air rises at the equator and sinks at the subtropics (~30°). Named after George Hadley."
-                                            data-link="https://en.wikipedia.org/wiki/Hadley_cell">Hadley
+                                            data-summary="Named after George Hadley. A tropical atmospheric circulation that creates the Trade Winds.">Hadley
                                             Cell</span></strong></td>
-                                <td>0° - 30°</td>
-                                <td><strong>Trade Winds</strong> (NE in NH, SE in SH)</td>
-                                <td>Thermally driven. Rising air at Equator (<span class="wiki-term" data-title="ITCZ"
-                                        data-summary="The Inter-Tropical Convergence Zone (Doldrums). A low-pressure belt where the trade winds meet, characterized by rising air and heavy rainfall."
-                                        data-link="https://en.wikipedia.org/wiki/Intertropical_Convergence_Zone">ITCZ</span>)
-                                    → flows poleward aloft → descends at ~30° (Subtropical Highs) → returns to equator
-                                    as surface trades.</td>
+                                <td>0° - 30° (Tropics)</td>
+                                <td><strong>Trade Winds</strong> (Easterlies)</td>
+                                <td><strong>Thermal:</strong> Air rises at Equator (ITCZ/Low), flows poleward, sinks at
+                                    30° (Subtropical High), flows back to Equator.</td>
                             </tr>
                             <tr>
                                 <td><strong><span class="wiki-term" data-title="Ferrel Cell"
-                                            data-summary="The mid-latitude atmospheric circulation cell (30°-60°). It is driven indirectly by the Hadley and Polar cells."
-                                            data-link="https://en.wikipedia.org/wiki/Ferrel_cell">Ferrel
+                                            data-summary="Named after William Ferrel. A mid-latitude atmospheric circulation.">Ferrel
                                             Cell</span></strong></td>
-                                <td>30° - 60°</td>
-                                <td><strong>Westerlies</strong> (SW in NH, NW in SH)</td>
-                                <td>Indirectly driven. Surface air moves poleward from 30° Highs and is deflected by
-                                    Coriolis to become Westerlies. Meets cold polar air at ~60° (Polar Front), creating
-                                    weather.</td>
+                                <td>30° - 60° (Mid-Lat)</td>
+                                <td><strong>Westerlies</strong></td>
+                                <td><strong>Mechanical:</strong> Indirect, friction-driven cell. Air flows from
+                                    Subtropical High (30°) to Subpolar Low (60°). Rises at 60° (Frontal Uplift).</td>
                             </tr>
                             <tr>
                                 <td><strong>Polar Cell</strong></td>
-                                <td>60° - 90°</td>
+                                <td>60° - 90° (Poles)</td>
                                 <td><strong>Polar Easterlies</strong></td>
-                                <td>Thermally driven. Cold, dense air sinks at the poles and flows towards 60°. It is
-                                    deflected to become Easterlies.</td>
+                                <td><strong>Thermal:</strong> Cold dense air sinks at Poles (High), flows
+                                    to 60° Low.</td>
                             </tr>
                         </tbody>
                     </table>
+                </div>
+
+                <div class="interactive-layers">
+                    <div class="layer-card" style="border-left-color: #fab1a0;">
+                        <h3>ITCZ (Inter-Tropical Convergence Zone)</h3>
+                        <p>The "Thermal Equator." Zone of intense low pressure where NE and SE Trade Winds collide.
+                            Shifts North in July (bringing Monsoon to India) and South in January.</p>
+                    </div>
+                    <div class="layer-card" style="border-left-color: #0984e3;">
+                        <h3>Horse Latitudes (30° N/S)</h3>
+                        <p>Zone of sinking high pressure. Calm winds, dry air. Most of the world's hot deserts (Sahara,
+                            Atacama, Kalahari) are located here due to sinking dry air.</p>
+                    </div>
+                    <div class="layer-card" style="border-left-color: #636e72;">
+                        <h3><span class="wiki-term" data-title="Jet Stream"
+                                data-summary="Narrow bands of strong wind in the upper levels of the atmosphere.">Jet
+                                Streams</span></h3>
+                        <p>Fast flowing, narrow air currents in the upper atmosphere. The <strong>Subtropical Jet
+                                Stream</strong> influences Indian Monsoons.</p>
+                    </div>
                 </div>
             </section>
 
@@ -117,73 +202,118 @@
             <!-- SECTION 3: CYCLONES -->
             <!-- ============================================ -->
             <section class="content-block">
-                <h2 class="g-text-gradient">3. Cyclones and Anti-Cyclones</h2>
-                <div class="interactive-layers">
-                    <div class="layer-card" style="border-left-color: #d63031;">
-                        <h3>Tropical Cyclones (Hurricanes/Typhoons)</h3>
-                        <p>Intense low-pressure systems originating over warm tropical oceans (>27°C). Powered by latent
-                            heat release from condensation. Eye is calm. Spin counter-clockwise in NH. Deadliest
-                            phenomenon on Earth. Names: Hurricanes (Atlantic), Typhoons (Pacific), Cyclones (Indian
-                            Ocean).</p>
-                    </div>
-                    <div class="layer-card" style="border-left-color: #74b9ff;">
-                        <h3>Temperate (Extra-Tropical) Cyclones</h3>
-                        <p>Formed at the <span class="wiki-term" data-title="Polar Front"
-                                data-summary="The boundary between the cold polar air mass and the warmer tropical air mass, a zone of atmospheric instability."
-                                data-link="https://en.wikipedia.org/wiki/Polar_front">Polar Front</span> (Ferrel-Polar
-                            cell boundary). Driven by the interaction of warm and cold air masses. Associated with
-                            well-defined fronts (Warm, Cold, Occluded). Common over Europe and North America. Bring
-                            widespread precipitation.</p>
-                    </div>
+                <h2 class="g-text-gradient">3. Atmosphere's Fury: Cyclones</h2>
+                <div class="glass-table-container">
+                    <table class="comparison-table">
+                        <thead>
+                            <tr>
+                                <th>Feature</th>
+                                <th>Tropical Cyclone</th>
+                                <th>Temperate (Extra-Tropical) Cyclone</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>Origin</strong></td>
+                                <td>Thermal origin (Warm Oceans > 27°C).</td>
+                                <td>Frontal origin (Meeting of Warm & Cold air).</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Location</strong></td>
+                                <td>8° - 20° Latitude (Tropics).</td>
+                                <td>30° - 60° Latitude (Mid-Latitudes).</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Shape</strong></td>
+                                <td>Circular, with an "Eye" (Calm center).</td>
+                                <td>Inverted 'V' shape. No eye.</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Movement</strong></td>
+                                <td>East to West (Trade Winds).</td>
+                                <td>West to East (Westerlies).</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Destruction</strong></td>
+                                <td>Violent, destructive wind velocity. Short duration.</td>
+                                <td>Less violent. Brings widespread rain. Long duration.</td>
+                            </tr>
+                        </tbody>
+                    </table>
                 </div>
             </section>
 
             <!-- ============================================ -->
-            <!-- SECTION 4: CONNECT THE DOTS -->
+            <!-- SECTION 4: CASE STUDY -->
             <!-- ============================================ -->
             <section class="content-block">
-                <h2 class="g-text-gradient">4. Connect the Dots: Interdisciplinary Links</h2>
-                <div class="interactive-layers">
-                    <div class="layer-card" style="border-left-color: #a29bfe;">
-                        <h3><ion-icon name="code-working-outline"></ion-icon> Physics: Conservation of Angular Momentum
-                        </h3>
-                        <p>The Coriolis Effect is a *pseudo-force*. It arises because we observe motion from a rotating
-                            reference frame (Earth). It is an application of Newtonian mechanics. The Conservation of
-                            Angular Momentum explains why air moving poleward appears to curve eastward (it retains its
-                            original higher rotational velocity from the equator).</p>
+                <div class="case-study-card">
+                    <div class="case-study-header">
+                        <ion-icon name="repeat-outline"></ion-icon>
+                        <div class="case-study-title">Case Study: El Niño Southern Oscillation (ENSO)</div>
                     </div>
-                    <div class="layer-card" style="border-left-color: #fd79a8;">
-                        <h3><ion-icon name="boat-outline"></ion-icon> History: Age of Sail</h3>
-                        <p>The predictable Trade Winds and Westerlies shaped world history. European explorers used the
-                            Trade Winds to sail to the Americas and the Westerlies to return to Europe. The windless
-                            <span class="wiki-term" data-title="Doldrums"
-                                data-summary="A colloquial term for the ITCZ, known for calm, windless conditions that could strand sailing ships."
-                                data-link="https://en.wikipedia.org/wiki/Doldrums">Doldrums</span> (ITCZ) could strand
-                            ships for weeks.</p>
-                    </div>
-                </div>
-            </section>
-            <section class="content-block">
-                    <!-- DIAGRAM GALLERY -->
-                    <div class="diagram-gallery">
-                        <h4><ion-icon name="images-outline"></ion-icon> Key Diagrams</h4>
-                        <div class="media-gallery-grid">
-                            <figure class="media-item">
-                                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/9c/Earth_Global_Circulation_-_en.svg/500px-Earth_Global_Circulation_-_en.svg.png" alt="Global Circulation" class="chapter-diagram">
-                                <figcaption>Tri-Cellular Model - Hadley, Ferrel, Polar Cells</figcaption>
-                            </figure>
-                            <figure class="media-item">
-                                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b6/Coriolis_effect14.png/300px-Coriolis_effect14.png" alt="Coriolis Effect" class="chapter-diagram">
-                                <figcaption>Coriolis Effect on Wind Direction</figcaption>
-                            </figure>
-                            <figure class="media-item">
-                                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/42/Cyclone_Catarina_from_the_ISS_on_March_26_2004.JPG/400px-Cyclone_Catarina_from_the_ISS_on_March_26_2004.JPG" alt="Tropical Cyclone" class="chapter-diagram">
-                                <figcaption>Tropical Cyclone - Satellite View</figcaption>
-                            </figure>
+                    <div class="two-col-layout">
+                        <div>
+                            <h4>Normal Year (La Niña Conditions)</h4>
+                            <p><strong><span class="wiki-term" data-title="Humboldt Current"
+                                        data-summary="Also known as the Peru Current. A cold, low-salinity ocean current that flows north along the western coast of South America.">Peru
+                                        Current</span>:</strong> Cold water off Peru coast (Upwelling).<br>
+                                <strong>Pressure:</strong> High Pressure over Tahiti (East Pacific), Low Pressure over
+                                Darwin (West Pacific).<br>
+                                <strong>Result:</strong> Rain in Australia/Indonesia. Good Monsoon in India.
+                            </p>
+                        </div>
+                        <div>
+                            <h4><span class="wiki-term" data-title="El Niño"
+                                    data-summary="The warm phase of the ENSO. Associated with a band of warm ocean water in the central and east-central equatorial Pacific.">El
+                                    Niño</span> Year</h4>
+                            <p><strong>Current:</strong> Warm water replaces cold off Peru.<br>
+                                <strong>Pressure:</strong> Reversal. Low Pressure over Tahiti, High Pressure over
+                                Darwin.<br>
+                                <strong>Result:</strong> Drought in Australia/India. Floods in Peru.
+                            </p>
                         </div>
                     </div>
+                </div>
             </section>
 
+            <!-- ============================================ -->
+            <!-- SECTION 5: DIAGRAMS -->
+            <!-- ============================================ -->
+            <section class="content-block">
+                <div class="diagram-gallery">
+                    <h4><ion-icon name="images-outline"></ion-icon> Circulation Maps</h4>
+                    <div class="media-gallery-grid">
+                        <figure class="media-item">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/9c/Earth_Global_Circulation_-_en.svg/1200px-Earth_Global_Circulation_-_en.svg.png"
+                                class="chapter-diagram" alt="Global Cells">
+                            <figcaption>The Tri-Cellular Model</figcaption>
+                        </figure>
+                        <figure class="media-item">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6d/Coriolis_effect14.png/640px-Coriolis_effect14.png"
+                                class="chapter-diagram" alt="Coriolis">
+                            <figcaption>Coriolis Force Deflection</figcaption>
+                        </figure>
+                        <figure class="media-item">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2e/Enso-global-impact_EN.svg/1280px-Enso-global-impact_EN.svg.png"
+                                class="chapter-diagram" alt="ENSO">
+                            <figcaption>IMpact of El Nino (ENSO)</figcaption>
+                        </figure>
+                    </div>
+                </div>
+            </section>
+
+
+            <div class="chapter-nav">
+    <a href="chapter9.html" class="prev">
+        <span class="nav-dir">← Previous</span>
+        <span class="nav-title">Solar Radiation</span>
+    </a>
+    <a href="chapter11.html" class="next">
+        <span class="nav-dir">Next →</span>
+        <span class="nav-title">Water in Atmosphere</span>
+    </a>
+</div>
 
         </article>
     </div>

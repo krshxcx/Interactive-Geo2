@@ -1,249 +1,352 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Chapter 4: Distribution of Oceans and Continents</title>
+    <title>Chapter 4: Oceans & Continents</title>
     <link rel="stylesheet" href="../styles.css">
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
     <style>
-        .chapter-controls { position: fixed; top: 20px; right: 20px; display: flex; gap: 15px; z-index: 1000; }
-        .chapter-controls button { background: rgba(0,0,0,0.3); border: 1px solid rgba(255,255,255,0.2); border-radius: 50%; width: 45px; height: 45px; cursor: pointer; font-size: 1.3rem; backdrop-filter: blur(10px); transition: all 0.3s ease; color: var(--primary); }
-        .chapter-controls button:hover { background: rgba(255,255,255,0.1); transform: scale(1.1); }
+        .chapter-controls {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            display: flex;
+            gap: 15px;
+            z-index: 1000;
+        }
+
+        .chapter-controls button {
+            background: rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 50%;
+            width: 45px;
+            height: 45px;
+            cursor: pointer;
+            font-size: 1.3rem;
+            backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+            color: var(--primary);
+        }
+
+        .chapter-controls button:hover {
+            background: rgba(255, 255, 255, 0.1);
+            transform: scale(1.1);
+        }
     </style>
 </head>
+
 <body>
     <div class="chapter-controls">
-        <button id="warp-btn" onclick="toggleInterstellar()" title="Interstellar Mode"><ion-icon name="rocket-outline"></ion-icon></button>
-        <button id="music-btn" onclick="toggleMusic()" title="Toggle Music"><ion-icon name="musical-notes-outline"></ion-icon></button>
+        <button id="warp-btn" onclick="toggleInterstellar()" title="Interstellar Mode"><ion-icon
+                name="rocket-outline"></ion-icon></button>
+        <button id="music-btn" onclick="toggleMusic()" title="Toggle Music"><ion-icon
+                name="musical-notes-outline"></ion-icon></button>
+        <button id="bookmark-btn" class="bookmark-btn" title="Bookmark"><ion-icon name="bookmark-outline"></ion-icon></button>
+
     </div>
-    <audio id="bg-music" loop><source src="../music.mp3" type="audio/mpeg"></audio>
+    <audio id="bg-music" loop>
+        <source src="../music.mp3" type="audio/mpeg">
+    </audio>
     <div id="chapter-content">
         <article class="chapter-article">
 
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8a/Plates_tect2_en.svg/800px-Plates_tect2_en.svg.png" alt="Oceans & Continents" class="chapter-hero-banner" loading="lazy">
+
+
+            <!-- HERO SECTION -->
+            <div class="content-block" style="text-align: center; border-bottom: 1px solid rgba(255,255,255,0.1);">
+                <span
+                    style="letter-spacing: 3px; color: var(--secondary); text-transform: uppercase; font-size: 0.9rem;">Tectonics
+                    Module</span>
+                <h2 class="g-text-gradient" style="font-size: 3.5rem; margin: 10px 0;">4. Distribution of Oceans &
+                    Continents</h2>
+                <p style="color: var(--text-dim); max-width: 600px; margin: 0 auto 30px;">The restless dance of the
+                    lithospheric plates.</p>
+
+                <div class="scholar-quote">
+                    "The Earth is a mobile thing; continents are but rafts floating on a sea of magma."
+                    <span class="scholar-cite">— <span class="wiki-term" data-title="Alfred Wegener"
+                            data-summary="German polar researcher, geophysicist and meteorologist. Originator of the theory of continental drift.">Alfred
+                            Wegener</span></span>
+                </div>
+            </div>
+
+<div class="key-takeaways">
+    <h3><ion-icon name="bulb-outline"></ion-icon> Key Takeaways</h3>
+    <ul>
+        <li>Wegener's <strong>Continental Drift</strong> (1912): Continents were once joined as <strong>Pangaea</strong></li>
+        <li>Plate Tectonics explains earthquakes, volcanoes, and mountain building</li>
+        <li>Three types of plate boundaries: <strong>Divergent</strong>, <strong>Convergent</strong>, <strong>Transform</strong></li>
+        <li>Sea-floor spreading proved by magnetic stripe symmetry along mid-ocean ridges</li>
+    </ul>
+</div>
+
             <!-- ============================================ -->
-            <!-- SECTION 1: THE DEEP DIVE -->
+            <!-- NCERT DATA VAULT: CONTINENTAL DRIFT KEY FACTS -->
             <!-- ============================================ -->
             <section class="content-block">
-                <h2 class="g-text-gradient">1. The Deep Dive: Continental Drift vs. Plate Tectonics</h2>
-                <p>The question "Were the continents always where they are now?" has driven a century of geological
-                    debate. The answer is a resounding *No*.</p>
+                <h2 class="g-text-gradient">📚 NCERT Data Vault</h2>
+                <p>Critical facts from NCERT for Continental Drift & Plate Tectonics.</p>
 
-                <!-- SUB-TOPIC 1.1 -->
                 <div class="subtopic-card">
-                    <h3><ion-icon name="trail-sign-outline"></ion-icon> 1.1 Continental Drift Hypothesis</h3>
-                    <p><strong>Proponent:</strong> <span class="wiki-term" data-title="Alfred Wegener"
-                            data-summary="German meteorologist (1880-1930). Proposed Continental Drift in 'Die Entstehung der Kontinente und Ozeane' (1912). Died on Greenland expedition."
-                            data-image="https://upload.wikimedia.org/wikipedia/commons/thumb/a/ab/Alfred_Wegener_ca.1924-30.jpg/220px-Alfred_Wegener_ca.1924-30.jpg"
-                            data-link="https://en.wikipedia.org/wiki/Alfred_Wegener">Alfred Wegener</span> (1912).</p>
-                    <p><strong>The Core Idea:</strong> Around 280 million years ago (Carboniferous Period), all
-                        continents were joined as a supercontinent called <span class="wiki-term" data-title="Pangaea"
-                            data-summary="Greek for 'All Lands'. A supercontinent that included all landmasses, surrounded by the super-ocean Panthalassa."
-                            data-image="https://upload.wikimedia.org/wikipedia/commons/thumb/6/67/Pangaea_continents.svg/300px-Pangaea_continents.svg.png"
-                            data-link="https://en.wikipedia.org/wiki/Pangaea">Pangaea</span>, surrounded by a mega-ocean
-                        called <strong>Panthalassa</strong>. Around 200 MYA, Pangaea broke into two:
-                        <strong>Laurasia</strong> (North) and <strong>Gondwanaland</strong> (South).</p>
+                    <h3><ion-icon name="time-outline"></ion-icon> Pangaea Timeline (NCERT)</h3>
+                    <ul class="timeline-vertical">
+                        <li><strong>~300 MYA:</strong> Pangaea forms (all continents united)</li>
+                        <li><strong>~200 MYA:</strong> Pangaea breaks into <strong>Laurasia</strong> (North) &
+                            <strong>Gondwanaland</strong> (South)</li>
+                        <li><strong>Tethys Sea:</strong> Separates Laurasia from Gondwana</li>
+                        <li><strong>Gondwana:</strong> S. America, Africa, Madagascar, India, Antarctica, Australia</li>
+                        <li><strong>Laurasia:</strong> N. America, Europe, Asia (except India)</li>
+                    </ul>
+                </div>
 
-                    <h4>Wegener's Evidence (Crucial for UPSC)</h4>
+                <div class="upsc-note">
+                    <strong>Wegener's 5 Evidence Types (NCERT):</strong>
+                    <ol style="margin-top: 10px; padding-left: 25px;">
+                        <li><strong>Jig-Saw Fit:</strong> S. America & Africa coastlines match (Bullard, 1964)</li>
+                        <li><strong>Matching Rocks:</strong> 2,000 MY-old rocks across Brazil-Africa</li>
+                        <li><strong>Tillite:</strong> Glacial deposits in tropical India, Africa, Australia</li>
+                        <li><strong>Placer Deposits:</strong> Ghana gold from Brazil plateau</li>
+                        <li><strong>Fossils:</strong> <em>Mesosaurus</em> (S. Africa & Brazil), <em>Glossopteris</em>
+                            fern across Gondwana</li>
+                    </ol>
+                    <p style="margin-top: 10px;"><strong>Flaw:</strong> Wegener couldn't explain mechanism.
+                        "Pole-fleeing" force too weak.</p>
+                </div>
+            </section>
+
+            <!-- ============================================ -->
+            <!-- SECTION 1: CONTINENTAL DRIFT -->>
+            <!-- ============================================ -->
+            <section class="content-block">
+                <h2 class="g-text-gradient">1. Continental Drift Theory (CDT)</h2>
+                <div class="subtopic-card">
+                    <h3><ion-icon name="map-outline"></ion-icon> 1.1 The Proposal</h3>
+                    <p><strong>Alfred Wegener</strong> (1912) proposed that all continents were
+                        once formed a single supercontinent.</p>
+                    <ul class="timeline-vertical">
+                        <li><strong><span class="wiki-term" data-title="Pangaea"
+                                    data-summary="A supercontinent that existed during the late Paleozoic and early Mesozoic eras. Greek for 'entire earth'.">Pangaea</span>:</strong>
+                            "All Earth" - The Supercontinent.</li>
+                        <li><strong><span class="wiki-term" data-title="Panthalassa"
+                                    data-summary="The superocean that surrounded the supercontinent Pangaea. Greek for 'all sea'.">Panthalassa</span>:</strong>
+                            "All Water" - The Mega Ocean.</li>
+                        <li><strong>~200 MYA:</strong> Pangaea split into <strong>Laurasia</strong> (North) and
+                            <strong>Gondwanaland</strong> (South), separated by the <strong><span class="wiki-term"
+                                    data-title="Tethys"
+                                    data-summary="An ocean that existed between Gondwana and Laurasia. The Himalayan mountains grew from its bed.">Tethys
+                                    Sea</span></strong>.
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="subtopic-card">
+                    <h3><ion-icon name="search-outline"></ion-icon> 1.2 Evidence for Drift</h3>
                     <div class="glass-table-container">
                         <table class="comparison-table">
                             <thead>
                                 <tr>
-                                    <th>Evidence Type</th>
-                                    <th>Description</th>
+                                    <th>Evidence</th>
+                                    <th>Details</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 <tr>
                                     <td><strong>Jig-Saw Fit</strong></td>
-                                    <td>The bulge of Brazil fits into the Gulf of Guinea on Africa's coast with
-                                        remarkable accuracy (later confirmed by Sir Edward Bullard's computer analysis
-                                        at 1000m depth).</td>
+                                    <td>The coastlines of South America (Brazil) and Africa (Gulf of Guinea) fit
+                                        perfectly. Bullard (1964) confirmed this utilizing computer mapping.</td>
                                 </tr>
                                 <tr>
-                                    <td><strong>Geological Similarity</strong></td>
-                                    <td>The Appalachian Mountains (N. America) are geologically identical to the
-                                        Caledonian Mountains (Scotland/Scandinavia). They were once a single range.</td>
+                                    <td><strong>Rocks of Same Age</strong></td>
+                                    <td>Radio-metric dating shows rocks of 2,000 Million years in Brazil match those in
+                                        Western Africa.</td>
                                 </tr>
                                 <tr>
-                                    <td><strong>Fossil Evidence</strong></td>
-                                    <td><span class="wiki-term" data-title="Mesosaurus"
-                                            data-summary="A small freshwater reptile (~1m long) from the early Permian. Its fossils are found ONLY in S. Africa and Brazil."
-                                            data-link="https://en.wikipedia.org/wiki/Mesosaurus">Mesosaurus</span> (a
-                                        freshwater reptile) found *only* in South Africa and Brazil. It could not have
-                                        swum across the Atlantic.</td>
+                                    <td><strong><span class="wiki-term" data-title="Tillite"
+                                                data-summary="Sedimentary rock consisting of consolidated masses of unweathered blocks and glacial till.">Tillite</span></strong>
+                                    </td>
+                                    <td>Glacial deposits from the Gondwana system are found in India, Africa,
+                                        Falklands, Madagascar, Antarctica, and Australia.</td>
                                 </tr>
                                 <tr>
                                     <td><strong>Placer Deposits</strong></td>
-                                    <td>Gold-bearing gravels on the coast of Ghana have no source rock in Africa. The
-                                        source (igneous intrusion) is in Brazil.</td>
+                                    <td>Gold mines exist in Ghana, but the source veins are in Brazil.</td>
                                 </tr>
                                 <tr>
-                                    <td><strong>Tillite Deposits</strong></td>
-                                    <td>Glacial sediments (tillites) of the same age found in South America, Africa,
-                                        India, and Australia indicate they were all near the South Pole together.</td>
+                                    <td><strong>Fossil Distribution</strong></td>
+                                    <td><em><span class="wiki-term" data-title="Mesosaurus"
+                                                data-summary="An extinct genus of reptile from the Early Permian of southern Africa and South America.">Mesosaurus</span></em>
+                                        (freshwater reptile) skeletons found ONLY in S. Africa
+                                        and Brazil (across an ocean!). <em>Glossopteris</em> (fern) found across all
+                                        Gondwana lands.</td>
                                 </tr>
                             </tbody>
                         </table>
                     </div>
-
-                    <div class="upsc-note">
-                        <strong>UPSC Critical: The Fatal Flaw of Wegener's Theory</strong>
-                        <p><strong>The Criticism:</strong> Wegener proposed that continents ploughed through denser
-                            oceanic crust like ships through ice, driven by tidal forces and Earth's rotation
-                            ("Pole-Fleeing Force" or *Fluchtpolkraft*). Physicists like <span class="wiki-term"
-                                data-title="Harold Jeffreys"
-                                data-summary="British geophysicist who proved Wegener's proposed forces were many orders of magnitude too weak to move continents."
-                                data-link="https://en.wikipedia.org/wiki/Harold_Jeffreys">Harold Jeffreys</span>
-                            calculated that these forces were *far too weak* by many orders of magnitude. Without a
-                            valid mechanism, the theory was rejected until the 1960s. <span class="citation-trigger"
-                                data-citation="Source: Principles of Physical Geography, P. Dayal">[Source:
-                                Dayal]</span></p>
-                    </div>
                 </div>
 
-                <!-- SUB-TOPIC 1.2 -->
-                <div class="subtopic-card">
-                    <h3><ion-icon name="apps-outline"></ion-icon> 1.2 Plate Tectonics: The Modern Paradigm</h3>
-                    <p>The discovery of <span class="wiki-term" data-title="Sea-Floor Spreading"
-                            data-summary="The process where new oceanic crust is formed at mid-ocean ridges as plates diverge, pushing older crust outward. Proposed by Harry Hess (1962)."
-                            data-link="https://en.wikipedia.org/wiki/Seafloor_spreading">Sea-Floor Spreading</span> by
-                        <strong>Harry Hess (1962)</strong> and the related <span class="wiki-term"
-                            data-title="Paleomagnetic Stripes"
-                            data-summary="Symmetric patterns of magnetic polarity reversals in oceanic crust, flanking mid-ocean ridges. Provided proof of sea-floor spreading."
-                            data-link="https://en.wikipedia.org/wiki/Vine%E2%80%93Matthews%E2%80%93Morley_hypothesis">paleomagnetic
-                            stripes</span> (Vine-Matthews, 1963) provided the *missing mechanism*.</p>
-                    <p><strong>The Core Idea:</strong> The lithosphere (crust + upper rigid mantle) is broken into ~15
-                        major and minor <span class="wiki-term" data-title="Tectonic Plates"
-                            data-summary="Large segments of Earth's lithosphere that move, float, and sometimes fracture on the viscous asthenosphere."
-                            data-link="https://en.wikipedia.org/wiki/Plate_tectonics">tectonic plates</span>. These
-                        float on the weak, semi-molten asthenosphere and are driven by <span class="wiki-term"
-                            data-title="Mantle Convection"
-                            data-summary="The slow creeping motion of Earth's solid silicate mantle caused by convection currents carrying heat from the interior."
-                            data-link="https://en.wikipedia.org/wiki/Mantle_convection">convection currents</span> in
-                        the mantle.</p>
+                <div class="upsc-note">
+                    <strong>Critical Flaw: The force of drifting</strong>
+                    <p>Wegener failed to explain <em>how</em> they moved. He suggested:</p>
+                    <ol>
+                        <li>Pole-fleeing force (Rotation)</li>
+                        <li>Tidal force (Sun/Moon attraction)</li>
+                    </ol>
+                    <p><strong>Result:</strong> Rejected by physicists because these forces are too weak.</p>
+                </div>
+            </section>
 
-                    <h4>Types of Plate Boundaries</h4>
-                    <div class="interactive-layers">
-                        <div class="layer-card" style="border-left-color: #e55039;">
-                            <h3><ion-icon name="resize-outline"></ion-icon> Divergent Boundaries</h3>
-                            <p>Plates move *apart*. New crust is created as magma rises (Constructive Margin). Example:
-                                <span class="wiki-term" data-title="Mid-Atlantic Ridge"
-                                    data-summary="An underwater mountain range bisecting the Atlantic Ocean. It is a divergent boundary where the Eurasian/African plates separate from the American plates."
-                                    data-link="https://en.wikipedia.org/wiki/Mid-Atlantic_Ridge">Mid-Atlantic
-                                    Ridge</span>.</p>
-                        </div>
-                        <div class="layer-card" style="border-left-color: #f39c12;">
-                            <h3><ion-icon name="git-merge-outline"></ion-icon> Convergent Boundaries</h3>
-                            <p>Plates move *towards each other*. Crust is destroyed (Destructive Margin). Three
-                                sub-types: Oceanic-Oceanic (Island Arc, e.g., Marianas), Oceanic-Continental (<span
-                                    class="wiki-term" data-title="Subduction"
-                                    data-summary="The process where one tectonic plate moves under another, sinking into the mantle as the plates converge."
-                                    data-link="https://en.wikipedia.org/wiki/Subduction">Subduction Zone</span>, e.g.,
-                                Andes), Continental-Continental (Collision, e.g., <span class="wiki-term"
-                                    data-title="Himalayas"
-                                    data-summary="A result of the collision between the Indian Plate and the Eurasian Plate, which began ~50 MYA."
-                                    data-link="https://en.wikipedia.org/wiki/Himalayas">Himalayas</span>).</p>
-                        </div>
-                        <div class="layer-card" style="border-left-color: #a29bfe;">
-                            <h3><ion-icon name="swap-horizontal-outline"></ion-icon> Transform Boundaries</h3>
-                            <p>Plates slide *past* each other horizontally. Crust is neither created nor destroyed
-                                (Conservative Margin). Example: <span class="wiki-term" data-title="San Andreas Fault"
-                                    data-summary="A continental transform fault between the Pacific Plate and the North American Plate, running 1,200 km through California."
-                                    data-link="https://en.wikipedia.org/wiki/San_Andreas_Fault">San Andreas
-                                    Fault</span>.</p>
-                        </div>
+            <!-- ============================================ -->
+            <!-- SECTION 2: POST-DRIFT THEORIES -->
+            <!-- ============================================ -->
+            <section class="content-block">
+                <h2 class="g-text-gradient">2. Post-Drift Theories</h2>
+                <div class="interactive-layers">
+                    <div class="layer-card" style="border-left-color: #fab1a0;">
+                        <h3>Convection Current Theory (Arthur Holmes, 1930s)</h3>
+                        <p>Radioactive elements in the mantle generate heat. Molten currents rise, hit the crust, spread
+                            out, and drag the plates. This provided the <strong>driving force</strong> missing from
+                            Wegener's theory.</p>
+                    </div>
+                    <div class="layer-card" style="border-left-color: #00b894;">
+                        <h3>Sea Floor Spreading (<span class="wiki-term" data-title="Harry Hess"
+                                data-summary="American geologist and US Navy officer. Considered one of the 'founding fathers' of the unifying theory of plate tectonics.">Harry
+                                Hess</span>, 1961)</h3>
+                        <p><strong>Observation:</strong> Ocean floor is not flat. It has Mid-Ocean Ridges (mountains)
+                            and Trenches.<br>
+                            <strong>Mechanism:</strong> Magma erupts at ridges, pushes old floor away, and consumes it
+                            at trenches.<br>
+                            <strong>Proof:</strong> Sediments at ridges are thin (young); sediments near trenches are
+                            thick (old).
+                        </p>
                     </div>
                 </div>
             </section>
 
             <!-- ============================================ -->
-            <!-- SECTION 2: DATA VAULT -->
+            <!-- SECTION 3: PLATE TECTONICS (DATA VAULT) -->
             <!-- ============================================ -->
             <section class="content-block">
-                <h2 class="g-text-gradient">2. The Data Vault: Precision Figures</h2>
+                <h2 class="g-text-gradient">3. The Data Vault: Plate Tectonics</h2>
+                <p>The unifying theory (McKenzie, Parker, Morgan, 1967). The <span class="wiki-term"
+                        data-title="Lithosphere"
+                        data-summary="The rigid outer part of the earth, consisting of the crust and upper mantle.">Lithosphere</span>
+                    is broken into plates.</p>
+
                 <div class="glass-table-container">
                     <table class="comparison-table">
                         <thead>
                             <tr>
-                                <th>Parameter</th>
-                                <th>Value</th>
+                                <th>Plate Type</th>
+                                <th>Features</th>
                             </tr>
                         </thead>
                         <tbody>
                             <tr>
-                                <td>Number of Major Plates</td>
-                                <td>7 (Pacific, N. American, Eurasian, African, Antarctic, Indo-Australian, S. American)
+                                <td><strong>Major Plates (7)</strong></td>
+                                <td>
+                                    1. Antarctica<br>
+                                    2. North America<br>
+                                    3. South America<br>
+                                    4. Pacific (Largest, mostly oceanic)<br>
+                                    5. India-Australia-New Zealand<br>
+                                    6. Africa<br>
+                                    7. Eurasia
                                 </td>
                             </tr>
                             <tr>
-                                <td>Fastest Moving Plate</td>
-                                <td>Pacific Plate (~10 cm/year, westward)</td>
-                            </tr>
-                            <tr>
-                                <td>Slowest Moving Plate</td>
-                                <td>Eurasian Plate (~2 cm/year)</td>
-                            </tr>
-                            <tr>
-                                <td>Age of Oldest Oceanic Crust</td>
-                                <td>~200 million years (Jurassic; constantly recycled at subduction zones)</td>
-                            </tr>
-                            <tr>
-                                <td>Age of Oldest Continental Crust</td>
-                                <td>~4 billion years (Acasta Gneiss, Canada)</td>
+                                <td><strong>Minor Plates</strong></td>
+                                <td>
+                                    <strong>Cocos:</strong> Between Central America & Pacific<br>
+                                    <strong>Nazca:</strong> Between S. America & Pacific<br>
+                                    <strong>Arabian:</strong> Saudi landmass<br>
+                                    <strong>Philippine:</strong> Between Asiatic & Pacific
+                                </td>
                             </tr>
                         </tbody>
                     </table>
                 </div>
+
+                <div class="subtopic-card">
+                    <h3>The 3 Plate Boundaries</h3>
+                    <ul class="timeline-vertical">
+                        <li><strong>Divergent:</strong> Moving apart. Creates new crust (Spreading Sites). <em>E.g.,
+                                <span class="wiki-term" data-title="Mid-Atlantic Ridge"
+                                    data-summary="A mid-ocean ridge, a divergent tectonic plate boundary located along the floor of the Atlantic Ocean.">Mid-Atlantic
+                                    Ridge</span>.</em></li>
+                        <li><strong>Convergent:</strong> Moving together. Destroys crust (<span class="wiki-term"
+                                data-title="Subduction"
+                                data-summary="The sideways and downward movement of the edge of a plate of the earth's crust into the mantle beneath another plate.">Subduction</span>
+                            Zones). <em>E.g.,
+                                Himalayas (C-C), Andes (O-C).</em></li>
+                        <li><strong>Transform:</strong> Sliding past. No creation/destruction. <em>E.g., <span
+                                    class="wiki-term" data-title="San Andreas Fault"
+                                    data-summary="A continental transform fault that extends roughly 1,200 kilometers (750 miles) through California.">San
+                                    Andreas Fault</span>.</em></li>
+                    </ul>
+                </div>
             </section>
 
             <!-- ============================================ -->
-            <!-- SECTION 3: CONNECT THE DOTS -->
+            <!-- SECTION 4: CASE STUDY -->
             <!-- ============================================ -->
             <section class="content-block">
-                <h2 class="g-text-gradient">3. Connect the Dots: Interdisciplinary Links</h2>
-                <div class="interactive-layers">
-                    <div class="layer-card" style="border-left-color: #00b894;">
-                        <h3><ion-icon name="thermometer-outline"></ion-icon> Physics: Convection Currents</h3>
-                        <p>The driving force of plate tectonics is **convection**. The radioactive decay of elements (U,
-                            Th, K) in the mantle generates heat. Hot mantle material rises, spreads laterally, cools,
-                            and sinks – creating a "conveyor belt" that drags plates along. This is fundamental
-                            thermodynamics.</p>
+                <div class="case-study-card">
+                    <div class="case-study-header">
+                        <ion-icon name="flame-outline"></ion-icon>
+                        <div class="case-study-title">Case Study: The Ring of Fire</div>
                     </div>
-                    <div class="layer-card" style="border-left-color: #0984e3;">
-                        <h3><ion-icon name="paw-outline"></ion-icon> Biology: Biogeography as Proof</h3>
-                        <p>Why are marsupials found in Australia and South America, but placental mammals dominate the
-                            rest of the world? Continental drift explains their isolation. When Gondwanaland split,
-                            these landmasses separated, and their fauna evolved independently. <span class="wiki-term"
-                                data-title="Alfred Russel Wallace"
-                                data-summary="British naturalist. Identified the 'Wallace Line' - a faunal boundary running through Indonesia."
-                                data-link="https://en.wikipedia.org/wiki/Alfred_Russel_Wallace">Wallace's Line</span> in
-                            Indonesia is a direct consequence of plate history.</p>
+                    <p><strong>Location:</strong> The rim of the Pacific Ocean.</p>
+                    <p><strong>Significance:</strong> Home to <strong>75%</strong> of the world's volcanoes and
+                        <strong>90%</strong> of earthquakes.
+                    </p>
+                    <p><strong>Mechanism:</strong> It is a continuous series of <strong>Oceanic-Continental
+                            convergence</strong>. The dense Pacific plate is subducting under lighter continental plates
+                        (like the Andes, Japan, Aleutians). This subduction melts the rock, generating pressurized magma
+                        that fueled the volcanoes.</p>
+                </div>
+            </section>
+
+            <!-- ============================================ -->
+            <!-- SECTION 5: DIAGRAMS -->
+            <!-- ============================================ -->
+            <section class="content-block">
+                <div class="diagram-gallery">
+                    <h4><ion-icon name="images-outline"></ion-icon> Tectonic Maps</h4>
+                    <div class="media-gallery-grid">
+                        <figure class="media-item">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c5/Snider-Pellegrini_Wegener_fossil_map.svg/1024px-Snider-Pellegrini_Wegener_fossil_map.svg.png"
+                                class="chapter-diagram" alt="Fossil Evidence">
+                            <figcaption>Fossil Evidence for Pangea</figcaption>
+                        </figure>
+                        <figure class="media-item">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8a/Plates_tect2_en.svg/1280px-Plates_tect2_en.svg.png"
+                                class="chapter-diagram" alt="Tectonic Plates">
+                            <figcaption>Global Electronic Plate Map</figcaption>
+                        </figure>
+                        <figure class="media-item">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/1e/Continental_spreading_center_block_diagram.jpg/1024px-Continental_spreading_center_block_diagram.jpg"
+                                class="chapter-diagram" alt="Spreading">
+                            <figcaption>Sea Floor Spreading Mechanism</figcaption>
+                        </figure>
                     </div>
                 </div>
             </section>
-            <section class="content-block">
-                    <!-- DIAGRAM GALLERY -->
-                    <div class="diagram-gallery">
-                        <h4><ion-icon name="images-outline"></ion-icon> Key Diagrams</h4>
-                        <div class="media-gallery-grid">
-                            <figure class="media-item">
-                                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/cb/Pangaea_continents.svg/400px-Pangaea_continents.svg.png" alt="Pangaea" class="chapter-diagram">
-                                <figcaption>Pangaea - The Supercontinent (~335 MYA)</figcaption>
-                            </figure>
-                            <figure class="media-item">
-                                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8a/Plates_tect2_en.svg/500px-Plates_tect2_en.svg.png" alt="Tectonic Plates" class="chapter-diagram">
-                                <figcaption>World's Major Tectonic Plates</figcaption>
-                            </figure>
-                            <figure class="media-item">
-                                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/1c/Continental-continental_convergence_Fig21contcont.gif/400px-Continental-continental_convergence_Fig21contcont.gif" alt="Plate Boundaries" class="chapter-diagram">
-                                <figcaption>Convergent Plate Boundary - Mountain Formation</figcaption>
-                            </figure>
-                        </div>
-                    </div>
-            </section>
 
+
+            <div class="chapter-nav">
+    <a href="chapter3.html" class="prev">
+        <span class="nav-dir">← Previous</span>
+        <span class="nav-title">Interior of Earth</span>
+    </a>
+    <a href="chapter5.html" class="next">
+        <span class="nav-dir">Next →</span>
+        <span class="nav-title">Minerals & Rocks</span>
+    </a>
+</div>
 
         </article>
     </div>

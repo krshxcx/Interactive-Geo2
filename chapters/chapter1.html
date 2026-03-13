@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,157 +9,334 @@
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
     <style>
-        .chapter-controls { position: fixed; top: 20px; right: 20px; display: flex; gap: 15px; z-index: 1000; }
-        .chapter-controls button { background: rgba(0,0,0,0.3); border: 1px solid rgba(255,255,255,0.2); border-radius: 50%; width: 45px; height: 45px; cursor: pointer; font-size: 1.3rem; backdrop-filter: blur(10px); transition: all 0.3s ease; color: var(--primary); }
-        .chapter-controls button:hover { background: rgba(255,255,255,0.1); transform: scale(1.1); }
+        .chapter-controls {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            display: flex;
+            gap: 15px;
+            z-index: 1000;
+        }
+
+        .chapter-controls button {
+            background: rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 50%;
+            width: 45px;
+            height: 45px;
+            cursor: pointer;
+            font-size: 1.3rem;
+            backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+            color: var(--primary);
+        }
+
+        .chapter-controls button:hover {
+            background: rgba(255, 255, 255, 0.1);
+            transform: scale(1.1);
+        }
     </style>
 </head>
+
 <body>
     <div class="chapter-controls">
-        <button id="warp-btn" onclick="toggleInterstellar()" title="Interstellar Mode"><ion-icon name="rocket-outline"></ion-icon></button>
-        <button id="music-btn" onclick="toggleMusic()" title="Toggle Music"><ion-icon name="musical-notes-outline"></ion-icon></button>
+        <button id="warp-btn" onclick="toggleInterstellar()" title="Interstellar Mode"><ion-icon
+                name="rocket-outline"></ion-icon></button>
+        <button id="music-btn" onclick="toggleMusic()" title="Toggle Music"><ion-icon
+                name="musical-notes-outline"></ion-icon></button>
+        <button id="bookmark-btn" class="bookmark-btn" title="Bookmark"><ion-icon name="bookmark-outline"></ion-icon></button>
+
     </div>
-    <audio id="bg-music" loop><source src="../music.mp3" type="audio/mpeg"></audio>
+    <audio id="bg-music" loop>
+        <source src="../music.mp3" type="audio/mpeg">
+    </audio>
     <div id="chapter-content">
         <article class="chapter-article">
-            <section class="content-block">
-                <h2 class="g-text-gradient">1. The Deep Dive: What is Geography?</h2>
-                <p>Geography is not merely about "maps and capitals." It is the *only* discipline that bridges the
-                    physical and social sciences to understand the Earth as the home of humankind. Its core question:
-                    **Why are things located where they are, and what are the consequences?**</p>
 
-                <!-- SUB-TOPIC 1.1 -->
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/97/The_Earth_seen_from_Apollo_17.jpg/1200px-The_Earth_seen_from_Apollo_17.jpg" alt="Geography as a Discipline" class="chapter-hero-banner" loading="lazy">
+
+
+            <!-- HERO SECTION -->
+            <div class="content-block" style="text-align: center; border-bottom: 1px solid rgba(255,255,255,0.1);">
+                <span
+                    style="letter-spacing: 3px; color: var(--secondary); text-transform: uppercase; font-size: 0.9rem;">The
+                    Foundation Module</span>
+                <h2 class="g-text-gradient" style="font-size: 3.5rem; margin: 10px 0;">1. Geography as a Discipline</h2>
+                <p style="color: var(--text-dim); max-width: 600px; margin: 0 auto 30px;">From "Description of Earth" to
+                    the "Science of Spatial Synthesis."</p>
+
+                <div class="scholar-quote">
+                    "Geography claims to be the mother of all sciences... because it studies the earth, the home of
+                    man."
+                    <span class="scholar-cite">— <span class="wiki-term" data-title="Immanuel Kant"
+                            data-summary="German philosopher (1724–1804). Treated geography as the basis for history."
+                            data-link="https://en.wikipedia.org/wiki/Immanuel_Kant">Immanuel Kant</span></span>
+                </div>
+            </div>
+
+<div class="key-takeaways">
+    <h3><ion-icon name="bulb-outline"></ion-icon> Key Takeaways</h3>
+    <ul>
+        <li>Geography is both a natural and social science — a 'discipline of synthesis'</li>
+        <li>Coined by <strong>Eratosthenes</strong> (276-194 BC): <em>Geo</em> = Earth + <em>Graphos</em> = Description</li>
+        <li>Two major approaches: <strong>Systematic</strong> (Humboldt) vs <strong>Regional</strong> (Ritter)</li>
+        <li>Modern tools: GIS, GPS, Remote Sensing revolutionize spatial analysis</li>
+    </ul>
+</div>
+
+            <!-- ============================================ -->
+            <!-- SECTION 1: THE THEORETICAL FRAMEWORK -->
+            <!-- ============================================ -->
+            <section class="content-block">
+                <h2 class="g-text-gradient">1. The Philosophical Core</h2>
+                <p>Geography is unique. It is the only discipline that is both a <strong>natural science</strong> (like
+                    Geology) and a <strong>social science</strong> (like Economics). It bridges the gap between nature
+                    and culture.</p>
+
+                <div class="two-col-layout">
+                    <!-- Etymology -->
+                    <div class="subtopic-card">
+                        <h3><ion-icon name="text-outline"></ion-icon> Etymology & Definition</h3>
+                        <p>The term was coined by <span class="wiki-term" data-title="Eratosthenes"
+                                data-summary="Greek polymath (276-194 BC). First to calculate Earth's circumference."
+                                data-link="https://en.wikipedia.org/wiki/Eratosthenes">Eratosthenes</span> (276-194 BC).
+                        </p>
+                        <ul class="timeline-vertical">
+                            <li><strong>Geo</strong> = Earth</li>
+                            <li><strong>Graphos</strong> = To Write / Describe</li>
+                        </ul>
+                        <p><strong>Modern Definition:</strong> "Geography is concerned with the description and
+                            explanation of the <span class="wiki-term" data-title="Areal Differentiation"
+                                data-summary="The variation in phenomena (climate, soil, culture) from one place to another. A core concept in geography.">areal
+                                differentiation</span> of the earth's surface." — <em>Richard Hartshorne</em></p>
+                    </div>
+
+                    <!-- The Three Questions -->
+                    <div class="subtopic-card">
+                        <h3><ion-icon name="help-circle-outline"></ion-icon> The Three Core Questions</h3>
+                        <p>Every geographical study answers these three:</p>
+                        <ol style="padding-left: 20px; line-height: 1.8; color: var(--text-dim);">
+                            <li><strong>What?</strong> (Identification of <span class="wiki-term"
+                                    data-title="Spatial Pattern"
+                                    data-summary="The arrangement of features on the Earth's surface.">patterns</span>/features)
+                            </li>
+                            <li><strong>Where?</strong> (<span class="wiki-term" data-title="Spatial Distribution"
+                                    data-summary="How physical or human features are spread across space.">Distribution</span>/Location)
+                            </li>
+                            <li><strong>Why?</strong> (Explanation of <span class="wiki-term"
+                                    data-title="Causal Relationship"
+                                    data-summary="The cause-and-effect link between two geographical phenomena.">causal
+                                    relationships</span>)</li>
+                        </ol>
+                    </div>
+                </div>
+
+                <!-- DUALISM DEBATE -->
                 <div class="subtopic-card">
-                    <h3><ion-icon name="git-branch-outline"></ion-icon> 1.1 The Dichotomy: Systematic vs. Regional
-                        Geography</h3>
-                    <p>The discipline's fundamental organizational tension lies between two approaches, formalized by
-                        the founders of modern geography.</p>
+                    <h3><ion-icon name="git-compare-outline"></ion-icon> The Great Dualism: Systematic vs Regional</h3>
+                    <p>This is the fundamental debate in geographical thought. How should we study the Earth?</p>
                     <div class="glass-table-container">
                         <table class="comparison-table">
                             <thead>
                                 <tr>
                                     <th>Parameter</th>
-                                    <th>Systematic (General) Geography</th>
-                                    <th>Regional Geography</th>
+                                    <th>Systematic Geography (General)</th>
+                                    <th>Regional Geography (Specific)</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td><strong>Founder</strong></td>
-                                    <td><span class="wiki-term" data-title="Alexander von Humboldt"
-                                            data-summary="German naturalist (1769-1859). Pioneer of biogeography 'Kosmos'. Studied phenomena systematically."
-                                            data-image="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6d/AvHumboldt.jpg/220px-AvHumboldt.jpg"
-                                            data-link="https://en.wikipedia.org/wiki/Alexander_von_Humboldt">Alexander
-                                            von Humboldt</span></td>
-                                    <td><span class="wiki-term" data-title="Carl Ritter"
-                                            data-summary="German geographer (1779-1859). Focused on regions as unique entities. Wrote 'Erdkunde'."
-                                            data-link="https://en.wikipedia.org/wiki/Carl_Ritter">Carl Ritter</span>
-                                    </td>
+                                    <td><strong>Propounder</strong></td>
+                                    <td><strong><span class="wiki-term" data-title="Alexander von Humboldt"
+                                                data-summary="Prussian geographer. Father of modern physical geography."
+                                                data-link="https://en.wikipedia.org/wiki/Alexander_von_Humboldt">Alexander
+                                                von Humboldt</span></strong> (1769-1859)</td>
+                                    <td><strong><span class="wiki-term" data-title="Carl Ritter"
+                                                data-summary="German geographer. Co-founder of modern geography with Humboldt."
+                                                data-link="https://en.wikipedia.org/wiki/Carl_Ritter">Carl
+                                                Ritter</span></strong> (1779-1859)</td>
                                 </tr>
                                 <tr>
                                     <td><strong>Approach</strong></td>
-                                    <td>Topic-centric. Pick one phenomenon (e.g., rainfall, soil types) and study its
-                                        global distribution.</td>
-                                    <td>Place-centric. Pick one region (e.g., The Himalayas) and study *all* phenomena
-                                        within it.</td>
+                                    <td>Study <strong>one phenomenon</strong> globally.<br><em>(e.g., Rainfall patterns
+                                            across the whole world)</em></td>
+                                    <td>Study <strong>all phenomena</strong> in one region.<br><em>(e.g., Everything
+                                            about the Amazon Basin)</em></td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Methodology</strong></td>
+                                    <td><strong>Nomothetic</strong> (Law-making). Seeks universal principles.</td>
+                                    <td><strong>Idiographic</strong> (Descriptive). Seeks unique characteristics.</td>
                                 </tr>
                                 <tr>
                                     <td><strong>Analogy</strong></td>
-                                    <td>Studying "The Heart" in all mammals to derive universal principles.</td>
-                                    <td>Studying "The Human Body" (one specific organism) as a complete, unique system.
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td><strong>Key Sub-fields</strong></td>
-                                    <td>Geomorphology, Climatology, Oceanography, Economic Geography.</td>
-                                    <td>Area Studies, Geopolitics (e.g., South Asian Studies, Mediterranean Studies).
-                                    </td>
+                                    <td>Studying "The Heart" in all mammals.</td>
+                                    <td>Studying "The Human Body" as a whole system.</td>
                                 </tr>
                             </tbody>
                         </table>
                     </div>
-                    <div class="upsc-note">
-                        <strong>UPSC Critical: The Hartshorne Synthesis</strong>
-                        <p><span class="wiki-term" data-title="Richard Hartshorne"
-                                data-summary="American geographer (1899-1992). Author of 'The Nature of Geography' (1939). Defined geography as the study of 'areal differentiation'."
-                                data-link="https://en.wikipedia.org/wiki/Richard_Hartshorne">Richard Hartshorne</span>
-                            (1939) attempted to end this debate by defining Geography as the study of the **areal
-                            differentiation** of the Earth's surface – variations from place to place. This unified the
-                            two approaches by focusing on *explaining difference*. <span class="citation-trigger"
-                                data-citation="Source: Hartshorne, The Nature of Geography">[Source: Hartshorne]</span>
-                        </p>
-                    </div>
-                </div>
-
-                <!-- SUB-TOPIC 1.2 -->
-                <div class="subtopic-card">
-                    <h3><ion-icon name="analytics-outline"></ion-icon> 1.2 The Quantitative Revolution & Its Critics
-                    </h3>
-                    <p><strong>The Shift (1950s-1960s):</strong> Geography sought to become a "spatial science." Led by
-                        figures like <span class="wiki-term" data-title="William Bunge"
-                            data-summary="American geographer who applied geometric models to human activity in 'Theoretical Geography' (1962)."
-                            data-link="https://en.wikipedia.org/wiki/William_Bunge">William Bunge</span>, the discipline
-                        adopted statistical analysis, models, and the hypothetico-deductive method.</p>
-                    <p><strong>The Criticism (Humanistic & Radical Geography):</strong> Scholars like <span
-                            class="wiki-term" data-title="Yi-Fu Tuan"
-                            data-summary="Chinese-American geographer, pioneer of Humanistic Geography. Focused on 'sense of place' and subjective experience."
-                            data-link="https://en.wikipedia.org/wiki/Yi-Fu_Tuan">Yi-Fu Tuan</span> argued that
-                        quantification ignored human experience, emotion, and meaning attached to places (*topophilia*).
-                        <span class="wiki-term" data-title="David Harvey"
-                            data-summary="British geographer. Pioneer of Radical Geography. Applied Marxist theory to spatial inequality ('Social Justice and the City', 1973)."
-                            data-link="https://en.wikipedia.org/wiki/David_Harvey">David Harvey</span> criticized it for
-                        ignoring power structures and inequality, giving rise to **Radical/Marxist Geography**. <span
-                            class="citation-trigger" data-citation="Source: NCERT Class 11, Ch. 1">[Source:
-                            NCERT]</span>
-                    </p>
                 </div>
             </section>
 
             <!-- ============================================ -->
-            <!-- SECTION 2: THE DATA VAULT -->
+            <!-- SECTION 2: THE BRANCHES (DATA VAULT) -->
             <!-- ============================================ -->
             <section class="content-block">
-                <h2 class="g-text-gradient">2. The Data Vault: Key Definitions</h2>
+                <h2 class="g-text-gradient">2. The Branches Structure</h2>
+                <div class="upsc-note">
+                    <strong>UPSC Focus:</strong> Geography is an "integrating discipline." It synthesizes data from
+                    other sciences.
+                </div>
+
+                <div class="interactive-layers">
+                    <div class="layer-card" style="border-left-color: #74b9ff;">
+                        <h3>A. Physical Geography (Natural Sciences)</h3>
+                        <ul style="list-style: none; padding-left: 10px; color: var(--text-dim);">
+                            <li><strong>1. <span class="wiki-term" data-title="Geomorphology"
+                                        data-summary="Scientific study of landforms and the processes that shape them.">Geomorphology</span>:</strong>
+                                Study of landforms. (Links with Geology)</li>
+                            <li><strong>2. <span class="wiki-term" data-title="Climatology"
+                                        data-summary="Study of climate, scientifically defined as weather conditions averaged over a period of time.">Climatology</span>:</strong>
+                                Study of atmosphere/weather. (Links with Meteorology)
+                            </li>
+                            <li><strong>3. <span class="wiki-term" data-title="Hydrology"
+                                        data-summary="Study of the movement, distribution, and management of water.">Hydrology</span>:</strong>
+                                Study of water bodies. (Links with Hydrology)</li>
+                            <li><strong>4. Soil Geography:</strong> Study of soil formation. (Links with <span
+                                    class="wiki-term" data-title="Pedology"
+                                    data-summary="Discipline within soil science that focuses on understanding and characterizing soil formation.">Pedology</span>)
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="layer-card" style="border-left-color: #fab1a0;">
+                        <h3>B. Human Geography (Social Sciences)</h3>
+                        <ul style="list-style: none; padding-left: 10px; color: var(--text-dim);">
+                            <li><strong>1. Social/Cultural:</strong> Society and spatial dynamics.
+                                (Sociology/<span class="wiki-term" data-title="Anthropology"
+                                    data-summary="Scientific study of humanity, concerned with human behavior, human biology, cultures, and societies.">Anthropology</span>)
+                            </li>
+                            <li><strong>2. Population:</strong> <span class="wiki-term" data-title="Demography"
+                                    data-summary="Statistical study of populations, especially human beings.">Demography</span>,
+                                migration. (Demography)</li>
+                            <li><strong>3. Economic:</strong> Agriculture, industry, trade. (Economics)</li>
+                            <li><strong>4. Historical:</strong> Evolution of spatial patterns. (History)</li>
+                        </ul>
+                    </div>
+
+                    <div class="layer-card" style="border-left-color: #55efc4;">
+                        <h3>C. Biogeography (The Interface)</h3>
+                        <ul style="list-style: none; padding-left: 10px; color: var(--text-dim);">
+                            <li><strong>1. Plant Geography:</strong> Habitat distribution. (Botany)</li>
+                            <li><strong>2. Zoo Geography:</strong> Animal distribution. (Zoology)</li>
+                            <li><strong>3. Ecology:</strong> Inter-relationship between species.</li>
+                            <li><strong>4. Environmental Geography:</strong> Human-Environment concerns.</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ============================================ -->
+            <!-- NCERT DATA VAULT: IMPORTANCE OF ELEMENTS -->
+            <!-- ============================================ -->
+            <section class="content-block">
+                <h2 class="g-text-gradient">📚 NCERT Data Vault</h2>
+                <p>Quick revision points straight from the NCERT textbook for exam preparation.</p>
+
+                <div class="subtopic-card">
+                    <h3><ion-icon name="bookmark-outline"></ion-icon> Why Physical Geography Matters</h3>
+                    <p>NCERT emphasizes that <strong>physical geographical elements are crucial for human
+                            sustenance</strong>. Here's how:</p>
+
+                    <div class="glass-table-container">
+                        <table class="comparison-table">
+                            <thead>
+                                <tr>
+                                    <th>Element</th>
+                                    <th>Human Importance</th>
+                                    <th>Examples</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><strong>Landforms</strong></td>
+                                    <td>Plains → Agriculture<br>Plateaus → Minerals & Forests<br>Mountains → Tourism,
+                                        Pastures, Rivers</td>
+                                    <td>Gangetic Plain (farming)<br>Deccan (iron ore)<br>Himalayas (tourism)</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Climate</strong></td>
+                                    <td>Influences house types, clothing, food habits, vegetation, cropping patterns,
+                                        livestock</td>
+                                    <td>Tropical → Cotton farming<br>Cold → Wool clothing<br>Monsoon → Rice cultivation
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Water Bodies</strong></td>
+                                    <td>Oceans → Fish & Minerals<br>Rivers → Irrigation & Transport</td>
+                                    <td>Arabian Sea (fishing)<br>Ganga (irrigation)</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Soil</strong></td>
+                                    <td>Renewable resource for farming and biodiversity</td>
+                                    <td>Alluvial soil (Indo-Gangetic)<br>Black soil (cotton belt)</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <div class="upsc-note">
+                    <strong>Geography as an Integrating Discipline</strong>
+                    <p>NCERT defines geography as a "discipline of synthesis" because it integrates:</p>
+                    <ul style="margin-top: 10px; padding-left: 20px;">
+                        <li><strong>Spatial</strong> (Where?) and <strong>Temporal</strong> (When?) aspects</li>
+                        <li>Data from <strong>Natural Sciences</strong> (Physics, Biology) and <strong>Social
+                                Sciences</strong> (Economics, Sociology)</li>
+                        <li>Adopts a <span class="wiki-term" data-title="Holistic Approach"
+                                data-summary="An approach that recognizes the world as a system of interdependencies.">Holistic
+                                Approach</span> to understand Earth-Human relationships</li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- ============================================ -->
+            <!-- SECTION 3: MODERN TECH (NEW ADDITION) -->
+            <!-- ============================================ -->
+            <section class="content-block">
+                <h2 class="g-text-gradient">3. The Modern Toolkit</h2>
+                <p>Geography has moved beyond simple maps to advanced spatial analysis.</p>
                 <div class="glass-table-container">
                     <table class="comparison-table">
                         <thead>
                             <tr>
-                                <th>Concept</th>
-                                <th>Definition</th>
-                                <th>Key Thinker</th>
+                                <th>Tool</th>
+                                <th>Function</th>
+                                <th>Use Case</th>
                             </tr>
                         </thead>
                         <tbody>
                             <tr>
-                                <td><strong>Areal Differentiation</strong></td>
-                                <td>The study of how and why phenomena vary from place to place on Earth's surface.</td>
-                                <td>Hartshorne (1939)</td>
+                                <td><strong><span class="wiki-term" data-title="GIS"
+                                            data-summary="Geographic Information System. A computer system for capturing, storing, checking, and displaying data related to positions on Earth's surface.">GIS</span></strong>
+                                </td>
+                                <td>Layering data sets on a digital map.</td>
+                                <td>Urban planning, Disaster management.</td>
                             </tr>
                             <tr>
-                                <td><strong>Spatial Interaction</strong></td>
-                                <td>The flow of goods, people, and ideas between places. A core concept in human
-                                    geography.</td>
-                                <td>Edward Ullman</td>
+                                <td><strong><span class="wiki-term" data-title="GPS"
+                                            data-summary="Global Positioning System. A satellite-based radionavigation system owned by the US government.">GPS</span></strong>
+                                </td>
+                                <td>Pinpointing exact location (Lat/Long).</td>
+                                <td>Navigation, Tracking movements.</td>
                             </tr>
                             <tr>
-                                <td><strong>Environmental Determinism</strong></td>
-                                <td>The belief that the physical environment dictates human culture and development.
-                                    (Largely rejected).</td>
-                                <td>Ellsworth Huntington</td>
-                            </tr>
-                            <tr>
-                                <td><strong>Possibilism</strong></td>
-                                <td>The environment offers possibilities; humans choose. Culture is more important than
-                                    nature.</td>
-                                <td><span class="wiki-term" data-title="Paul Vidal de la Blache"
-                                        data-summary="French geographer (1845-1918). Father of French school of geography and the concept of Possibilism."
-                                        data-link="https://en.wikipedia.org/wiki/Paul_Vidal_de_la_Blache">Vidal de la
-                                        Blache</span></td>
-                            </tr>
-                            <tr>
-                                <td><strong>Chorology</strong></td>
-                                <td>The study of a region or area. A term used to emphasize the regional approach.</td>
-                                <td>Alfred Hettner / Ritter</td>
+                                <td><strong><span class="wiki-term" data-title="Remote Sensing"
+                                            data-summary="The acquisition of information about an object or phenomenon without making physical contact with the object.">Remote
+                                            Sensing</span></strong></td>
+                                <td>Collecting data from a distance (Satellites/Drones).</td>
+                                <td>Weather forecasting, Forest cover mapping.</td>
                             </tr>
                         </tbody>
                     </table>
@@ -166,46 +344,63 @@
             </section>
 
             <!-- ============================================ -->
-            <!-- SECTION 3: CONNECT THE DOTS -->
+            <!-- SECTION 4: CASE STUDY -->
             <!-- ============================================ -->
             <section class="content-block">
-                <h2 class="g-text-gradient">3. Connect the Dots: The Duality of Geography</h2>
-                <div class="interactive-layers">
-                    <div class="layer-card" style="border-left-color: #fab1a0;">
-                        <h3><ion-icon name="earth-outline"></ion-icon> Physical Geography</h3>
-                        <p>Rooted in **Natural Sciences**. Studies non-human phenomena: landforms (Geomorphology),
-                            climate (Climatology), water (Hydrology), ecosystems (Biogeography). It explains the 'stage'
-                            on which humanity acts.</p>
+                <div class="case-study-card">
+                    <div class="case-study-header">
+                        <ion-icon name="library-outline"></ion-icon>
+                        <div class="case-study-title">Case Study: Humboldt's 'Kosmos'</div>
                     </div>
-                    <div class="layer-card" style="border-left-color: #74b9ff;">
-                        <h3><ion-icon name="people-outline"></ion-icon> Human Geography</h3>
-                        <p>Rooted in **Social Sciences**. Studies human phenomena: population (Demography), cities
-                            (Urban), culture, economy. It explains the 'actors' and their 'actions' on the stage.</p>
-                    </div>
+                    <p><strong><span class="wiki-term" data-title="Alexander von Humboldt"
+                                data-summary="Prussian polymath, geographer, naturalist, explorer.">Alexander von
+                                Humboldt</span></strong> was the last "Universal Genius." His 5-volume work,
+                        <em>Kosmos</em>, attempted to unify all known scientific data into a coherent description of the
+                        physical universe.
+                    </p>
+                    <p>He climbed <span class="wiki-term" data-title="Mount Chimborazo"
+                            data-summary="A currently inactive stratovolcano in the Andes of Ecuador. Humboldt's ascent was a legendary feat.">Mt.
+                            Chimborazo</span> (Ecuador) and noticed that vegetation changes with altitude just as it
+                        changes with latitude. This observation laid the foundation for <strong>Biogeography</strong>
+                        and <strong>Climatology</strong>. His systematic approach (measuring temperature, pressure,
+                        height everywhere) revolutionized the field.</p>
                 </div>
-                <p style="margin-top: 1.5rem;"><strong>The Synthesis:</strong> The unique power of Geography is its
-                    ability to ask: **How does the stage influence the actors, and how do the actors reshape the
-                    stage?** No other discipline asks this two-way question at a spatial scale.</p>
             </section>
+
+            <!-- ============================================ -->
+            <!-- SECTION 5: DIAGRAMS -->
+            <!-- ============================================ -->
             <section class="content-block">
-                <!-- DIAGRAM GALLERY -->
                 <div class="diagram-gallery">
-                    <h4><ion-icon name="images-outline"></ion-icon> Key Diagrams</h4>
+                    <h4><ion-icon name="images-outline"></ion-icon> Conceptual Maps</h4>
                     <div class="media-gallery-grid">
                         <figure class="media-item">
-                            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a0/World_map_blank_gmt.png/500px-World_map_blank_gmt.png"
-                                alt="World Map" class="chapter-diagram">
-                            <figcaption>World Physical Map - Regional Geography</figcaption>
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/ea/Physical_geography_field.svg/800px-Physical_geography_field.svg.png"
+                                class="chapter-diagram" alt="Branches">
+                            <figcaption>The Fields of Physical Geography</figcaption>
                         </figure>
                         <figure class="media-item">
-                            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/ea/Physical_geography_field.svg/400px-Physical_geography_field.svg.png"
-                                alt="Geography Branches" class="chapter-diagram">
-                            <figcaption>Branches of Physical Geography</figcaption>
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6d/AvHumboldt.jpg/640px-AvHumboldt.jpg"
+                                class="chapter-diagram" alt="Humboldt">
+                            <figcaption>Alexander von Humboldt (1769–1859)</figcaption>
+                        </figure>
+                        <figure class="media-item">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c5/World_Map_Köppen-Geiger_Climate_Classification.svg/2560px-World_Map_Köppen-Geiger_Climate_Classification.svg.png"
+                                class="chapter-diagram" alt="Spatial Pattern">
+                            <figcaption>Global Climate Patterns (Spatial Synthesis)</figcaption>
                         </figure>
                     </div>
                 </div>
             </section>
 
+
+            <div class="chapter-nav">
+    <a class="prev disabled"><span class="nav-dir">← Previous</span><span class="nav-title">—</span></a>
+    <a href="chapter2.html" class="next">
+        <span class="nav-dir">Next →</span>
+        <span class="nav-title">Origin & Evolution</span>
+    </a>
+</div>
 
         </article>
     </div>

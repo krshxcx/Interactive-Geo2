@@ -1,184 +1,207 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Chapter 5: Minerals and Rocks</title>
+    <title>Chapter 5: Minerals & Rocks</title>
     <link rel="stylesheet" href="../styles.css">
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
     <style>
-        .chapter-controls { position: fixed; top: 20px; right: 20px; display: flex; gap: 15px; z-index: 1000; }
-        .chapter-controls button { background: rgba(0,0,0,0.3); border: 1px solid rgba(255,255,255,0.2); border-radius: 50%; width: 45px; height: 45px; cursor: pointer; font-size: 1.3rem; backdrop-filter: blur(10px); transition: all 0.3s ease; color: var(--primary); }
-        .chapter-controls button:hover { background: rgba(255,255,255,0.1); transform: scale(1.1); }
+        .chapter-controls {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            display: flex;
+            gap: 15px;
+            z-index: 1000;
+        }
+
+        .chapter-controls button {
+            background: rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 50%;
+            width: 45px;
+            height: 45px;
+            cursor: pointer;
+            font-size: 1.3rem;
+            backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+            color: var(--primary);
+        }
+
+        .chapter-controls button:hover {
+            background: rgba(255, 255, 255, 0.1);
+            transform: scale(1.1);
+        }
     </style>
 </head>
+
 <body>
     <div class="chapter-controls">
-        <button id="warp-btn" onclick="toggleInterstellar()" title="Interstellar Mode"><ion-icon name="rocket-outline"></ion-icon></button>
-        <button id="music-btn" onclick="toggleMusic()" title="Toggle Music"><ion-icon name="musical-notes-outline"></ion-icon></button>
+        <button id="warp-btn" onclick="toggleInterstellar()" title="Interstellar Mode"><ion-icon
+                name="rocket-outline"></ion-icon></button>
+        <button id="music-btn" onclick="toggleMusic()" title="Toggle Music"><ion-icon
+                name="musical-notes-outline"></ion-icon></button>
+        <button id="bookmark-btn" class="bookmark-btn" title="Bookmark"><ion-icon name="bookmark-outline"></ion-icon></button>
+
     </div>
-    <audio id="bg-music" loop><source src="../music.mp3" type="audio/mpeg"></audio>
+    <audio id="bg-music" loop>
+        <source src="../music.mp3" type="audio/mpeg">
+    </audio>
     <div id="chapter-content">
         <article class="chapter-article">
 
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8b/Rockcycle.jpg/800px-Rockcycle.jpg" alt="Minerals & Rocks" class="chapter-hero-banner" loading="lazy">
+
+
+            <!-- HERO SECTION -->
+            <div class="content-block" style="text-align: center; border-bottom: 1px solid rgba(255,255,255,0.1);">
+                <span
+                    style="letter-spacing: 3px; color: var(--secondary); text-transform: uppercase; font-size: 0.9rem;">Geology
+                    Module</span>
+                <h2 class="g-text-gradient" style="font-size: 3.5rem; margin: 10px 0;">5. Minerals & Rocks</h2>
+                <p style="color: var(--text-dim); max-width: 600px; margin: 0 auto 30px;">The building blocks of the
+                    Earth's Crust.</p>
+
+                <div class="scholar-quote">
+                    "Rocks are records of events that took place at the time they were formed. They are books of
+                    history."
+                    <span class="scholar-cite">— <span class="wiki-term" data-title="John Wesley Powell"
+                            data-summary="American geologist, U.S. Army soldier, and explorer of the American West. Famous for the 1869 Powell Geographic Expedition.">John
+                            Wesley Powell</span></span>
+                </div>
+            </div>
+
+<div class="key-takeaways">
+    <h3><ion-icon name="bulb-outline"></ion-icon> Key Takeaways</h3>
+    <ul>
+        <li>Minerals are naturally occurring, inorganic, solid with a definite chemical composition</li>
+        <li>Three rock types: <strong>Igneous</strong>, <strong>Sedimentary</strong>, <strong>Metamorphic</strong></li>
+        <li>The <strong>Rock Cycle</strong> shows continuous transformation between rock types</li>
+        <li><strong>Feldspar</strong> is the most abundant mineral group in Earth's crust</li>
+    </ul>
+</div>
+
             <!-- ============================================ -->
-            <!-- SECTION 1: THE DEEP DIVE - MINERALS -->
+            <!-- SECTION 1: MINERALS -->
             <!-- ============================================ -->
             <section class="content-block">
-                <h2 class="g-text-gradient">1. The Deep Dive: What are Minerals?</h2>
-                <p>A mineral is a <strong>naturally occurring</strong>, <strong>inorganic</strong> solid with a definite
-                    <strong>chemical composition</strong> and an ordered <strong>crystalline structure</strong>. This is
-                    distinct from rocks, which are *aggregates* of one or more minerals.</p>
+                <h2 class="g-text-gradient">1. The Atomic Foundation: Minerals</h2>
+                <p>A mineral is a natural, inorganic substance with a definite atomic structure and chemical
+                    composition.</p>
 
-                <div class="subtopic-card">
-                    <h3><ion-icon name="layers-outline"></ion-icon> 1.1 Composition of Earth's Crust (Elemental)</h3>
-                    <p>Just 8 elements make up ~98% of the Earth's crust by weight:</p>
-                    <div class="glass-table-container">
-                        <table class="comparison-table">
-                            <thead>
-                                <tr>
-                                    <th>Element</th>
-                                    <th>Symbol</th>
-                                    <th>% by Weight</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>Oxygen</td>
-                                    <td>O</td>
-                                    <td>46.6%</td>
-                                </tr>
-                                <tr>
-                                    <td>Silicon</td>
-                                    <td>Si</td>
-                                    <td>27.7%</td>
-                                </tr>
-                                <tr>
-                                    <td>Aluminium</td>
-                                    <td>Al</td>
-                                    <td>8.1%</td>
-                                </tr>
-                                <tr>
-                                    <td>Iron</td>
-                                    <td>Fe</td>
-                                    <td>5.0%</td>
-                                </tr>
-                                <tr>
-                                    <td>Calcium</td>
-                                    <td>Ca</td>
-                                    <td>3.6%</td>
-                                </tr>
-                                <tr>
-                                    <td>Sodium</td>
-                                    <td>Na</td>
-                                    <td>2.8%</td>
-                                </tr>
-                                <tr>
-                                    <td>Potassium</td>
-                                    <td>K</td>
-                                    <td>2.6%</td>
-                                </tr>
-                                <tr>
-                                    <td>Magnesium</td>
-                                    <td>Mg</td>
-                                    <td>2.1%</td>
-                                </tr>
-                            </tbody>
-                        </table>
+                <div class="two-col-layout">
+                    <!-- Major Elements -->
+                    <div class="subtopic-card">
+                        <h3><ion-icon name="analytics-outline"></ion-icon> Earth's Crust Composition</h3>
+                        <p>98% of the crust is made of just 8 elements:</p>
+                        <ul class="timeline-vertical">
+                            <li><strong>Oxygen (46.6%)</strong></li>
+                            <li><strong>Silicon (27.7%)</strong></li>
+                            <li><strong>Aluminum (8.1%)</strong></li>
+                            <li><strong>Iron (5.0%)</strong></li>
+                            <li>Calcium (3.6%), Sodium (2.8%), Potassium (2.6%), Magnesium (2.1%).</li>
+                        </ul>
                     </div>
-                    <div class="upsc-note">
-                        <strong>UPSC Critical: SIAL vs. SIMA</strong>
-                        <p>This elemental abundance explains the naming: Continental Crust (Si + Al = SIAL), Oceanic
-                            Crust (Si + Mg = SIMA). The crust is dominated by silicates. <span class="citation-trigger"
-                                data-citation="Source: NCERT Class 11, Ch. 5">[Source: NCERT]</span></p>
+
+                    <!-- Mineral Groups -->
+                    <div class="subtopic-card">
+                        <h3><ion-icon name="cube-outline"></ion-icon> Major Mineral Groups</h3>
+                        <p><strong><span class="wiki-term" data-title="Silicate Minerals"
+                                    data-summary="Rock-forming minerals made up of silicate groups. They make up 90% of the Earth's crust.">Silicates</span>:</strong>
+                            <span class="wiki-term" data-title="Feldspar"
+                                data-summary="The most abundant mineral group in the Earth's crust. Forms 60% of the crust.">Feldspar</span>
+                            (most abundant), Quartz (most durable).
+                        </p>
+                        <p><strong>Non-Silicates:</strong> Carbonates (Calcite), Sulfides (Pyrite), Oxides (Hematite).
+                        </p>
                     </div>
                 </div>
 
-                <div class="subtopic-card">
-                    <h3><ion-icon name="diamond-outline"></ion-icon> 1.2 Major Mineral Groups</h3>
-                    <div class="interactive-layers">
-                        <div class="layer-card" style="border-left-color: #fab1a0;">
-                            <h3>Feldspar (Most Abundant)</h3>
-                            <p>Makes up ~50% of the crust. Two types: <strong>Orthoclase</strong> (K-rich, pink, in
-                                granites) and <strong>Plagioclase</strong> (Ca/Na-rich, white/grey, in basalts). Used in
-                                ceramics.</p>
-                        </div>
-                        <div class="layer-card" style="border-left-color: #dfe6e9;">
-                            <h3>Quartz (SiO₂)</h3>
-                            <p>Second most abundant. Very hard (7 on Mohs scale). Resistant to weathering. Used in
-                                glassmaking and as a semi-precious stone (Amethyst, Citrine). Related to <span
-                                    class="wiki-term" data-title="Silicon Dioxide"
-                                    data-summary="The chemical compound SiO₂, the primary constituent of sand and quartz."
-                                    data-link="https://en.wikipedia.org/wiki/Silicon_dioxide">Silica</span>.</p>
-                        </div>
-                        <div class="layer-card" style="border-left-color: #6c5ce7;">
-                            <h3>Pyroxene & Olivine</h3>
-                            <p><span class="wiki-term" data-title="Mafic Minerals"
-                                    data-summary="Dark-colored, Mg/Fe-rich silicate minerals like Pyroxene and Olivine. Common in oceanic crust and the mantle."
-                                    data-link="https://en.wikipedia.org/wiki/Mafic">Mafic minerals</span> (Mg + Fe
-                                rich). Dark colored. Olivine is the primary component of the upper mantle.</p>
-                        </div>
+                <div class="upsc-note">
+                    <strong>Metallic vs Non-Metallic Minerals</strong>
+                    <p><strong>Metallic:</strong> Precious (Gold), Ferrous (Iron), Non-Ferrous (Copper).<br>
+                        <strong>Non-Metallic:</strong> Sulfur, Phosphates, Nitrate, Cement.
+                    </p>
+                </div>
+
+                <!-- NCERT DATA VAULT -->
+                <div class="subtopic-card" style="margin-top: 30px;">
+                    <h3>📚 NCERT Data Vault: Mohs Hardness Scale</h3>
+                    <p><strong>Quick reference:</strong> Talc (1 - softest) → Gypsum (2) → Calcite (3) → Fluorite (4) →
+                        Apatite (5) → Orthoclase (6) → Quartz (7 - scratches glass) → Topaz (8) → Corundum (9 -
+                        ruby/sapphire) → Diamond (10 - hardest)</p>
+
+                    <div class="upsc-note" style="margin-top: 15px;">
+                        <strong>NCERT Rock Cycle:</strong>
+                        <ul style="margin-top:10px; padding-left: 20px;">
+                            <li><strong>Igneous</strong> (primary rocks from magma) → Weathering →
+                                <strong>Sedimentary</strong></li>
+                            <li>Any rock + Heat/Pressure → <strong>Metamorphic</strong></li>
+                            <li>Any rock → Subduction/Melting → Magma → <strong>Igneous</strong></li>
+                            <li><strong>98% of Crust:</strong> O-46.6%, Si-27.7%, Al-8.1%, Fe-5%, Ca, Na, K, Mg (rest)
+                            </li>
+                        </ul>
                     </div>
                 </div>
             </section>
 
             <!-- ============================================ -->
-            <!-- SECTION 2: ROCKS -->
+            <!-- SECTION 2: PHYSICAL PROPERTIES (DATA VAULT) -->
             <!-- ============================================ -->
             <section class="content-block">
-                <h2 class="g-text-gradient">2. Classification of Rocks</h2>
-                <p>Rocks are classified based on their *mode of formation* into three families:</p>
-                <div class="interactive-layers">
-                    <div class="layer-card" style="border-left-color: #d63031;">
-                        <h3><ion-icon name="flame-outline"></ion-icon> Igneous Rocks (Fire-Born)</h3>
-                        <p>Formed from the cooling and solidification of <span class="wiki-term" data-title="Magma"
-                                data-summary="Molten rock beneath Earth's surface. When it erupts on the surface, it is called Lava."
-                                data-link="https://en.wikipedia.org/wiki/Magma">magma</span> (below surface) or lava (on
-                            surface). Called "Primary" or "Parent" rocks – all other rocks ultimately derive from them.
-                        </p>
-                        <ul>
-                            <li><strong>Intrusive (Plutonic):</strong> Cools slowly *inside* the crust -> Large
-                                crystals. Ex: <span class="wiki-term" data-title="Granite"
-                                    data-summary="A coarse-grained, intrusive igneous rock rich in quartz and feldspar. The foundation of continental crust."
-                                    data-link="https://en.wikipedia.org/wiki/Granite">Granite</span>, Gabbro.</li>
-                            <li><strong>Extrusive (Volcanic):</strong> Cools quickly *on* the surface -> Small crystals
-                                or glassy. Ex: <span class="wiki-term" data-title="Basalt"
-                                    data-summary="A dark, fine-grained extrusive igneous rock. The most common rock on Earth's surface (oceanic crust)."
-                                    data-link="https://en.wikipedia.org/wiki/Basalt">Basalt</span>, Obsidian.</li>
-                        </ul>
-                    </div>
-                    <div class="layer-card" style="border-left-color: #fdcb6e;">
-                        <h3><ion-icon name="git-branch-outline"></ion-icon> Sedimentary Rocks (Stratified)</h3>
-                        <p>Formed by compaction and cementation (<span class="wiki-term" data-title="Lithification"
-                                data-summary="The process of converting loose sediments into solid sedimentary rock through compaction and cementation."
-                                data-link="https://en.wikipedia.org/wiki/Lithification">Lithification</span>) of
-                            sediments deposited by water, wind, or ice. Characterized by layers (strata) and often
-                            contain fossils.</p>
-                        <ul>
-                            <li><strong>Clastic:</strong> From broken rock fragments. Ex: <span class="wiki-term"
-                                    data-title="Sandstone"
-                                    data-summary="A clastic sedimentary rock composed mainly of sand-sized silicate grains (0.063–2 mm)."
-                                    data-link="https://en.wikipedia.org/wiki/Sandstone">Sandstone</span>, Shale,
-                                Conglomerate.</li>
-                            <li><strong>Chemical:</strong> From precipitation. Ex: Limestone (CaCO₃), Rock Salt
-                                (Halite).</li>
-                            <li><strong>Organic:</strong> From organic matter. Ex: Coal, Chalk.</li>
-                        </ul>
-                    </div>
-                    <div class="layer-card" style="border-left-color: #00b894;">
-                        <h3><ion-icon name="repeat-outline"></ion-icon> Metamorphic Rocks (Changed Form)</h3>
-                        <p>Formed from pre-existing rocks altered by **Pressure, Volume, and Temperature (PVT)** changes
-                            without melting. The process is called <span class="wiki-term" data-title="Metamorphism"
-                                data-summary="The solid-state recrystallization of pre-existing rocks due to changes in temperature, pressure, and chemical environment."
-                                data-link="https://en.wikipedia.org/wiki/Metamorphism">Metamorphism</span>.</p>
-                        <ul>
-                            <li><strong>Foliated:</strong> Minerals aligned in layers. Ex: Slate (from Shale), Schist,
-                                Gneiss (from Granite).</li>
-                            <li><strong>Non-Foliated:</strong> No layered texture. Ex: Marble (from Limestone),
-                                Quartzite (from Sandstone).</li>
-                        </ul>
-                    </div>
+                <h2 class="g-text-gradient">2. The Data Vault: Physical Properties</h2>
+                <p>Geologists identify minerals by specific physical traits.</p>
+
+                <div class="glass-table-container">
+                    <table class="comparison-table">
+                        <thead>
+                            <tr>
+                                <th>Property</th>
+                                <th>Definition</th>
+                                <th>Example</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>Hardness (Mohs Scale)</strong></td>
+                                <td>Resistance to scratching.</td>
+                                <td>Talc (1) vs Diamond (10).</td>
+                            </tr>
+                            <tr>
+                                <td><strong><span class="wiki-term" data-title="Cleavage"
+                                            data-summary="The tendency of a mineral to break along flat planar surfaces as determined by the structure of its crystal lattice.">Cleavage</span></strong>
+                                </td>
+                                <td>Tendency to break along flat planes.</td>
+                                <td>Mica (Perfect sheets).</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Fracture</strong></td>
+                                <td>Irregular breakage.</td>
+                                <td>Quartz (Conchoidal fracture).</td>
+                            </tr>
+                            <tr>
+                                <td><strong><span class="wiki-term" data-title="Lustre"
+                                            data-summary="The way light interacts with the surface of a crystal, rock, or mineral.">Lustre</span></strong>
+                                </td>
+                                <td>How light reflects.</td>
+                                <td>Metallic (Gold), Glassy (Quartz), Silky (Gypsum).</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Streak</strong></td>
+                                <td>Color of powder form.</td>
+                                <td>Malachite (Green), Hematite (Red).</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="formula-card">
+                    <div class="formula-text">Mohs Hardness Scale</div>
+                    <div class="formula-desc">1. Talc | 2. Gypsum | 3. Calcite | 4. Fluorite | 5. Apatite<br>6.
+                        Orthoclase | 7. Quartz | 8. Topaz | 9. Corundum | 10. Diamond</div>
                 </div>
             </section>
 
@@ -187,62 +210,103 @@
             <!-- ============================================ -->
             <section class="content-block">
                 <h2 class="g-text-gradient">3. The Rock Cycle</h2>
-                <p>The Rock Cycle is the continuous process that transforms rocks from one type to another over
-                    geological time. It is not a one-way street; any rock can become any other type given the right
-                    conditions.</p>
-                <div class="upsc-note">
-                    <strong>Cycle Pathways</strong>
-                    <ul>
-                        <li><strong>Igneous → Sedimentary:</strong> Weathering & Erosion → Deposition → Lithification.
-                        </li>
-                        <li><strong>Sedimentary → Metamorphic:</strong> Burial → Heat & Pressure.</li>
-                        <li><strong>Metamorphic → Igneous:</strong> Melting → Crystallization.</li>
-                        <li><strong>Any Rock → Igneous:</strong> Melting (the cycle can shortcut).</li>
-                    </ul>
-                </div>
-            </section>
+                <p>Rocks are aggregates of minerals. They transform over geological time.</p>
 
-            <!-- ============================================ -->
-            <!-- SECTION 4: CONNECT THE DOTS -->
-            <!-- ============================================ -->
-            <section class="content-block">
-                <h2 class="g-text-gradient">4. Connect the Dots: Interdisciplinary Links</h2>
                 <div class="interactive-layers">
-                    <div class="layer-card" style="border-left-color: #a29bfe;">
-                        <h3><ion-icon name="flask-outline"></ion-icon> Chemistry: Silicate Structures</h3>
-                        <p>Most minerals are silicates based on the SiO₄ tetrahedron. These tetrahedra link in different
-                            ways (isolated, chains, sheets, frameworks) to form different mineral groups (Olivine,
-                            Pyroxene, Mica, Feldspar). Understanding this requires basic inorganic chemistry (bonding,
-                            coordination).</p>
+                    <div class="layer-card" style="border-left-color: #ff7675;">
+                        <h3>Igneous Rocks (The Primary Rocks)</h3>
+                        <p>Formed from cooling <strong>Magma/Lava</strong>. No fossils. Crystalline.<br>
+                            <strong>Intrusive:</strong> <span class="wiki-term" data-title="Granite"
+                                data-summary="A common type of felsic intrusive igneous rock that is granular and phaneritic in texture.">Granite</span>
+                            (Slow cooling, large crystals).<br>
+                            <strong>Extrusive:</strong> <span class="wiki-term" data-title="Basalt"
+                                data-summary="A dark-colored, fine-grained, igneous rock composed mainly of plagioclase and pyroxene.">Basalt</span>
+                            (Fast cooling, fine crystals).
+                        </p>
                     </div>
-                    <div class="layer-card" style="border-left-color: #fd79a8;">
-                        <h3><ion-icon name="cash-outline"></ion-icon> Economics: Strategic Minerals</h3>
-                        <p>The distribution of minerals like Lithium (batteries), Cobalt (magnets), and Rare Earth
-                            Elements (electronics) drives modern geopolitics. Understanding mineral formation processes
-                            (e.g., <span class="wiki-term" data-title="Hydrothermal Vents"
-                                data-summary="Openings in the seafloor that discharge hot, mineral-rich water. Associated with ore deposits."
-                                data-link="https://en.wikipedia.org/wiki/Hydrothermal_vent">hydrothermal vents</span>
-                            for copper/gold) is crucial for Resource Geography.</p>
+                    <div class="layer-card" style="border-left-color: #ffeaa7;">
+                        <h3>Sedimentary Rocks (Secondary)</h3>
+                        <p>Formed from <strong><span class="wiki-term" data-title="Lithification"
+                                    data-summary="The process in which sediments compact under pressure, expel connate fluids, and gradually become solid rock.">Lithification</span></strong>
+                            (compaction) of sediments. Distinct layers
+                            (strata). Contains fossils.<br>
+                            <strong>Mechanically Formed:</strong> Sandstone, Shale.<br>
+                            <strong>Organically Formed:</strong> Limestone (Coral/Shells), Coal.<br>
+                            <strong>Chemically Formed:</strong> Gypsum, Salt.
+                        </p>
+                    </div>
+                    <div class="layer-card" style="border-left-color: #55efc4;">
+                        <h3>Metamorphic Rocks (Changed Form)</h3>
+                        <p>Formed under <strong>Heat, Pressure, & Volume</strong> (PVT) changes. Recrystallization
+                            occurs.<br>
+                            <strong>Granite</strong> &rarr; Gneiss<br>
+                            <strong>Clay/Shale</strong> &rarr; Slate<br>
+                            <strong>Limestone</strong> &rarr; Marble<br>
+                            <strong>Coal</strong> &rarr; Graphite/Diamond
+                        </p>
                     </div>
                 </div>
             </section>
+
+            <!-- ============================================ -->
+            <!-- SECTION 4: CASE STUDY -->
+            <!-- ============================================ -->
             <section class="content-block">
-                    <!-- DIAGRAM GALLERY -->
-                    <div class="diagram-gallery">
-                        <h4><ion-icon name="images-outline"></ion-icon> Key Diagrams</h4>
-                        <div class="media-gallery-grid">
-                            <figure class="media-item">
-                                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/ef/Rock_cycle.svg/400px-Rock_cycle.svg.png" alt="Rock Cycle" class="chapter-diagram">
-                                <figcaption>The Rock Cycle - Igneous, Sedimentary, Metamorphic</figcaption>
-                            </figure>
-                            <figure class="media-item">
-                                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8d/Mineral_diversification.png/400px-Mineral_diversification.png" alt="Mineral Classification" class="chapter-diagram">
-                                <figcaption>Mineral Classification and Evolution</figcaption>
-                            </figure>
-                        </div>
+                <div class="case-study-card">
+                    <div class="case-study-header">
+                        <ion-icon name="layers-outline"></ion-icon>
+                        <div class="case-study-title">Case Study: The Deccan Traps</div>
                     </div>
+                    <p><strong>Location:</strong> Western India (Maharashtra, Gujarat, MP).</p>
+                    <p><strong>Formation:</strong> A classic example of <strong><span class="wiki-term"
+                                data-title="Flood Basalt"
+                                data-summary="The result of a giant volcanic eruption or series of eruptions that coats large stretches of land or the ocean floor with basalt lava.">Flood
+                                Basalt Provinces</span></strong>. Around
+                        66 Million Years ago (Cretaceous end), a massive volcanic eruption poured lava over 500,000 km².
+                    </p>
+                    <p><strong>Result:</strong> Layer upon layer of basalt (steps/traps) formed. Weathering of this
+                        basalt created the <strong>Black Cotton Soil (Regur)</strong>, crucial for India's cotton
+                        agriculture.</p>
+                </div>
             </section>
 
+            <!-- ============================================ -->
+            <!-- SECTION 5: DIAGRAMS -->
+            <!-- ============================================ -->
+            <section class="content-block">
+                <div class="diagram-gallery">
+                    <h4><ion-icon name="images-outline"></ion-icon> Visual Cycle</h4>
+                    <div class="media-gallery-grid">
+                        <figure class="media-item">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/1d/Rock_Cycle_diagram_en.svg/1024px-Rock_Cycle_diagram_en.svg.png"
+                                class="chapter-diagram" alt="Rock Cycle">
+                            <figcaption>The Rock Cycle</figcaption>
+                        </figure>
+                        <figure class="media-item">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/ca/Feldspar-Group-291254.jpg/1200px-Feldspar-Group-291254.jpg"
+                                class="chapter-diagram" alt="Feldspar">
+                            <figcaption>Feldspar (Most common mineral in Earth's crust)</figcaption>
+                        </figure>
+                        <figure class="media-item">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/19/Granite_Yosemite_P1160483.jpg/800px-Granite_Yosemite_P1160483.jpg"
+                                class="chapter-diagram" alt="Granite">
+                            <figcaption>Granite (Igneous Intrusive)</figcaption>
+                        </figure>
+                    </div>
+                </div>
+            </section>
+
+
+            <div class="chapter-nav">
+    <a href="chapter4.html" class="prev">
+        <span class="nav-dir">← Previous</span>
+        <span class="nav-title">Oceans & Continents</span>
+    </a>
+    <a href="chapter6.html" class="next">
+        <span class="nav-dir">Next →</span>
+        <span class="nav-title">Geomorphic Processes</span>
+    </a>
+</div>
 
         </article>
     </div>

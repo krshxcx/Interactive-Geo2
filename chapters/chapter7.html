@@ -1,273 +1,262 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Chapter 7: Landforms and their Evolution</title>
+    <title>Chapter 7: Landforms & Their Evolution</title>
     <link rel="stylesheet" href="../styles.css">
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
     <style>
-        .chapter-controls { position: fixed; top: 20px; right: 20px; display: flex; gap: 15px; z-index: 1000; }
-        .chapter-controls button { background: rgba(0,0,0,0.3); border: 1px solid rgba(255,255,255,0.2); border-radius: 50%; width: 45px; height: 45px; cursor: pointer; font-size: 1.3rem; backdrop-filter: blur(10px); transition: all 0.3s ease; color: var(--primary); }
-        .chapter-controls button:hover { background: rgba(255,255,255,0.1); transform: scale(1.1); }
+        .chapter-controls {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            display: flex;
+            gap: 15px;
+            z-index: 1000;
+        }
+
+        .chapter-controls button {
+            background: rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 50%;
+            width: 45px;
+            height: 45px;
+            cursor: pointer;
+            font-size: 1.3rem;
+            backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+            color: var(--primary);
+        }
+
+        .chapter-controls button:hover {
+            background: rgba(255, 255, 255, 0.1);
+            transform: scale(1.1);
+        }
     </style>
 </head>
+
 <body>
     <div class="chapter-controls">
-        <button id="warp-btn" onclick="toggleInterstellar()" title="Interstellar Mode"><ion-icon name="rocket-outline"></ion-icon></button>
-        <button id="music-btn" onclick="toggleMusic()" title="Toggle Music"><ion-icon name="musical-notes-outline"></ion-icon></button>
+        <button id="warp-btn" onclick="toggleInterstellar()" title="Interstellar Mode"><ion-icon
+                name="rocket-outline"></ion-icon></button>
+        <button id="music-btn" onclick="toggleMusic()" title="Toggle Music"><ion-icon
+                name="musical-notes-outline"></ion-icon></button>
+        <button id="bookmark-btn" class="bookmark-btn" title="Bookmark"><ion-icon name="bookmark-outline"></ion-icon></button>
+
     </div>
-    <audio id="bg-music" loop><source src="../music.mp3" type="audio/mpeg"></audio>
+    <audio id="bg-music" loop>
+        <source src="../music.mp3" type="audio/mpeg">
+    </audio>
     <div id="chapter-content">
         <article class="chapter-article">
 
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/21/Grand_Canyon_view_from_Pima_Point_2010.jpg/800px-Grand_Canyon_view_from_Pima_Point_2010.jpg" alt="Landforms & Evolution" class="chapter-hero-banner" loading="lazy">
+
+
+            <!-- HERO SECTION -->
+            <div class="content-block" style="text-align: center; border-bottom: 1px solid rgba(255,255,255,0.1);">
+                <span
+                    style="letter-spacing: 3px; color: var(--secondary); text-transform: uppercase; font-size: 0.9rem;">Geomorphology
+                    Module</span>
+                <h2 class="g-text-gradient" style="font-size: 3.5rem; margin: 10px 0;">7. Landforms & Their Evolution
+                </h2>
+                <p style="color: var(--text-dim); max-width: 600px; margin: 0 auto 30px;">The sculptors of the Earth:
+                    Water, Ice, Wind, and Waves.</p>
+
+                <div class="scholar-quote">
+                    "Landscape is a function of structure, process, and stage."
+                    <span class="scholar-cite">— <span class="wiki-term" data-title="William Morris Davis"
+                            data-summary="American geographer, geologist, geomorphologist, and meteorologist, often called the 'father of American geography'.">W.M.
+                            Davis</span> (Cycle of Erosion)</span>
+                </div>
+            </div>
+
+<div class="key-takeaways">
+    <h3><ion-icon name="bulb-outline"></ion-icon> Key Takeaways</h3>
+    <ul>
+        <li>Landforms are shaped by running water, wind, glaciers, and waves</li>
+        <li>River stages: <strong>Youth</strong> (V-valleys), <strong>Mature</strong> (meanders), <strong>Old</strong> (floodplains, deltas)</li>
+        <li>Glacial landforms: <strong>Cirques</strong>, <strong>U-valleys</strong>, <strong>Moraines</strong>, <strong>Drumlins</strong></li>
+        <li>Karst topography forms in limestone regions: sinkholes, caves, stalactites</li>
+    </ul>
+</div>
+
             <!-- ============================================ -->
-            <!-- SECTION 1: FLUVIAL LANDFORMS -->
+            <!-- SECTION 1: THE DAVISIAN CYCLE -->
             <!-- ============================================ -->
             <section class="content-block">
-                <h2 class="g-text-gradient">1. Fluvial Landforms (Running Water)</h2>
-                <p>Running water is the most dominant geomorphic agent on Earth. River landforms evolve through a
-                    predictable cycle (Youth, Maturity, Old Age), though real rivers are more complex.</p>
+                <h2 class="g-text-gradient">1. The Erosion Cycle (Davis)</h2>
+                <p>Landforms evolve through identifiable stages of life.</p>
 
-                <div class="subtopic-card">
-                    <h3><ion-icon name="water-outline"></ion-icon> 1.1 Erosional Landforms</h3>
-                    <div class="glass-table-container">
-                        <table class="comparison-table">
-                            <thead>
-                                <tr>
-                                    <th>Landform</th>
-                                    <th>Mechanism</th>
-                                    <th>Characteristics</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td><strong>V-Shaped Valley</strong></td>
-                                    <td>Vertical downcutting by rivers in youthful stage. Steeper than glacial valleys.
-                                    </td>
-                                    <td>Characteristic of upper course. Interlocking spurs.</td>
-                                </tr>
-                                <tr>
-                                    <td><strong>Gorge/Canyon</strong></td>
-                                    <td>Deep, narrow valley formed when downcutting is faster than valley widening.</td>
-                                    <td>Steep, nearly vertical walls. Ex: Grand Canyon.</td>
-                                </tr>
-                                <tr>
-                                    <td><strong>Waterfall</strong></td>
-                                    <td>River flows over resistant rock layer (cap rock) underlain by softer rock.
-                                        Softer rock erodes, cap rock overhangs and collapses.</td>
-                                    <td>Creates a <span class="wiki-term" data-title="Plunge Pool"
-                                            data-summary="A deep basin at the base of a waterfall, eroded by the hydraulic action of falling water."
-                                            data-link="https://en.wikipedia.org/wiki/Plunge_pool">Plunge Pool</span> at
-                                        the base. Recedes upstream over time.</td>
-                                </tr>
-                                <tr>
-                                    <td><strong>Potholes</strong></td>
-                                    <td>Cylindrical holes drilled into the riverbed by swirling water and pebbles (<span
-                                            class="wiki-term" data-title="Abrasion"
-                                            data-summary="The grinding and wearing down of rock surfaces by friction from sediment carried by wind, water, or ice."
-                                            data-link="https://en.wikipedia.org/wiki/Abrasion_(geology)">Corrasion</span>).
-                                    </td>
-                                    <td>Found on rock-cut river channels.</td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
+                <div class="glass-table-container">
+                    <table class="comparison-table">
+                        <thead>
+                            <tr>
+                                <th>Stage</th>
+                                <th>River Characteristics</th>
+                                <th>Landform Features</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>Youth</strong></td>
+                                <td>Fast, vertical erosion (down-cutting). V-shape valleys.</td>
+                                <td><span class="wiki-term" data-title="Gorge"
+                                        data-summary="A narrow valley between hills or mountains, typically with steep rocky walls and a stream running through it.">Gorges</span>,
+                                    Canyons, Waterfalls. No floodplains.</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Mature</strong></td>
+                                <td>Widening of valley (lateral erosion). <span class="wiki-term" data-title="Meander"
+                                        data-summary="A winding curve or bend of a river.">Meandering</span> starts.
+                                </td>
+                                <td>Floodplains, <span class="wiki-term" data-title="Alluvial Fan"
+                                        data-summary="A fan-shaped mass of alluvium deposited as the flow of a river decreases in velocity.">Alluvial
+                                        Fans</span>, Meanders.</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Old</strong></td>
+                                <td>Slow flow. Deposition dominates.</td>
+                                <td><span class="wiki-term" data-title="Oxbow Lake"
+                                        data-summary="A U-shaped lake that forms when a wide meander from the main stem of a river is cut off, creating a free-standing body of water.">Ox-bow
+                                        lakes</span>, Deltas, <span class="wiki-term" data-title="Peneplain"
+                                        data-summary="A more or less level land surface produced by erosion over a long period, undisturbed by crustal movement.">Peneplains</span>
+                                    (flat featureless plains).</td>
+                            </tr>
+                        </tbody>
+                    </table>
                 </div>
 
-                <div class="subtopic-card">
-                    <h3><ion-icon name="git-merge-outline"></ion-icon> 1.2 Depositional Landforms</h3>
-                    <div class="glass-table-container">
-                        <table class="comparison-table">
-                            <thead>
-                                <tr>
-                                    <th>Landform</th>
-                                    <th>Mechanism</th>
-                                    <th>Characteristics</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td><strong>Alluvial Fan</strong></td>
-                                    <td>Sudden decrease in river velocity as it exits mountains onto a plain.</td>
-                                    <td>Cone/fan-shaped deposit. Coarse material near apex, fine material at edges.</td>
-                                </tr>
-                                <tr>
-                                    <td><strong>Floodplain</strong></td>
-                                    <td>Repeated deposition of sediment during floods on the valley floor.</td>
-                                    <td>Flat, fertile land adjacent to the river. Prone to flooding.</td>
-                                </tr>
-                                <tr>
-                                    <td><strong>Levees</strong></td>
-                                    <td>Natural embankments along river channels formed by deposition of coarser
-                                        sediment during floods.</td>
-                                    <td>Raise the riverbed above the surrounding floodplain over time.</td>
-                                </tr>
-                                <tr>
-                                    <td><strong><span class="wiki-term" data-title="Meander"
-                                                data-summary="A sinuous curve or loop in a river's course, formed as the river erodes the outer bank and deposits on the inner bank."
-                                                data-link="https://en.wikipedia.org/wiki/Meander">Meander</span></strong>
-                                    </td>
-                                    <td>River swings side-to-side. Erosion on outer bank (cut bank), deposition on inner
-                                        bank (point bar).</td>
-                                    <td>Eventually, neck is cut off to form an Oxbow Lake.</td>
-                                </tr>
-                                <tr>
-                                    <td><strong>Delta</strong></td>
-                                    <td>Deposition of sediment where a river meets a standing body of water (sea, lake).
-                                    </td>
-                                    <td>Types: Arcuate (Nile), Bird's Foot (Mississippi), Estuarine (Narmada).</td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
+                <!-- NCERT DATA VAULT -->
+                <div class="upsc-note" style="margin-top: 30px;">
+                    <h3>📚 NCERT Data Vault</h3>
+                    <p><strong>Erosional Landforms:</strong> V-shaped valleys, gorges, canyons (running water) |
+                        Cirques, horns, arêtes, U-valleys (glaciers)</p>
+                    <p style="margin-top: 10px;"><strong>Depositional Landforms:</strong> Flood plains, deltas (water) |
+                        Barchans, parabolic, seif dunes (wind) | Moraines, eskers, drumlins (glaciers)</p>
                 </div>
             </section>
 
             <!-- ============================================ -->
-            <!-- SECTION 2: GLACIAL LANDFORMS -->
+            <!-- SECTION 2: AGENTS OF EROSION (DATA VAULT) -->
             <!-- ============================================ -->
             <section class="content-block">
-                <h2 class="g-text-gradient">2. Glacial Landforms</h2>
-                <p>Glaciers are rivers of ice. They shape high mountain and polar landscapes through erosion and
-                    deposition. They create U-shaped rather than V-shaped valleys.</p>
-                <div class="interactive-layers">
-                    <div class="layer-card" style="border-left-color: #74b9ff;">
-                        <h3><ion-icon name="chevron-up-circle-outline"></ion-icon> Erosional Landforms</h3>
-                        <ul>
-                            <li><strong><span class="wiki-term" data-title="Cirque"
-                                        data-summary="A bowl-shaped, amphitheater-like depression carved by glacial erosion at the head of a glacier."
-                                        data-link="https://en.wikipedia.org/wiki/Cirque">Cirque</span>
-                                    (Corrie/Cwm):</strong> Armchair-shaped depression where a glacier originates. Often
-                                contains a tarn (lake).</li>
-                            <li><strong><span class="wiki-term" data-title="Arête"
-                                        data-summary="A narrow, knife-edge ridge formed when two cirques erode on opposite sides of a mountain."
-                                        data-link="https://en.wikipedia.org/wiki/Ar%C3%AAte">Arête</span>:</strong> A
-                                sharp, narrow ridge between two cirques.</li>
-                            <li><strong><span class="wiki-term" data-title="Horn"
-                                        data-summary="A pyramidal peak formed by three or more cirques eroding backward into a mountain. Ex: The Matterhorn."
-                                        data-link="https://en.wikipedia.org/wiki/Pyramidal_peak">Horn</span>:</strong> A
-                                sharp peak formed by 3+ cirques eroding into a mountain from different sides (e.g.,
-                                Matterhorn).</li>
-                            <li><strong>U-Shaped Valley (Trough):</strong> A valley widened and deepened by a glacier.
-                                Steep sides, flat floor.</li>
-                            <li><strong>Hanging Valley:</strong> A tributary glacier's valley left "hanging" high above
-                                the main valley floor after the main glacier deepens its valley faster.</li>
-                            <li><strong><span class="wiki-term" data-title="Fjord"
-                                        data-summary="A long, narrow, deep inlet of the sea between high cliffs, formed when a glacial trough is flooded by the sea."
-                                        data-link="https://en.wikipedia.org/wiki/Fjord">Fjord</span>:</strong> A drowned
-                                glacial trough (U-shaped valley filled by the sea). Classic features of Norway.</li>
-                        </ul>
-                    </div>
-                    <div class="layer-card" style="border-left-color: #ffeaa7;">
-                        <h3><ion-icon name="layers-outline"></ion-icon> Depositional Landforms</h3>
-                        <ul>
-                            <li><strong><span class="wiki-term" data-title="Moraine"
-                                        data-summary="Accumulations of glacial debris (till) deposited directly by the ice or meltwater."
-                                        data-link="https://en.wikipedia.org/wiki/Moraine">Moraine</span>:</strong> Any
-                                glacial deposit. Types: Lateral (sides), Medial (middle), Terminal (snout), Ground
-                                (floor).</li>
-                            <li><strong>Drumlin:</strong> Elongated, teardrop-shaped hill of till. Steeper end faces the
-                                direction the glacier came from. Found in swarms ("basket of eggs" topography).</li>
-                            <li><strong>Esker:</strong> Sinuous ridge of sand and gravel deposited by a meltwater stream
-                                flowing *within* a glacier.</li>
-                            <li><strong>Outwash Plain (Sandur):</strong> Flat plain of sorted sediments deposited by
-                                braided meltwater streams beyond the terminal moraine.</li>
-                        </ul>
-                    </div>
-                </div>
-            </section>
+                <h2 class="g-text-gradient">2. The Agents of Erosion</h2>
 
-            <!-- ============================================ -->
-            <!-- SECTION 3: AEOLIAN LANDFORMS -->
-            <!-- ============================================ -->
-            <section class="content-block">
-                <h2 class="g-text-gradient">3. Aeolian Landforms (Wind)</h2>
-                <p>Wind is an effective geomorphic agent in arid and semi-arid regions where vegetation cover is sparse.
-                </p>
                 <div class="interactive-layers">
+                    <div class="layer-card" style="border-left-color: #0984e3;">
+                        <h3>A. Running Water (Fluvial)</h3>
+                        <p><strong>Erosional:</strong> Valleys (V-shaped), Gorges (steep), Canyons (stepped), Pot holes,
+                            Meanders (cut banks).<br>
+                            <strong>Depositional:</strong> Alluvial Fans (mountains to plains), Deltas (Bird-foot,
+                            Arcuate), Floodplains, Natural Levees.
+                        </p>
+                    </div>
+
+                    <div class="layer-card" style="border-left-color: #55efc4;">
+                        <h3>B. Groundwater (Karst/Limestone)</h3>
+                        <p><strong>Mechanism:</strong> Slightly acidic rainwater dissolves calcium carbonate rocks.<br>
+                            <strong>Erosional:</strong> <span class="wiki-term" data-title="Sinkhole"
+                                data-summary="A depression or hole in the ground caused by some form of collapse of the surface layer.">Sinkholes</span>,
+                            Lapies, Caves.<br>
+                            <strong>Depositional:</strong> <span class="wiki-term" data-title="Stalactite"
+                                data-summary="A tapering structure hanging like an icicle from the roof of a cave, formed of calcium salts deposited by dripping water.">Stalactites</span>
+                            (ceiling), Stalagmites (floor), Pillars
+                            (connected).
+                        </p>
+                    </div>
+
+                    <div class="layer-card" style="border-left-color: #dfe6e9;">
+                        <h3>C. Glaciers (Ice)</h3>
+                        <p><strong>Erosional:</strong> <span class="wiki-term" data-title="Cirque"
+                                data-summary="A half-open steep-sided hollow at the head of a valley or on a mountainside, formed by glacial erosion.">Cirque</span>
+                            (armchair), Arete (ridge), Horn (peak), U-shaped Valley
+                            (Trough), Hanging Valley.<br>
+                            <strong>Depositional:</strong> <span class="wiki-term" data-title="Moraine"
+                                data-summary="A mass of rocks and sediment carried down and deposited by a glacier, typically as ridges at its edges or extremity.">Moraines</span>
+                            (Lateral, Medial, Terminal), Eskers (ridges),
+                            Drumlins (inverted boat), Outwash Plains.
+                        </p>
+                    </div>
+
                     <div class="layer-card" style="border-left-color: #fdcb6e;">
-                        <h3><ion-icon name="cut-outline"></ion-icon> Erosional Landforms</h3>
-                        <ul>
-                            <li><strong>Mushroom/Pedestal Rock:</strong> Wind-blown sand erodes the base of a rock more
-                                effectively (due to higher sand concentration close to the ground), leaving a
-                                mushroom-like shape.</li>
-                            <li><strong>Ventifacts:</strong> Rocks faceted and polished by wind-blown sand.</li>
-                            <li><strong><span class="wiki-term" data-title="Yardang"
-                                        data-summary="A streamlined, elongated ridge carved parallel to the prevailing wind direction by wind abrasion."
-                                        data-link="https://en.wikipedia.org/wiki/Yardang">Yardang</span>:</strong>
-                                Elongated ridges carved in soft rock, aligned parallel to the wind.</li>
-                            <li><strong>Deflation Hollows:</strong> Depressions formed by wind removing loose, fine
-                                sediment. Can create oases if they reach the water table.</li>
-                        </ul>
-                    </div>
-                    <div class="layer-card" style="border-left-color: #fad390;">
-                        <h3><ion-icon name="disc-outline"></ion-icon> Depositional Landforms (Dunes)</h3>
-                        <ul>
-                            <li><strong><span class="wiki-term" data-title="Barchan"
-                                        data-summary="A crescent-shaped sand dune with the horns pointing downwind, formed in areas with limited sand and a unidirectional wind."
-                                        data-link="https://en.wikipedia.org/wiki/Barchan">Barchan</span>:</strong>
-                                Crescent-shaped dune with horns pointing *downwind*. Windward side is gentle, leeward
-                                (slip face) steep.</li>
-                            <li><strong>Seif (Longitudinal Dune):</strong> Long, linear dune aligned parallel to the
-                                wind. Formed by bi-directional winds.</li>
-                            <li><strong>Transverse Dune:</strong> Long ridges aligned perpendicular to the wind.
-                                Abundant sand supply.</li>
-                            <li><strong>Loess:</strong> Deposits of fine wind-blown silt, often very fertile. The <span
-                                    class="wiki-term" data-title="Loess Plateau"
-                                    data-summary="A high plateau in north-central China covered by deposits of fine, wind-blown silt (loess), the source of the Yellow River's color."
-                                    data-link="https://en.wikipedia.org/wiki/Loess_Plateau">Loess Plateau of
-                                    China</span> is the largest example.</li>
-                        </ul>
+                        <h3>D. Wind (Aeolian - Deserts)</h3>
+                        <p><strong>Erosional:</strong> Mushroom Rocks, <span class="wiki-term" data-title="Inselberg"
+                                data-summary="An isolated hill or mountain rising abruptly from a plain.">Inselbergs</span>,
+                            Zeugens, Yardangs.<br>
+                            <strong>Depositional:</strong> Sand Dunes (Barchan/Crescent, Seif/Linear), <span
+                                class="wiki-term" data-title="Loess"
+                                data-summary="A loosely compacted yellowish-gray deposit of windblown sediment.">Loess</span>
+                            (fine
+                            dust).
+                        </p>
                     </div>
                 </div>
             </section>
 
             <!-- ============================================ -->
-            <!-- SECTION 4: KARST LANDFORMS -->
+            <!-- SECTION 3: CASE STUDY -->
             <!-- ============================================ -->
             <section class="content-block">
-                <h2 class="g-text-gradient">4. Karst Landforms (Solution)</h2>
-                <p><span class="wiki-term" data-title="Karst Topography"
-                        data-summary="A landscape formed from the dissolution of soluble rocks (limestone, dolomite, gypsum), characterized by caves, sinkholes, and disappearing streams."
-                        data-link="https://en.wikipedia.org/wiki/Karst">Karst</span> landscapes are formed by the
-                    dissolution of solite rocks like limestone (CaCO₃) by slightly acidic rainwater (H₂CO₃).</p>
-                <ul>
-                    <li><strong>Sinkholes (Dolines):</strong> Circular depressions formed by solution or collapse of
-                        underground caves.</li>
-                    <li><strong>Caves & Caverns:</strong> Underground chambers dissolved out of limestone. Home to <span
-                            class="wiki-term" data-title="Stalactite"
-                            data-summary="An icicle-shaped mineral deposit hanging from the ceiling of a cave, formed by dripping water depositing calcite."
-                            data-link="https://en.wikipedia.org/wiki/Stalactite">stalactites</span> (hanging from
-                        ceiling) and <span class="wiki-term" data-title="Stalagmite"
-                            data-summary="An upward-growing mineral deposit on the floor of a cave, formed by dripping water."
-                            data-link="https://en.wikipedia.org/wiki/Stalagmite">stalagmites</span> (rising from floor).
-                    </li>
-                    <li><strong>Disappearing Streams:</strong> Streams that sink into the ground via swallow holes.</li>
-                </ul>
-            </section>
-            <section class="content-block">
-                    <!-- DIAGRAM GALLERY -->
-                    <div class="diagram-gallery">
-                        <h4><ion-icon name="images-outline"></ion-icon> Key Diagrams</h4>
-                        <div class="media-gallery-grid">
-                            <figure class="media-item">
-                                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/67/Glacier_diagram.svg/500px-Glacier_diagram.svg.png" alt="Glacier Landforms" class="chapter-diagram">
-                                <figcaption>Glacier Formation and Landforms</figcaption>
-                            </figure>
-                            <figure class="media-item">
-                                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/52/River_delta.svg/400px-River_delta.svg.png" alt="River Delta" class="chapter-diagram">
-                                <figcaption>River Delta Formation</figcaption>
-                            </figure>
-                            <figure class="media-item">
-                                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6c/Meander-formation.png/400px-Meander-formation.png" alt="Meander Formation" class="chapter-diagram">
-                                <figcaption>Meander and Oxbow Lake Formation</figcaption>
-                            </figure>
-                        </div>
+                <div class="case-study-card">
+                    <div class="case-study-header">
+                        <ion-icon name="water-outline"></ion-icon>
+                        <div class="case-study-title">Case Study: The Grand Canyon, USA</div>
                     </div>
+                    <p><strong>Agent:</strong> Running Water (The Colorado River).</p>
+                    <p><strong>Type:</strong> A Canyon (Stepped valley sides), unlike a Gorge (Steep vertical sides).
+                    </p>
+                    <p><strong>Formation:</strong> The river cut down through layers of sedimentary rock while the
+                        Colorado Plateau was being slowly uplifted. It exposes nearly 2 Billion years of Earth's
+                        history.</p>
+                </div>
             </section>
 
+            <!-- ============================================ -->
+            <!-- SECTION 4: DIAGRAMS -->
+            <!-- ============================================ -->
+            <section class="content-block">
+                <div class="diagram-gallery">
+                    <h4><ion-icon name="images-outline"></ion-icon> Landform Visuals</h4>
+                    <div class="media-gallery-grid">
+                        <figure class="media-item">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/15/Horseshoe_Bend%2C_Arizona_-_2018.jpg/1280px-Horseshoe_Bend%2C_Arizona_-_2018.jpg"
+                                class="chapter-diagram" alt="Meander">
+                            <figcaption>Incised Meander (The Colorado River)</figcaption>
+                        </figure>
+                        <figure class="media-item">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c5/Moraine_Lake_17092005.jpg/1200px-Moraine_Lake_17092005.jpg"
+                                class="chapter-diagram" alt="Glacial">
+                            <figcaption>Glacial Valley & Moraine Lake</figcaption>
+                        </figure>
+                        <figure class="media-item">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/30/Luray_Caverns_Stalacpite.jpg/800px-Luray_Caverns_Stalacpite.jpg"
+                                class="chapter-diagram" alt="Karst">
+                            <figcaption>Stalactites & Stalagmites (Karst)</figcaption>
+                        </figure>
+                        <figure class="media-item">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/28/Hanging_valley.svg/800px-Hanging_valley.svg.png"
+                                class="chapter-diagram" alt="Hanging Valley">
+                            <figcaption>U-Shaped Valley Diagram</figcaption>
+                        </figure>
+                    </div>
+                </div>
+            </section>
+
+
+            <div class="chapter-nav">
+    <a href="chapter6.html" class="prev">
+        <span class="nav-dir">← Previous</span>
+        <span class="nav-title">Geomorphic Processes</span>
+    </a>
+    <a href="chapter8.html" class="next">
+        <span class="nav-dir">Next →</span>
+        <span class="nav-title">Atmosphere Structure</span>
+    </a>
+</div>
 
         </article>
     </div>

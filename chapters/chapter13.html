@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,176 +9,227 @@
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
     <style>
-        .chapter-controls { position: fixed; top: 20px; right: 20px; display: flex; gap: 15px; z-index: 1000; }
-        .chapter-controls button { background: rgba(0,0,0,0.3); border: 1px solid rgba(255,255,255,0.2); border-radius: 50%; width: 45px; height: 45px; cursor: pointer; font-size: 1.3rem; backdrop-filter: blur(10px); transition: all 0.3s ease; color: var(--primary); }
-        .chapter-controls button:hover { background: rgba(255,255,255,0.1); transform: scale(1.1); }
+        .chapter-controls {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            display: flex;
+            gap: 15px;
+            z-index: 1000;
+        }
+
+        .chapter-controls button {
+            background: rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 50%;
+            width: 45px;
+            height: 45px;
+            cursor: pointer;
+            font-size: 1.3rem;
+            backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+            color: var(--primary);
+        }
+
+        .chapter-controls button:hover {
+            background: rgba(255, 255, 255, 0.1);
+            transform: scale(1.1);
+        }
     </style>
 </head>
+
 <body>
     <div class="chapter-controls">
-        <button id="warp-btn" onclick="toggleInterstellar()" title="Interstellar Mode"><ion-icon name="rocket-outline"></ion-icon></button>
-        <button id="music-btn" onclick="toggleMusic()" title="Toggle Music"><ion-icon name="musical-notes-outline"></ion-icon></button>
+        <button id="warp-btn" onclick="toggleInterstellar()" title="Interstellar Mode"><ion-icon
+                name="rocket-outline"></ion-icon></button>
+        <button id="music-btn" onclick="toggleMusic()" title="Toggle Music"><ion-icon
+                name="musical-notes-outline"></ion-icon></button>
+        <button id="bookmark-btn" class="bookmark-btn" title="Bookmark"><ion-icon name="bookmark-outline"></ion-icon></button>
+
     </div>
-    <audio id="bg-music" loop><source src="../music.mp3" type="audio/mpeg"></audio>
+    <audio id="bg-music" loop>
+        <source src="../music.mp3" type="audio/mpeg">
+    </audio>
     <div id="chapter-content">
         <article class="chapter-article">
 
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/13/Okeanos.jpg/800px-Okeanos.jpg" alt="Water (Oceans)" class="chapter-hero-banner" loading="lazy">
+
+
+            <!-- HERO SECTION -->
+            <div class="content-block" style="text-align: center; border-bottom: 1px solid rgba(255,255,255,0.1);">
+                <span
+                    style="letter-spacing: 3px; color: var(--secondary); text-transform: uppercase; font-size: 0.9rem;">Oceanography
+                    Module</span>
+                <h2 class="g-text-gradient" style="font-size: 3.5rem; margin: 10px 0;">13. Water (Oceans)</h2>
+                <p style="color: var(--text-dim); max-width: 600px; margin: 0 auto 30px;">The blue basin that covers 71%
+                    of Earth.</p>
+
+                <div class="scholar-quote">
+                    "The sea, once it casts its spell, holds one in its net of wonder forever."
+                    <span class="scholar-cite">— <span class="wiki-term" data-title="Jacques Cousteau"
+                            data-summary="French naval officer, oceanographer, filmmaker and author.">Jacques
+                            Cousteau</span></span>
+                </div>
+            </div>
+
+<div class="key-takeaways">
+    <h3><ion-icon name="bulb-outline"></ion-icon> Key Takeaways</h3>
+    <ul>
+        <li>Oceans cover <strong>71%</strong> of Earth's surface and hold <strong>97%</strong> of all water</li>
+        <li>Ocean floor: <strong>Continental Shelf</strong> → Slope → Rise → <strong>Abyssal Plain</strong> → Trenches</li>
+        <li>Average ocean temperature: <strong>~17°C</strong>; salinity: <strong>35‰ (parts per thousand)</strong></li>
+        <li>Temperature and salinity decrease with depth; density increases</li>
+    </ul>
+</div>
+
             <!-- ============================================ -->
-            <!-- SECTION 1: OCEAN RELIEF -->
+            <!-- SECTION 1: RELIEF -->
             <!-- ============================================ -->
             <section class="content-block">
-                <h2 class="g-text-gradient">1. The Deep Dive: Ocean Basin Relief</h2>
-                <p>The ocean floor is not flat. It has a complex topography shaped by plate tectonics, volcanism, and
-                    sedimentation.</p>
+                <h2 class="g-text-gradient">1. Ocean Floor Relief / Topography</h2>
+                <p>The ocean floor is not flat. It is more rugged than land.</p>
 
                 <div class="interactive-layers">
-                    <div class="layer-card" style="border-left-color: #55efc4;">
-                        <h3>Continental Shelf</h3>
-                        <p>The shallow, gently sloping extension of the landmass submerged under the ocean. Depth:
-                            0-200m. Contains most of the world's fishing grounds, oil/gas reserves. Legal significance
-                            under <span class="wiki-term" data-title="UNCLOS"
-                                data-summary="The United Nations Convention on the Law of the Sea (1982). Defines rights and responsibilities of nations with respect to their use of the world's oceans."
-                                data-link="https://en.wikipedia.org/wiki/United_Nations_Convention_on_the_Law_of_the_Sea">UNCLOS</span>
-                            (Exclusive Economic Zone).</p>
-                    </div>
                     <div class="layer-card" style="border-left-color: #74b9ff;">
-                        <h3>Continental Slope</h3>
-                        <p>The steep drop-off at the edge of the shelf, leading to the deep ocean floor. Depth:
-                            200-3000m. Average gradient ~4-5°. Cut by submarine canyons (often extensions of land river
-                            valleys).</p>
+                        <h3>1. Continental Shelf (Shallow)</h3>
+                        <p><strong>Depth:</strong> ~200m.<br>
+                            <strong>Significance:</strong> Sunlight reaches bottom (Photic Zone). Richest
+                            <strong>fishing banks</strong> (Grand Banks, Dogger Bank). Huge reserves of Oil & Gas
+                            (Mumbai High).
+                        </p>
                     </div>
-                    <div class="layer-card" style="border-left-color: #a29bfe;">
-                        <h3>Abyssal Plain</h3>
-                        <p>The vast, flat, featureless plains of the deep ocean floor. Depth: 3,000-6,000m. Covered by
-                            fine <span class="wiki-term" data-title="Pelagic Sediment"
-                                data-summary="Fine-grained sediments on the deep ocean floor, composed of biogenic (oozes) and non-biogenic (red clay) material."
-                                data-link="https://en.wikipedia.org/wiki/Pelagic_sediment">pelagic sediments</span>
-                            (oozes and red clay). The flattest places on Earth.</p>
+                    <div class="layer-card" style="border-left-color: #0984e3;">
+                        <h3>2. Continental Slope (Steep)</h3>
+                        <p><strong>Gradient:</strong> Steep descent (2-5°).<br>
+                            <strong>Feature:</strong> Connects shelf to deep sea. <strong>Submarine Canyons</strong>
+                            (deep gorges cut by turbidity currents) are found here.
+                        </p>
                     </div>
-                    <div class="layer-card" style="border-left-color: #fd79a8;">
-                        <h3>Mid-Ocean Ridges & Trenches</h3>
-                        <p><strong><span class="wiki-term" data-title="Mid-Ocean Ridge" data-image="https://upload.wikimedia.org/wikipedia/commons/thumb/4/44/Mid-ocean_ridge_topography.gif/300px-Mid-ocean_ridge_topography.gif"
-                                    data-summary="An underwater mountain system formed by plate tectonics at divergent boundaries; the site of seafloor spreading."
-                                    data-link="https://en.wikipedia.org/wiki/Mid-ocean_ridge">Mid-Ocean
-                                    Ridges</span>:</strong> Underwater mountain ranges at divergent plate boundaries
-                            (e.g., Mid-Atlantic Ridge). Site of sea-floor spreading. <strong><span class="wiki-term"
-                                    data-title="Oceanic Trench"
-                                    data-summary="Long, narrow depressions on the ocean floor, the deepest parts of the ocean. Formed at convergent boundaries (subduction zones)."
-                                    data-link="https://en.wikipedia.org/wiki/Oceanic_trench">Oceanic
-                                    Trenches</span>:</strong> The deepest parts of the ocean (e.g., <span
-                                class="wiki-term" data-title="Mariana Trench" data-image="https://upload.wikimedia.org/wikipedia/commons/thumb/1/1e/Mariana_trench_location.jpg/300px-Mariana_trench_location.jpg"
-                                data-summary="The deepest oceanic trench on Earth, located in the western Pacific. Deepest point: Challenger Deep (~11,034m)."
-                                data-link="https://en.wikipedia.org/wiki/Mariana_Trench">Mariana Trench</span>
-                            ~11,034m). Located at convergent (subduction) zones.</p>
+                    <div class="layer-card" style="border-left-color: #636e72;">
+                        <h3>3. Deep Sea Plain (<span class="wiki-term" data-title="Abyssal Plain"
+                                data-summary="An underwater plain on the deep ocean floor, usually found at depths between 3,000 and 6,000 meters.">Abyssal
+                                Plain</span>)</h3>
+                        <p><strong>Depth:</strong> 3,000 - 6,000m.<br>
+                            <strong>Feature:</strong> Flattest areas on Earth. Covered in fine ooze (clay/silt).
+                            Manganese nodules found here.
+                        </p>
                     </div>
-                </div>
-            </section>
-
-            <!-- ============================================ -->
-            <!-- SECTION 2: OCEAN TEMPERATURE & SALINITY -->
-            <!-- ============================================ -->
-            <section class="content-block">
-                <h2 class="g-text-gradient">2. Ocean Temperature and Salinity</h2>
-
-                <div class="subtopic-card">
-                    <h3><ion-icon name="thermometer-outline"></ion-icon> 2.1 Temperature</h3>
-                    <p>Average surface temperature ~17°C. Decreases from Equator to Poles. Decreases with depth (below
-                        the <span class="wiki-term" data-title="Thermocline"
-                            data-summary="A layer in a body of water where temperature changes more rapidly with depth than it does in the layers above or below."
-                            data-link="https://en.wikipedia.org/wiki/Thermocline">thermocline</span>, ~300-1000m, it is
-                        uniformly cold ~4°C). The ocean stores and transfers vast amounts of heat, moderating climate.
-                    </p>
-                </div>
-
-                <div class="subtopic-card">
-                    <h3><ion-icon name="water-outline"></ion-icon> 2.2 Salinity</h3>
-                    <p><span class="wiki-term" data-title="Salinity"
-                            data-summary="The concentration of dissolved salts in water, usually expressed in parts per thousand (ppt or ‰). Average ocean salinity is ~35 ppt."
-                            data-link="https://en.wikipedia.org/wiki/Salinity">Salinity</span> is the saltiness of
-                        water, measured in parts per thousand (‰). Average ocean salinity is ~35‰.</p>
-                    <div class="glass-table-container">
-                        <table class="comparison-table">
-                            <thead>
-                                <tr>
-                                    <th>Factor</th>
-                                    <th>Effect on Salinity</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td><strong>Evaporation</strong></td>
-                                    <td>Increases salinity (water leaves, salt stays).</td>
-                                </tr>
-                                <tr>
-                                    <td><strong>Precipitation / River Influx</strong></td>
-                                    <td>Decreases salinity (freshwater dilutes salt).</td>
-                                </tr>
-                                <tr>
-                                    <td><strong>Ice Formation</strong></td>
-                                    <td>Increases salinity (salt is excluded when seawater freezes).</td>
-                                </tr>
-                                <tr>
-                                    <td><strong>Ice Melting</strong></td>
-                                    <td>Decreases salinity (adds freshwater).</td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                    <div class="upsc-note">
-                        <strong>UPSC Data: High & Low Salinity Areas</strong>
-                        <p><strong>Highest (Open Ocean):</strong> Subtropical Atlantic (~37‰) due to high evaporation,
-                            low rainfall. <strong>Lowest:</strong> Near equator (high rainfall), in enclosed seas with
-                            river input (Baltic ~10‰, Bay of Bengal ~33‰), in polar regions (ice melt). <strong>Enclosed
-                                Highs:</strong> Dead Sea (~240‰), Red Sea (~40‰). <span class="citation-trigger"
-                                data-citation="Source: NCERT Class 11, Ch. 13">[Source: NCERT]</span></p>
+                    <div class="layer-card" style="border-left-color: #2d3436;">
+                        <h3>4. Ocean Deeps (<span class="wiki-term" data-title="Ocean Trench"
+                                data-summary="A long, narrow, deep depression in the ocean floor, typically one running parallel to a plate boundary.">Trenches</span>)
+                        </h3>
+                        <p><strong>Feature:</strong> Deepest parts. Formed by <strong>Subduction</strong> (Convergent
+                            Boundaries).<br>
+                            <strong>Example:</strong> Mariana Trench (11km deep) in Pacific.
+                        </p>
                     </div>
                 </div>
             </section>
 
             <!-- ============================================ -->
-            <!-- SECTION 3: CONNECT THE DOTS -->
+            <!-- SECTION 2: TEMPERATURE & SALINITY (DATA VAULT) -->
             <!-- ============================================ -->
             <section class="content-block">
-                <h2 class="g-text-gradient">3. Connect the Dots: Interdisciplinary Links</h2>
-                <div class="interactive-layers">
-                    <div class="layer-card" style="border-left-color: #a29bfe;">
-                        <h3><ion-icon name="flask-outline"></ion-icon> Chemistry: Salt Composition</h3>
-                        <p>The "salt" in ocean water is not just NaCl. It includes chloride (Cl⁻, 55%), sodium (Na⁺,
-                            31%), sulfate (SO₄²⁻), magnesium (Mg²⁺), calcium (Ca²⁺), potassium (K⁺). This is related to
-                            the chemical weathering of continental rocks and hydrothermal vents.</p>
+                <h2 class="g-text-gradient">2. The Properties of Seawater</h2>
+
+                <div class="glass-table-container">
+                    <table class="comparison-table">
+                        <thead>
+                            <tr>
+                                <th>Property</th>
+                                <th>Horizontal Trend</th>
+                                <th>Vertical Trend</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>Temperature</strong></td>
+                                <td>Decreases from Equator (27°C) to Poles (-2°C). Enclosed seas (Red Sea) are hotter.
+                                </td>
+                                <td>Decreases rapidly with depth in the <strong><span class="wiki-term"
+                                            data-title="Thermocline"
+                                            data-summary="A steep temperature gradient in a body of water such as a lake, marked by a layer above and below which the water is at different temperatures.">Thermocline</span></strong>
+                                    layer (200-1000m). Constant cold at bottom.</td>
+                            </tr>
+                            <tr>
+                                <td><strong><span class="wiki-term" data-title="Salinity"
+                                            data-summary="The concentration of dissolved salts in water.">Salinity</span></strong>
+                                </td>
+                                <td>Highest at Tropics (Subtropical High) due to High Evap + Low Rain. Lower at Equator
+                                    (Heavy Rain). Lowest at Poles (Ice melt).</td>
+                                <td>Increases with depth (at high latitudes). Distinct layer:
+                                    <strong><span class="wiki-term" data-title="Halocline"
+                                            data-summary="A subtype of chemocline caused by a strong vertical salinity gradient within a body of water.">Halocline</span></strong>
+                                    (Rapid salinity increase).
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="formula-card">
+                    <div class="formula-text">Average Salinity: 35 ppt</div>
+                    <div class="formula-desc">35 parts per thousand (35g salt in 1kg
+                        water).<br><strong>Composition:</strong> NaCl (77%), MgCl2 (11%).</div>
+                </div>
+            </section>
+
+            <!-- ============================================ -->
+            <!-- SECTION 3: CASE STUDY -->
+            <!-- ============================================ -->
+            <section class="content-block">
+                <div class="case-study-card">
+                    <div class="case-study-header">
+                        <ion-icon name="flask-outline"></ion-icon>
+                        <div class="case-study-title">Case Study: The Dead Sea (Extreme Salinity)</div>
                     </div>
-                    <div class="layer-card" style="border-left-color: #fd79a8;">
-                        <h3><ion-icon name="card-outline"></ion-icon> International Law: UNCLOS Zones</h3>
-                        <p>The legal definition of the <span class="wiki-term"
-                                data-title="Continental Shelf (Law of the Sea)"
-                                data-summary="Under UNCLOS, a coastal state has sovereign rights over the continental shelf (up to 200nm or the edge of the natural shelf) for resource exploitation."
-                                data-link="https://en.wikipedia.org/wiki/Continental_shelf#Law_of_the_sea">Continental
-                                Shelf</span> is crucial for claiming <span class="wiki-term"
-                                data-title="Exclusive Economic Zone (EEZ)"
-                                data-summary="A sea zone up to 200 nautical miles from a coastal state's baseline, where the state has special rights over marine resources."
-                                data-link="https://en.wikipedia.org/wiki/Exclusive_economic_zone">Exclusive Economic
-                                Zones (EEZ)</span>. Disputes over islands (South China Sea, Senkaku/Diaoyu) are
-                            fundamentally about controlling the surrounding continental shelf and its resources.</p>
+                    <p><strong>Location:</strong> Jordan / Israel / Palestine border.</p>
+                    <p><strong>Salinity:</strong> <strong>~340 ppt</strong> (10x ocean average).</p>
+                    <p><strong>Reason:</strong> Landlocked lake with no outlet. High evaporation rates in desert heat
+                        concentrate the salts delivered by the Jordan River.</p>
+                    <p><strong>Effect:</strong> Density is so high that humans float effortlessly ("Antigravity"
+                        effect). No fish can survive.</p>
+                </div>
+            </section>
+
+            <!-- ============================================ -->
+            <!-- SECTION 4: DIAGRAMS -->
+            <!-- ============================================ -->
+            <section class="content-block">
+                <div class="diagram-gallery">
+                    <h4><ion-icon name="images-outline"></ion-icon> Ocean Visuals</h4>
+                    <div class="media-gallery-grid">
+                        <figure class="media-item">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c1/Oceanic_basin.svg/1200px-Oceanic_basin.svg.png"
+                                class="chapter-diagram" alt="Relief">
+                            <figcaption>Ocean Floor Relief Features</figcaption>
+                        </figure>
+                        <figure class="media-item">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/15/Thermocline.svg/640px-Thermocline.svg.png"
+                                class="chapter-diagram" alt="Thermocline">
+                            <figcaption>Vertical Temperature Profile (Thermocline)</figcaption>
+                        </figure>
+                        <figure class="media-item">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e0/WOA09_sea-surf_SAL_AYool.png/1280px-WOA09_sea-surf_SAL_AYool.png"
+                                class="chapter-diagram" alt="Salinity Map">
+                            <figcaption>Global Sea Surface Salinity</figcaption>
+                        </figure>
                     </div>
                 </div>
             </section>
-            <section class="content-block">
-                    <!-- DIAGRAM GALLERY -->
-                    <div class="diagram-gallery">
-                        <h4><ion-icon name="images-outline"></ion-icon> Key Diagrams</h4>
-                        <div class="media-gallery-grid">
-                            <figure class="media-item">
-                                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/43/Oceanic_basin.svg/500px-Oceanic_basin.svg.png" alt="Ocean Basin" class="chapter-diagram">
-                                <figcaption>Ocean Basin Profile - Continental Shelf to Trench</figcaption>
-                            </figure>
-                            <figure class="media-item">
-                                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a0/WOA09_sea-surf_SAL_AYool.png/500px-WOA09_sea-surf_SAL_AYool.png" alt="Ocean Salinity" class="chapter-diagram">
-                                <figcaption>World Ocean Surface Salinity</figcaption>
-                            </figure>
-                        </div>
-                    </div>
-            </section>
 
+
+            <div class="chapter-nav">
+    <a href="chapter12.html" class="prev">
+        <span class="nav-dir">← Previous</span>
+        <span class="nav-title">World Climate</span>
+    </a>
+    <a href="chapter14.html" class="next">
+        <span class="nav-dir">Next →</span>
+        <span class="nav-title">Ocean Movements</span>
+    </a>
+</div>
 
         </article>
     </div>

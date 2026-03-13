@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,187 +9,202 @@
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
     <style>
-        .chapter-controls { position: fixed; top: 20px; right: 20px; display: flex; gap: 15px; z-index: 1000; }
-        .chapter-controls button { background: rgba(0,0,0,0.3); border: 1px solid rgba(255,255,255,0.2); border-radius: 50%; width: 45px; height: 45px; cursor: pointer; font-size: 1.3rem; backdrop-filter: blur(10px); transition: all 0.3s ease; color: var(--primary); }
-        .chapter-controls button:hover { background: rgba(255,255,255,0.1); transform: scale(1.1); }
+        .chapter-controls {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            display: flex;
+            gap: 15px;
+            z-index: 1000;
+        }
+
+        .chapter-controls button {
+            background: rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 50%;
+            width: 45px;
+            height: 45px;
+            cursor: pointer;
+            font-size: 1.3rem;
+            backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+            color: var(--primary);
+        }
+
+        .chapter-controls button:hover {
+            background: rgba(255, 255, 255, 0.1);
+            transform: scale(1.1);
+        }
     </style>
 </head>
+
 <body>
     <div class="chapter-controls">
-        <button id="warp-btn" onclick="toggleInterstellar()" title="Interstellar Mode"><ion-icon name="rocket-outline"></ion-icon></button>
-        <button id="music-btn" onclick="toggleMusic()" title="Toggle Music"><ion-icon name="musical-notes-outline"></ion-icon></button>
+        <button id="warp-btn" onclick="toggleInterstellar()" title="Interstellar Mode"><ion-icon
+                name="rocket-outline"></ion-icon></button>
+        <button id="music-btn" onclick="toggleMusic()" title="Toggle Music"><ion-icon
+                name="musical-notes-outline"></ion-icon></button>
+        <button id="bookmark-btn" class="bookmark-btn" title="Bookmark"><ion-icon name="bookmark-outline"></ion-icon></button>
+
     </div>
-    <audio id="bg-music" loop><source src="../music.mp3" type="audio/mpeg"></audio>
+    <audio id="bg-music" loop>
+        <source src="../music.mp3" type="audio/mpeg">
+    </audio>
     <div id="chapter-content">
         <article class="chapter-article">
 
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/dd/Geological_Processes.jpg/800px-Geological_Processes.jpg" alt="Geomorphic Processes" class="chapter-hero-banner" loading="lazy">
+
+
+            <!-- HERO SECTION -->
+            <div class="content-block" style="text-align: center; border-bottom: 1px solid rgba(255,255,255,0.1);">
+                <span
+                    style="letter-spacing: 3px; color: var(--secondary); text-transform: uppercase; font-size: 0.9rem;">Geomorphology
+                    Module</span>
+                <h2 class="g-text-gradient" style="font-size: 3.5rem; margin: 10px 0;">6. Geomorphic Processes</h2>
+                <p style="color: var(--text-dim); max-width: 600px; margin: 0 auto 30px;">The forces that build
+                    (Internal) and destroy (External) the Earth's surface.</p>
+
+                <div class="scholar-quote">
+                    "The present is the key to the past." (<span class="wiki-term" data-title="Uniformitarianism"
+                        data-summary="The theory that changes in the earth's crust during geological history have resulted from the action of continuous and uniform processes.">Uniformitarianism</span>)
+                    <span class="scholar-cite">— <span class="wiki-term" data-title="James Hutton"
+                            data-summary="Scottish geologist, physician, chemical manufacturer, naturalist, and experimental agriculturalist.">James
+                            Hutton</span></span>
+                </div>
+            </div>
+
+<div class="key-takeaways">
+    <h3><ion-icon name="bulb-outline"></ion-icon> Key Takeaways</h3>
+    <ul>
+        <li>Geomorphic processes are either <strong>endogenic</strong> (internal) or <strong>exogenic</strong> (external)</li>
+        <li>Endogenic forces: <strong>Volcanism</strong>, <strong>Diastrophism</strong>, <strong>Earthquakes</strong></li>
+        <li>Exogenic forces: <strong>Weathering</strong>, <strong>Erosion</strong>, <strong>Mass Wasting</strong></li>
+        <li>Weathering is in-situ; erosion involves transport by wind, water, ice, or gravity</li>
+    </ul>
+</div>
+
             <!-- ============================================ -->
-            <!-- SECTION 1: THE DEEP DIVE -->
+            <!-- SECTION 1: ENDOGENIC VS EXOGENIC -->
             <!-- ============================================ -->
             <section class="content-block">
-                <h2 class="g-text-gradient">1. The Deep Dive: Endogenic vs. Exogenic Forces</h2>
-                <p>The surface of the Earth is a battleground between two opposing sets of forces. Understanding this
-                    fundamental dichotomy is the key to understanding landform evolution.</p>
+                <h2 class="g-text-gradient">1. The Dual Forces</h2>
+                <p>Earth's surface is uneven because of two opposing forces working continuously.</p>
 
-                <div class="glass-table-container">
-                    <table class="comparison-table">
-                        <thead>
-                            <tr>
-                                <th>Parameter</th>
-                                <th>Endogenic (Internal) Forces</th>
-                                <th>Exogenic (External) Forces</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td><strong>Energy Source</strong></td>
-                                <td>Earth's internal heat (Radioactive decay of U, Th, K).</td>
-                                <td>Sun's energy (drives climate, weather, water cycle).</td>
-                            </tr>
-                            <tr>
-                                <td><strong>Primary Effect</strong></td>
-                                <td>Build up the land (Constructive). Create relief (mountains, plateaus).</td>
-                                <td>Wear down the land (Destructive). Reduce relief (erosion, levelling). This is called
-                                    <span class="wiki-term" data-title="Denudation"
-                                        data-summary="The sum total of all processes that wear away the Earth's surface: weathering, erosion, and mass wasting."
-                                        data-link="https://en.wikipedia.org/wiki/Denudation">Denudation</span>.</td>
-                            </tr>
-                            <tr>
-                                <td><strong>Processes</strong></td>
-                                <td>Volcanism, Tectonism (Folding, Faulting), Earthquakes.</td>
-                                <td>Weathering, Erosion, Mass Wasting, Deposition.</td>
-                            </tr>
-                            <tr>
-                                <td><strong>Speed</strong></td>
-                                <td>Often sudden (earthquakes) or slow (mountain building over millions of years).</td>
-                                <td>Generally slow and continuous.</td>
-                            </tr>
-                        </tbody>
-                    </table>
+                <div class="two-col-layout">
+                    <!-- Endogenic -->
+                    <div class="subtopic-card">
+                        <h3><ion-icon name="arrow-up-outline"></ion-icon> Endogenic (Internal) Forces</h3>
+                        <p><strong>Source:</strong> Heat from radio-activity, rotational friction, and primordial heat.
+                        </p>
+                        <p><strong>Action:</strong> Constructive. They elevate land.</p>
+                        <p><strong>Examples:</strong> <span class="wiki-term" data-title="Diastrophism"
+                                data-summary="Slow deformation of earth crust (Orogenic = Mountain Building, Epeirogenic = Continent Building).">Diastrophism</span>,
+                            <span class="wiki-term" data-title="Volcanism"
+                                data-summary="Volcanic activity or phenomena.">Volcanism</span>.
+                        </p>
+                    </div>
+
+                    <!-- Exogenic -->
+                    <div class="subtopic-card">
+                        <h3><ion-icon name="arrow-down-outline"></ion-icon> Exogenic (External) Forces</h3>
+                        <p><strong>Source:</strong> Solar Energy (Sun) and Gravity.</p>
+                        <p><strong>Action:</strong> Destructive (<span class="wiki-term" data-title="Denudation"
+                                data-summary="The processes that cause the wearing away of the Earth's surface by moving water, by ice, by wind, and by waves.">Denudation</span>).
+                            They wear down land.</p>
+                        <p><strong>Examples:</strong> Weathering, Mass Wasting, Erosion, Deposition.</p>
+                    </div>
                 </div>
-                <div class="upsc-note">
-                    <strong>UPSC Critical: Geomorphic Agents vs. Processes</strong>
-                    <p>A <strong>Geomorphic Agent</strong> is the *mobile medium* that does the work (e.g., rivers,
-                        glaciers, wind, waves). A <strong>Geomorphic Process</strong> is the *action performed* by that
-                        agent (e.g., erosion, transport, deposition). Do not confuse them. <span
-                            class="citation-trigger" data-citation="Source: NCERT Class 11, Ch. 6">[Source:
-                            NCERT]</span></p>
+
+                <!-- NCERT DATA VAULT -->
+                <div class="upsc-note" style="margin-top: 30px;">
+                    <h3>📚 NCERT Data Vault</h3>
+                    <p><strong>3 Weathering Types:</strong> Physical (unloading, frost, salt), Chemical (solution,
+                        carbonation, oxidation - accelerated by heat/humidity), Biological (organisms, roots)</p>
+                    <p style="margin-top: 10px;"><strong>Denudation = Weathering + Mass Wasting + Erosion +
+                            Transportation</strong></p>
+                    <p style="margin-top: 10px;"><strong>Mass Movements:</strong> Slow (creep, solifluction) | Rapid
+                        (earthflow, mudflow, avalanche, landslides)</p>
                 </div>
             </section>
 
             <!-- ============================================ -->
-            <!-- SECTION 2: WEATHERING -->
+            <!-- SECTION 2: WEATHERING (DATA VAULT) -->
             <!-- ============================================ -->
             <section class="content-block">
-                <h2 class="g-text-gradient">2. Weathering: The In-Situ Breakdown</h2>
-                <p><span class="wiki-term" data-title="Weathering"
-                        data-summary="The mechanical disintegration and chemical decomposition of rocks at or near the surface, without the removal of material."
-                        data-link="https://en.wikipedia.org/wiki/Weathering">Weathering</span> is the breakdown of rock
-                    *in place* (in situ). It is the first step in denudation.</p>
+                <h2 class="g-text-gradient">2. Weathering</h2>
+                <p>The disintegration and decomposition of rocks <em>in situ</em> (without transport).</p>
 
                 <div class="interactive-layers">
-                    <div class="layer-card" style="border-left-color: #dfe6e9;">
-                        <h3><ion-icon name="construct-outline"></ion-icon> Physical (Mechanical) Weathering</h3>
-                        <p>Breaking rock into smaller pieces *without changing its chemical composition*.</p>
-                        <ul>
-                            <li><strong>Frost Wedging:</strong> Water enters cracks, freezes (expands 9%), and shatters
-                                rock. Dominant in periglacial regions.</li>
-                            <li><strong>Thermal Expansion:</strong> Daily heating/cooling causes expansion/contraction,
-                                leading to <span class="wiki-term" data-title="Exfoliation"
-                                    data-summary="The peeling or flaking of outer rock layers due to differential stress from thermal expansion/contraction."
-                                    data-link="https://en.wikipedia.org/wiki/Exfoliation_(geology)">Exfoliation</span>
-                                (onion-skin weathering). Common in hot deserts.</li>
-                            <li><strong>Salt Crystallization:</strong> Salt crystals grow in rock pores, exerting
-                                pressure. Common in coastal and arid areas.</li>
-                        </ul>
+                    <div class="layer-card" style="border-left-color: #fab1a0;">
+                        <h3>Chemical Weathering</h3>
+                        <p><strong>Oxidation:</strong> Reaction with Oxygen (Rusting). <em>Common in Iron-rich
+                                rocks.</em><br>
+                            <strong><span class="wiki-term" data-title="Carbonation"
+                                    data-summary="Mixing of water with carbon dioxide to make carbonic acid. Important in the formation of caves.">Carbonation</span>:</strong>
+                            Reaction with CO2 (Carbonic Acid). <em>Dissolves Limestone
+                                (Karst Topography).</em><br>
+                            <strong>Hydration:</strong> Absorbing water, expanding volume. <em>Gypsum.</em>
+                        </p>
                     </div>
                     <div class="layer-card" style="border-left-color: #74b9ff;">
-                        <h3><ion-icon name="flask-outline"></ion-icon> Chemical Weathering</h3>
-                        <p>Breaking rock by *changing its chemical composition* through reaction with water, oxygen, or
-                            acids.</p>
-                        <ul>
-                            <li><strong>Oxidation:</strong> Iron in rocks combines with O₂ to form iron oxides (rust).
-                                Creates the red color in laterite soils.</li>
-                            <li><strong>Carbonation:</strong> CO₂ dissolves in rainwater to form weak carbonic acid
-                                (H₂CO₃), which reacts with <span class="wiki-term" data-title="Calcium Carbonate"
-                                    data-summary="The chemical compound Cite CaCO₃, the primary component of limestone and marble."
-                                    data-link="https://en.wikipedia.org/wiki/Calcium_carbonate">limestone
-                                    (CaCO₃)</span>. This is responsible for <span class="wiki-term"
-                                    data-title="Karst Topography"
-                                    data-summary="A landscape formed from the dissolution of soluble rocks like limestone, characterized by sinkholes, caves, and underground drainage."
-                                    data-link="https://en.wikipedia.org/wiki/Karst">Karst</span> landscapes.</li>
-                            <li><strong>Hydrolysis:</strong> Water (H₂O) reacts with silicate minerals (like feldspar),
-                                breaking them down into clays.</li>
-                        </ul>
+                        <h3>Physical Weathering</h3>
+                        <p><strong>Unloading (<span class="wiki-term" data-title="Exfoliation"
+                                    data-summary="A form of mechanical weathering in which curved plates of rock are stripped from rock below.">Exfoliation</span>):</strong>
+                            Removal of overlying rock weight causes expansion
+                            and peeling (Onion skin).<br>
+                            <strong>Frost Wedging:</strong> Water freezes in cracks, expands by 9%, and breaks rock.<br>
+                            <strong>Thermal Expansion:</strong> Daily heating/cooling cycles in deserts.
+                        </p>
                     </div>
                     <div class="layer-card" style="border-left-color: #55efc4;">
-                        <h3><ion-icon name="leaf-outline"></ion-icon> Biological Weathering</h3>
-                        <p>Physical and chemical weathering caused by organisms.</p>
-                        <ul>
-                            <li><strong>Root Wedging:</strong> Plant roots grow into cracks and expand, physically
-                                breaking rock.</li>
-                            <li><strong>Burrowing Animals:</strong> Earthworms, termites, etc., expose fresh rock
-                                surfaces to weathering.</li>
-                            <li><strong>Lichens:</strong> Secrete acids that chemically attack rock surfaces.</li>
-                        </ul>
+                        <h3>Biological Weathering</h3>
+                        <p>Roots of plants growing into cracks. Burrowing animals (earthworms, rodents). Human mining.
+                        </p>
                     </div>
                 </div>
             </section>
 
             <!-- ============================================ -->
-            <!-- SECTION 3: MASS WASTING -->
+            <!-- SECTION 3: MASS MOVEMENTS -->
             <!-- ============================================ -->
             <section class="content-block">
-                <h2 class="g-text-gradient">3. Mass Wasting (Mass Movements)</h2>
-                <p><span class="wiki-term" data-title="Mass Wasting"
-                        data-summary="The downslope movement of rock and soil under the direct influence of gravity, without a transporting agent like water or wind."
-                        data-link="https://en.wikipedia.org/wiki/Mass_wasting">Mass wasting</span> is the downslope
-                    movement of material under gravity *alone* (no agent like water or wind as the primary mover).</p>
+                <h2 class="g-text-gradient">3. Mass Movements</h2>
+                <p>Movement of rock debris down a slope under the direct influence of <strong>Gravity</strong> alone.
+                    (No water/wind transport needed).</p>
+
                 <div class="glass-table-container">
                     <table class="comparison-table">
                         <thead>
                             <tr>
-                                <th>Type</th>
-                                <th>Speed</th>
-                                <th>Material</th>
-                                <th>Characteristic</th>
+                                <th>Speed/Moisture</th>
+                                <th>Movement Type</th>
+                                <th>Description</th>
                             </tr>
                         </thead>
                         <tbody>
                             <tr>
+                                <td><strong>Slow / Dry</strong></td>
                                 <td><strong>Creep</strong></td>
-                                <td>Very Slow (mm/year)</td>
-                                <td>Soil, Regolith</td>
-                                <td>Imperceptible, cumulative. Bent fences, tilted poles.</td>
-                            </tr>
-                            <tr>
-                                <td><strong>Solifluction</strong></td>
-                                <td>Slow</td>
-                                <td>Saturated Soil</td>
-                                <td>Found in periglacial areas where permafrost thaws seasonally.</td>
-                            </tr>
-                            <tr>
-                                <td><strong>Slump</strong></td>
-                                <td>Moderate</td>
-                                <td>Soil/Rock</td>
-                                <td>Rotational movement along a curved failure surface. Creates a crescent-shaped scarp.
+                                <td>Almost imperceptible. Tilted fences/poles are signs. Common on steep, grassy slopes.
                                 </td>
                             </tr>
                             <tr>
-                                <td><strong>Landslide</strong></td>
-                                <td>Very Rapid</td>
-                                <td>Rock/Debris</td>
-                                <td>Sudden, catastrophic sliding of material down steep slopes. Common in Himalayas
-                                    during monsoons.</td>
+                                <td><strong>Rapid / Wet</strong></td>
+                                <td><strong>Earth Flow / Mud Flow</strong></td>
+                                <td>Saturated clay flowing down. "Lahars" are volcanic mudflows.</td>
                             </tr>
                             <tr>
-                                <td><strong>Mudflow/Debris Flow</strong></td>
-                                <td>Rapid</td>
-                                <td>Saturated Mud/Rocks</td>
-                                <td>Fast-moving river of mud. Common in volcanic regions (called <span class="wiki-term"
-                                        data-title="Lahar"
-                                        data-summary="A violent type of mudflow composed of volcanic debris and water, often triggered by melting snow on volcanoes."
-                                        data-link="https://en.wikipedia.org/wiki/Lahar">Lahars</span>).</td>
+                                <td><strong>Catastrophic / Dry</strong></td>
+                                <td><strong>Rock Fall</strong></td>
+                                <td>Free fall of blocks from a vertical face.</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Rapid / Mixed</strong></td>
+                                <td><strong>Landslide</strong></td>
+                                <td>Sliding of a coherent block. "<span class="wiki-term" data-title="Slump"
+                                        data-summary="A form of mass wasting that occurs when a coherent mass of loosely consolidated materials or rock layers moves a short distance down a slope.">Slump</span>"
+                                    creates backward rotation.</td>
                             </tr>
                         </tbody>
                     </table>
@@ -196,43 +212,105 @@
             </section>
 
             <!-- ============================================ -->
-            <!-- SECTION 4: CONNECT THE DOTS -->
+            <!-- SECTION 4: CASE STUDY -->
             <!-- ============================================ -->
             <section class="content-block">
-                <h2 class="g-text-gradient">4. Connect the Dots: Interdisciplinary Links</h2>
-                <div class="interactive-layers">
-                    <div class="layer-card" style="border-left-color: #a29bfe;">
-                        <h3><ion-icon name="flask-outline"></ion-icon> Chemistry: Reaction Kinetics</h3>
-                        <p>Chemical weathering rates depend on temperature and moisture – principles from reaction
-                            kinetics. <strong>Van't Hoff's Rule</strong> (reaction rates double for every 10°C rise)
-                            explains why chemical weathering is fastest in hot, humid tropical regions.</p>
+                <div class="case-study-card">
+                    <div class="case-study-header">
+                        <ion-icon name="alert-circle-outline"></ion-icon>
+                        <div class="case-study-title">Case Study: Landslides (Himalayas vs Western Ghats)</div>
                     </div>
-                    <div class="layer-card" style="border-left-color: #fd79a8;">
-                        <h3><ion-icon name="build-outline"></ion-icon> Engineering: Slope Stability</h3>
-                        <p>Civil engineers must understand mass wasting. The <strong>angle of repose</strong> (the
-                            steepest angle at which loose material is stable) and factors like water saturation are
-                            critical for designing road cuts, dams, and buildings on hillsides. Ignoring these leads to
-                            disasters.</p>
+                    <div class="two-col-layout">
+                        <div>
+                            <h4>The Himalayas (High Vulnerability)</h4>
+                            <p><strong>Reason:</strong> Tectonically active (unstable), young sedimentary rocks (soft),
+                                steep slopes, glacial activity.</p>
+                            <p><strong>Events:</strong> Frequent massive slides like Kedarnath (2013).</p>
+                        </div>
+                        <div>
+                            <h4>The Western Ghats (Moderate Vulnerability)</h4>
+                            <p><strong>Reason:</strong> Stable shield, hard rocks. But steep western slopes + high
+                                rainfall + road cutting.</p>
+                            <p><strong>Events:</strong> Pune (Malin) landslide (2014) due to heavy rain + deforestation.
+                            </p>
+                        </div>
                     </div>
                 </div>
             </section>
+
+            <!-- ============================================ -->
+            <!-- SECTION 5: SOIL FORMATION -->
+            <!-- ============================================ -->
             <section class="content-block">
-                    <!-- DIAGRAM GALLERY -->
-                    <div class="diagram-gallery">
-                        <h4><ion-icon name="images-outline"></ion-icon> Key Diagrams</h4>
-                        <div class="media-gallery-grid">
-                            <figure class="media-item">
-                                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/da/Weathering-types.png/400px-Weathering-types.png" alt="Weathering Types" class="chapter-diagram">
-                                <figcaption>Types of Weathering - Physical, Chemical, Biological</figcaption>
-                            </figure>
-                            <figure class="media-item">
-                                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/ae/Mass_wasting_classification.svg/400px-Mass_wasting_classification.svg.png" alt="Mass Wasting" class="chapter-diagram">
-                                <figcaption>Mass Wasting Classification</figcaption>
-                            </figure>
-                        </div>
-                    </div>
+                <h2 class="g-text-gradient">4. Soil Formation (Pedogenesis)</h2>
+                <div class="formula-card">
+                    <div class="formula-text">Soil = f(P, C, O, R, T)</div>
+                    <div class="formula-desc">Soil is a function of: Parent Material, Climate, Organisms, Relief, Time.
+                        (Jenny's Equation)</div>
+                </div>
+                <div class="glass-table-container">
+                    <table class="comparison-table">
+                        <thead>
+                            <tr>
+                                <th>Factor</th>
+                                <th>Role</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>Parent Material</strong></td>
+                                <td>Determines texture, chemical properties. (Granite -> Sandy, Basalt -> Clayey)</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Climate (Most Active)</strong></td>
+                                <td>Temp & Rainfall control rate of weathering and humus formation.</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Time</strong></td>
+                                <td>Determines maturity. Older soils have distinct horizons (Profile).</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
             </section>
 
+            <!-- ============================================ -->
+            <!-- SECTION 6: DIAGRAMS -->
+            <!-- ============================================ -->
+            <section class="content-block">
+                <div class="diagram-gallery">
+                    <h4><ion-icon name="images-outline"></ion-icon> Visual Processes</h4>
+                    <div class="media-gallery-grid">
+                        <figure class="media-item">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/1d/Mass_wasting_events.svg/800px-Mass_wasting_events.svg.png"
+                                class="chapter-diagram" alt="Mass Movements">
+                            <figcaption>Types of Mass Movements</figcaption>
+                        </figure>
+                        <figure class="media-item">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/82/Exfoliation_granite_rock.jpg/1024px-Exfoliation_granite_rock.jpg"
+                                class="chapter-diagram" alt="Exfoliation">
+                            <figcaption>Exfoliation Dome (Physical Weathering)</figcaption>
+                        </figure>
+                        <figure class="media-item">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/cd/Karst_landscape_sketches.jpg/800px-Karst_landscape_sketches.jpg"
+                                class="chapter-diagram" alt="Carbonation">
+                            <figcaption>Karst Landscape (Chemical Weathering)</figcaption>
+                        </figure>
+                    </div>
+                </div>
+            </section>
+
+
+            <div class="chapter-nav">
+    <a href="chapter5.html" class="prev">
+        <span class="nav-dir">← Previous</span>
+        <span class="nav-title">Minerals & Rocks</span>
+    </a>
+    <a href="chapter7.html" class="next">
+        <span class="nav-dir">Next →</span>
+        <span class="nav-title">Landforms & Evolution</span>
+    </a>
+</div>
 
         </article>
     </div>

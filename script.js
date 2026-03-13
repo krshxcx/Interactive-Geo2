@@ -1,7 +1,7 @@
 
 /* 
-    ANTIGRAVITY ENGINE v2.0
-    Optimized: Reduced particle count, smoother transitions, enhanced Wiki-Hover.
+    ANTIGRAVITY ENGINE v3.0
+    Enhanced: Search, Bookmarks, Progress Bar, TOC, Keyboard Shortcuts, Chapter Navigation.
 */
 
 // --- CONFIGURATION ---
@@ -37,10 +37,266 @@ const hoverCard = document.createElement('div');
 hoverCard.className = 'hover-card';
 document.body.appendChild(hoverCard);
 
+// --- BOOKMARKS (localStorage) ---
+function getBookmarks() {
+    try { return JSON.parse(localStorage.getItem('geo_bookmarks') || '[]'); }
+    catch { return []; }
+}
+function setBookmarks(arr) {
+    localStorage.setItem('geo_bookmarks', JSON.stringify(arr));
+}
+function toggleBookmark(chapterId) {
+    let bm = getBookmarks();
+    if (bm.includes(chapterId)) {
+        bm = bm.filter(id => id !== chapterId);
+    } else {
+        bm.push(chapterId);
+    }
+    setBookmarks(bm);
+    updateBookmarkUI(chapterId);
+}
+function isBookmarked(chapterId) {
+    return getBookmarks().includes(chapterId);
+}
+function updateBookmarkUI(chapterId) {
+    // Update chapter controls bookmark button
+    const btn = document.getElementById('bookmark-btn');
+    if (btn) {
+        if (isBookmarked(chapterId)) {
+            btn.classList.add('bookmarked');
+            btn.querySelector('ion-icon').setAttribute('name', 'bookmark');
+        } else {
+            btn.classList.remove('bookmarked');
+            btn.querySelector('ion-icon').setAttribute('name', 'bookmark-outline');
+        }
+    }
+    // Update timeline indicators
+    document.querySelectorAll('.bookmark-indicator').forEach(el => {
+        const id = parseInt(el.getAttribute('data-chapter-id'));
+        el.classList.toggle('active', isBookmarked(id));
+    });
+}
+
+// --- READING PROGRESS BAR ---
+function initReadingProgress() {
+    let bar = document.querySelector('.reading-progress');
+    if (!bar) {
+        bar = document.createElement('div');
+        bar.className = 'reading-progress';
+        bar.style.width = '0%';
+        document.body.appendChild(bar);
+    }
+
+    const scrollContainer = document.getElementById('chapter-content')
+        ? window
+        : (detailView && !detailView.classList.contains('hidden') ? detailView : window);
+
+    const updateProgress = () => {
+        const el = (scrollContainer === window) ? document.documentElement : scrollContainer;
+        const scrollTop = (scrollContainer === window) ? window.scrollY : el.scrollTop;
+        const scrollHeight = el.scrollHeight - el.clientHeight;
+        const pct = scrollHeight > 0 ? (scrollTop / scrollHeight) * 100 : 0;
+        bar.style.width = Math.min(pct, 100) + '%';
+    };
+
+    const target = (scrollContainer === window) ? window : scrollContainer;
+    target.addEventListener('scroll', updateProgress, { passive: true });
+    updateProgress();
+}
+
+// --- TABLE OF CONTENTS ---
+function initTOC() {
+    // Remove any existing TOC
+    const existing = document.querySelector('.toc-sidebar');
+    if (existing) existing.remove();
+
+    const article = document.querySelector('.chapter-article') || document.getElementById('chapter-content');
+    if (!article) return;
+
+    const headings = article.querySelectorAll('h2.g-text-gradient, section h2');
+    if (headings.length < 2) return;
+
+    const toc = document.createElement('div');
+    toc.className = 'toc-sidebar';
+    toc.innerHTML = '<h4>Contents</h4>';
+
+    headings.forEach((h, i) => {
+        const id = 'toc-section-' + i;
+        h.id = id;
+        const link = document.createElement('a');
+        link.href = '#' + id;
+        link.textContent = h.textContent.replace(/^\d+\.\s*/, '').substring(0, 40);
+        link.addEventListener('click', (e) => {
+            e.preventDefault();
+            h.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        });
+        toc.appendChild(link);
+    });
+
+    document.body.appendChild(toc);
+
+    // Show TOC after slight delay
+    setTimeout(() => toc.classList.add('visible'), 300);
+
+    // Highlight active section on scroll
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const id = entry.target.id;
+                toc.querySelectorAll('a').forEach(a => {
+                    a.classList.toggle('active', a.getAttribute('href') === '#' + id);
+                });
+            }
+        });
+    }, { rootMargin: '-20% 0px -70% 0px' });
+
+    headings.forEach(h => observer.observe(h));
+}
+
+// --- SCROLL TO TOP ---
+function initScrollToTop() {
+    let btn = document.querySelector('.scroll-top-btn');
+    if (!btn) {
+        btn = document.createElement('button');
+        btn.className = 'scroll-top-btn';
+        btn.innerHTML = '<ion-icon name="chevron-up"></ion-icon>';
+        btn.title = 'Scroll to top';
+        btn.addEventListener('click', () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+        document.body.appendChild(btn);
+    }
+
+    window.addEventListener('scroll', () => {
+        btn.classList.toggle('visible', window.scrollY > 400);
+    }, { passive: true });
+}
+
+// --- KEYBOARD SHORTCUTS ---
+function initShortcuts() {
+    // Create shortcuts modal
+    let modal = document.querySelector('.shortcuts-modal');
+    if (!modal) {
+        modal = document.createElement('div');
+        modal.className = 'shortcuts-modal';
+        modal.innerHTML = `
+            <div class="shortcuts-content">
+                <h3><ion-icon name="keypad-outline"></ion-icon> Keyboard Shortcuts</h3>
+                <div class="shortcut-row"><span class="shortcut-desc">Show shortcuts</span><span class="shortcut-key">?</span></div>
+                <div class="shortcut-row"><span class="shortcut-desc">Go back / Close</span><span class="shortcut-key">Esc</span></div>
+                <div class="shortcut-row"><span class="shortcut-desc">Toggle music</span><span class="shortcut-key">M</span></div>
+                <div class="shortcut-row"><span class="shortcut-desc">Toggle Interstellar</span><span class="shortcut-key">I</span></div>
+                <div class="shortcut-row"><span class="shortcut-desc">Bookmark chapter</span><span class="shortcut-key">B</span></div>
+                <div class="shortcut-row"><span class="shortcut-desc">Search chapters</span><span class="shortcut-key">/</span></div>
+                <div class="shortcut-row"><span class="shortcut-desc">Scroll to top</span><span class="shortcut-key">T</span></div>
+            </div>
+        `;
+        modal.addEventListener('click', (e) => {
+            if (e.target === modal) modal.classList.remove('visible');
+        });
+        document.body.appendChild(modal);
+    }
+}
+
+function toggleShortcutsModal() {
+    const modal = document.querySelector('.shortcuts-modal');
+    if (modal) modal.classList.toggle('visible');
+}
+
+// --- SEARCH / FILTER ---
+function initSearch() {
+    const searchInput = document.getElementById('chapter-search');
+    const resultsCount = document.getElementById('search-results-count');
+    if (!searchInput) return;
+
+    searchInput.addEventListener('input', (e) => {
+        const query = e.target.value.toLowerCase().trim();
+        const cards = document.querySelectorAll('.chapter-card');
+        let visible = 0;
+
+        cards.forEach((card, i) => {
+            const ch = chapters[i];
+            if (!ch) return;
+            const text = `${ch.title} ${ch.subtitle}`.toLowerCase();
+            const match = !query || text.includes(query);
+            card.style.display = match ? '' : 'none';
+            if (match) visible++;
+        });
+
+        if (resultsCount) {
+            if (query) {
+                resultsCount.textContent = `${visible} of ${chapters.length} chapters`;
+                resultsCount.classList.add('visible');
+            } else {
+                resultsCount.classList.remove('visible');
+            }
+        }
+    });
+}
+
+// --- ANIMATED COUNTERS ---
+function animateCounters() {
+    const counters = document.querySelectorAll('.stat-number[data-target]');
+    counters.forEach(counter => {
+        const target = parseInt(counter.getAttribute('data-target'));
+        const suffix = counter.getAttribute('data-suffix') || '';
+        const duration = 1500;
+        const start = performance.now();
+
+        function tick(now) {
+            const elapsed = now - start;
+            const progress = Math.min(elapsed / duration, 1);
+            const eased = 1 - Math.pow(1 - progress, 3); // ease-out cubic
+            const current = Math.round(eased * target);
+            counter.textContent = current + suffix;
+            if (progress < 1) requestAnimationFrame(tick);
+        }
+
+        // Observe when visible
+        const obs = new IntersectionObserver((entries) => {
+            if (entries[0].isIntersecting) {
+                requestAnimationFrame(tick);
+                obs.disconnect();
+            }
+        });
+        obs.observe(counter);
+    });
+}
+
 // --- INIT ---
 document.addEventListener('DOMContentLoaded', () => {
     initStars();
-    renderTimeline();
+    initScrollToTop();
+    initShortcuts();
+
+    if (timelineContainer) {
+        renderTimeline();
+        initSearch();
+        animateCounters();
+    }
+
+    // Check if we are on a standalone chapter page
+    if (document.querySelector('.wiki-term')) {
+        attachWikiHover();
+    }
+
+    // Standalone chapter page enhancements
+    if (document.getElementById('chapter-content')) {
+        initReadingProgress();
+        initTOC();
+
+        // Extract chapter number from URL
+        const match = window.location.pathname.match(/chapter(\d+)/);
+        if (match) {
+            const chId = parseInt(match[1]);
+            // Init bookmark button
+            const bmBtn = document.getElementById('bookmark-btn');
+            if (bmBtn) {
+                updateBookmarkUI(chId);
+                bmBtn.addEventListener('click', () => toggleBookmark(chId));
+            }
+        }
+    }
 
     // Parallax (optimized: throttled)
     let ticking = false;
@@ -54,29 +310,79 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    // Keyboard navigation (FIXED: Backspace goes to home, not browser back)
+    // Keyboard navigation
     document.addEventListener('keydown', (e) => {
-        // Only handle backspace if we're NOT in a text input/textarea
         const activeEl = document.activeElement;
         const isTyping = activeEl && (activeEl.tagName === 'INPUT' || activeEl.tagName === 'TEXTAREA' || activeEl.isContentEditable);
 
-        if (e.key === 'Backspace' && !isTyping) {
-            if (isDetailViewActive) {
+        if (isTyping) return;
+
+        // ? — Show shortcuts
+        if (e.key === '?' || (e.shiftKey && e.key === '/')) {
+            e.preventDefault();
+            toggleShortcutsModal();
+            return;
+        }
+
+        // Esc — Close modals / go back
+        if (e.key === 'Escape') {
+            const shortModal = document.querySelector('.shortcuts-modal.visible');
+            if (shortModal) { shortModal.classList.remove('visible'); return; }
+            if (isDetailViewActive && typeof showHome === 'function') {
+                e.preventDefault();
+                showHome();
+            }
+            return;
+        }
+
+        // M — Toggle music
+        if (e.key === 'm' || e.key === 'M') {
+            toggleMusic();
+            return;
+        }
+
+        // I — Toggle interstellar
+        if (e.key === 'i' || e.key === 'I') {
+            toggleInterstellar();
+            return;
+        }
+
+        // B — Bookmark
+        if (e.key === 'b' || e.key === 'B') {
+            const match = window.location.pathname.match(/chapter(\d+)/);
+            if (match) toggleBookmark(parseInt(match[1]));
+            return;
+        }
+
+        // / — Focus search
+        if (e.key === '/') {
+            const search = document.getElementById('chapter-search');
+            if (search) {
+                e.preventDefault();
+                search.focus();
+            }
+            return;
+        }
+
+        // T — Scroll to top
+        if (e.key === 't' || e.key === 'T') {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+            return;
+        }
+
+        // Backspace — go back
+        if (e.key === 'Backspace') {
+            if (isDetailViewActive && typeof showHome === 'function') {
                 e.preventDefault();
                 e.stopPropagation();
                 showHome();
-                return false;
             }
         }
-        if (e.key === 'Escape' && isDetailViewActive) {
-            e.preventDefault();
-            showHome();
-        }
-    }, true); // Use capture phase for higher priority
+    }, true);
 
     // Prevent browser back on backspace globally when in detail view
     window.addEventListener('popstate', (e) => {
-        if (isDetailViewActive) {
+        if (isDetailViewActive && typeof showHome === 'function') {
             e.preventDefault();
             history.pushState(null, null, location.href);
             showHome();
@@ -89,6 +395,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 // --- NAVIGATION LOGIC ---
 window.openChapterPage = async function (id) {
+    if (!homeView || !detailView) return; // Guard for standalone pages
     const chapter = chapters.find(c => c.id === id);
     if (!chapter) return;
 
@@ -133,6 +440,28 @@ window.openChapterPage = async function (id) {
         if (content && content.innerHTML.trim().length > 0) {
             contentContainer.innerHTML = content.innerHTML;
             attachWikiHover(); // Attach Wiki Hover Listeners
+
+            // Intercept chapter-nav prev/next links
+            contentContainer.querySelectorAll('.chapter-nav a').forEach(link => {
+                link.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    const href = link.getAttribute('href');
+                    if (!href) return;
+                    const match = href.match(/chapter(\d+)\.html/);
+                    if (match) {
+                        const targetId = parseInt(match[1]);
+                        window.scrollTo({ top: 0, behavior: 'smooth' });
+                        openChapterPage(targetId);
+                    }
+                });
+            });
+
+            // Update bookmark button for current chapter
+            const bmBtn = contentContainer.querySelector('#bookmark-btn') || document.getElementById('bookmark-btn');
+            if (bmBtn) {
+                updateBookmarkUI(id);
+                bmBtn.onclick = () => toggleBookmark(id);
+            }
         } else {
             contentContainer.innerHTML = `<div class="content-block"><h3>Module Offline</h3><p>Signal received but no visual data found.</p></div>`;
         }
@@ -150,8 +479,13 @@ window.openChapterPage = async function (id) {
 };
 
 window.showHome = function () {
+    if (!homeView || !detailView) return; // Guard
     isDetailViewActive = false;
     detailView.classList.remove('active');
+
+    // Remove TOC
+    const toc = document.querySelector('.toc-sidebar');
+    if (toc) toc.remove();
 
     setTimeout(() => {
         homeView.classList.remove('exit-left');
@@ -162,6 +496,7 @@ window.showHome = function () {
 // --- DOM RENDERING ---
 function renderTimeline() {
     timelineContainer.innerHTML = '<div class="timeline-spine"></div>';
+    const bookmarks = getBookmarks();
 
     chapters.forEach(chapter => {
         const card = document.createElement('div');
@@ -169,10 +504,12 @@ function renderTimeline() {
         card.onclick = () => openChapterPage(chapter.id);
 
         const paddedId = chapter.id < 10 ? `0${chapter.id}` : chapter.id;
+        const isBookmarkedChapter = bookmarks.includes(chapter.id);
 
         card.innerHTML = `
             <div class="timeline-dot"></div>
             <div class="card-glass" data-tilt>
+                <ion-icon name="bookmark" class="bookmark-indicator ${isBookmarkedChapter ? 'active' : ''}" data-chapter-id="${chapter.id}"></ion-icon>
                 <div class="chapter-num">${paddedId}</div>
                 <div style="font-size: 3rem; color: ${chapter.color}; margin-bottom: 20px;">
                     <ion-icon name="${chapter.icon}"></ion-icon>
@@ -279,6 +616,10 @@ function attachWikiHover() {
     const triggers = document.querySelectorAll('.wiki-term');
 
     triggers.forEach(trigger => {
+        // Avoid double-attaching
+        if (trigger.dataset.hoverAttached) return;
+        trigger.dataset.hoverAttached = 'true';
+
         // Make the term a clickable link if it has a data-link
         const link = trigger.getAttribute('data-link');
         if (link) {
@@ -443,4 +784,3 @@ function toggleInterstellar() {
         cleanup.forEach(selector => document.querySelectorAll(selector).forEach(el => el.remove()));
     }
 }
-
